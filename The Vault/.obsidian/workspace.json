@@ -1,0 +1,208 @@
+{
+  "main": {
+    "id": "e9fc4687af3d8749",
+    "type": "split",
+    "children": [
+      {
+        "id": "7022d318c6172371",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "22e7ab9c5720a702",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-MOC/MOC - Lectures.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MOC - Lectures"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4f6a9f8ab49ae670",
+    "type": "split",
+    "children": [
+      {
+        "id": "08835aaf554c9e90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4863548f4ab7ef7b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "be201550812085db",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c3c812cb59046bfc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "05cea02639207855",
+    "type": "split",
+    "children": [
+      {
+        "id": "1e1777a88b541e41",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a7ee61e660f0724",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "00-MOC/MOC - Lectures.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for MOC - Lectures"
+            }
+          },
+          {
+            "id": "93ceaef21007e2b7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "00-MOC/MOC - Lectures.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from MOC - Lectures"
+            }
+          },
+          {
+            "id": "b35c21d441bd9047",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7bc69481f4ee6775",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "55c3fc216f28b879",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "00-MOC/MOC - Lectures.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of MOC - Lectures"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "22e7ab9c5720a702",
+  "lastOpenFiles": [
+    "Concepts/Liquidity.md",
+    "Concepts/Implied Volatility.md",
+    "Concepts/GEX.md",
+    "Concepts/Gamma Flip.md",
+    "Concepts/Dealer Hedging.md",
+    "Greeks/Greeks Introduction.md",
+    "Greeks/Delta.md",
+    "Untitled.canvas",
+    "COT/Commercials.md",
+    "Concepts/VPOC.md",
+    "Concepts/Risk Appetite.md",
+    "Concepts/QE vs QT.md",
+    "Concepts/Put Skew.md",
+    "Concepts/Call Put Walls.md",
+    "Lectures/Phase-5-Top-Bottom-Ticking/L26 - Risk Management for Reversals.md",
+    "Options-Flow/Dealer Hedging Mechanics.md",
+    "Lectures/Phase-1-Foundations/L1 - Futures Market Structure.md",
+    "00-MOC/MOC - Lectures.md",
+    "HOME.md"
+  ]
+}
