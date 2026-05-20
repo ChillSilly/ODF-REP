@@ -5,6 +5,25 @@ import Link from "next/link";
 import { fullModulesContent, modulesList } from "@/data/completeModulesData";
 import { odfBaseModules, odfBaseModulesList } from "@/data/odfBaseModules";
 import DiscordGate from "@/app/components/DiscordGate";
+import AsciiFormulaViz, { VizPreset } from "@/app/components/AsciiFormulaViz";
+
+// Map topic titles to which ASCII visualizations to show
+const ASCII_VIZ_MAP: Record<string, { preset: VizPreset; description: string }[]> = {
+  "Footprint Chart": [
+    { preset: "imbalance", description: "Live imbalance heatmap — brighter = stronger directional conviction (>70% = institutional flow)" },
+    { preset: "absorption", description: "Absorption signal — volume spike at a price level without price movement = strong hands defending" },
+  ],
+  "Delta (Bid-Ask Delta)": [
+    { preset: "delta", description: "CVD = Σ Δ(t). When price rises but CVD falls → bearish divergence. When price falls but CVD rises → bullish divergence." },
+  ],
+  "Volume Profile": [
+    { preset: "vpoc", description: "VPOC reversion probability — P(reversion) = 1 − e^(−λ × |price − VPOC|). Greater distance from VPOC = higher pull." },
+    { preset: "gaussian", description: "Gaussian volume distribution across price — double distribution day showing two distinct acceptance zones (value areas)." },
+  ],
+  "CVD Divergence": [
+    { preset: "delta", description: "Cumulative Delta divergence — price making new high while CVD declines signals hidden selling pressure." },
+  ],
+};
 
 export default function ModulePage() {
   const params = useParams();
@@ -153,12 +172,21 @@ export default function ModulePage() {
         </p>
 
         <div className="space-y-8">
-          {moduleContent.topics?.map((topic: any, idx: number) => (
+          {moduleContent.topics?.map((topic: any, idx: number) => {
+            const asciiVizs = ASCII_VIZ_MAP[topic.title] || [];
+            return (
             <div key={idx} className="bg-[#0c0c10] rounded-2xl border border-[rgba(255,255,255,0.08)] overflow-hidden">
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
-                <h2 className="text-[20px] font-semibold text-[var(--color-holo-white)]">
-                  {topic.title}
-                </h2>
+                <div className="flex items-center gap-3">
+                  <h2 className="text-[20px] font-semibold text-[var(--color-holo-white)]">
+                    {topic.title}
+                  </h2>
+                  {asciiVizs.length > 0 && (
+                    <span className="px-2 py-0.5 text-[9px] font-mono font-semibold rounded uppercase bg-[rgba(167,139,250,0.15)] text-[#a78bfa] border border-[rgba(167,139,250,0.2)] tracking-wider">
+                      ◈ ASCII VIZ
+                    </span>
+                  )}
+                </div>
                 <span className={`px-3 py-1 text-[10px] font-semibold rounded uppercase ${
                   topic.tag === 'core' ? 'bg-[rgba(59,130,246,0.15)] text-[var(--color-cosmic-violet)]' :
                   topic.tag === 'advanced' ? 'bg-[rgba(239,68,68,0.15)] text-[#f87171]' :
@@ -172,9 +200,20 @@ export default function ModulePage() {
               </div>
               <div className="p-6">
                 {renderContent(topic.content)}
+                {asciiVizs.map((viz, vi) => (
+                  <AsciiFormulaViz
+                    key={vi}
+                    preset={viz.preset}
+                    description={viz.description}
+                    cols={90}
+                    rows={20}
+                    animated
+                  />
+                ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </main>
