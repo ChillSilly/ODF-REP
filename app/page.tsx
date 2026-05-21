@@ -324,7 +324,7 @@ export default function HomePage() {
                 transition={{ duration: 0.6 }}
                 style={{
                   fontFamily: "var(--font-raleway)",
-                  fontSize: "var(--text-heading-sm)",
+                  fontSize: "29px",
                   fontWeight: 400,
                   color: "var(--color-frost-white)",
                   letterSpacing: "normal",
@@ -439,7 +439,7 @@ export default function HomePage() {
                 transition={{ duration: 0.6 }}
                 style={{
                   fontFamily: "var(--font-raleway)",
-                  fontSize: "var(--text-heading-sm)",
+                  fontSize: "29px",
                   fontWeight: 400,
                   color: "var(--color-frost-white)",
                   letterSpacing: "normal",
@@ -569,7 +569,7 @@ export default function HomePage() {
               <h3
                 style={{
                   fontFamily: "var(--font-primary)",
-                  fontSize: "var(--text-heading-sm)",
+                  fontSize: "29px",
                   fontWeight: 600,
                   color: "var(--color-frost-white)",
                   marginBottom: "12px",

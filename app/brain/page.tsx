@@ -32,29 +32,23 @@ const CATEGORY_COLORS: Record<string, { border: string; text: string; bg: string
 };
 
 const NODE_REDIRECT_MAP: Record<string, string> = {
-  // Main Category Nodes
   foundation: "/dashboard?module=01",
   structure: "/dashboard?module=03",
   advanced: "/dashboard?module=07",
   applications: "/dashboard?module=10",
-
-  // Sub-nodes (Topics)
   cpd: "/module/01",
   sb: "/module/01",
   ic: "/module/01",
   amarket: "/module/order-flow",
   mktfailure: "/module/microstructure",
-
   hms: "/module/02",
   hmm: "/module/03",
   vol: "/module/04",
   regimes: "/module/regimes",
-
   mm: "/module/05",
   cr: "/module/06",
   ml: "/module/07",
   dl: "/module/07",
-
   ta: "/module/10",
   opt: "/module/10",
   risk: "/module/risk-management",
@@ -199,7 +193,6 @@ function Brain() {
       if (tick < maxTicks) {
         const alpha = Math.max(0.01, 1 - tick / maxTicks);
 
-        // 1. Repulsion (Charge) force between all nodes
         const chargeStrength = -700;
         for (let i = 0; i < nodes.length; i++) {
           const nodeA = nodes[i];
@@ -227,7 +220,6 @@ function Brain() {
           }
         }
 
-        // 2. Link force (Attraction between connected nodes)
         const linkStrength = 0.05;
         const desiredDistance = 110;
         links.forEach((link) => {
@@ -253,7 +245,6 @@ function Brain() {
           }
         });
 
-        // 3. Collision prevention (so nodes don't overlap)
         for (let i = 0; i < nodes.length; i++) {
           const nodeA = nodes[i];
           if (nodeA.x === undefined || nodeA.y === undefined) continue;
@@ -285,7 +276,6 @@ function Brain() {
           }
         }
 
-        // 4. Center Gravity (pull nodes to the center of the canvas)
         const gravity = 0.015;
         nodes.forEach((node) => {
           if (node.x === undefined || node.y === undefined || dragNodeRef.current?.id === node.id) return;
@@ -293,7 +283,6 @@ function Brain() {
           node.vy = (node.vy || 0) + (centerY - node.y) * gravity * alpha;
         });
 
-        // 5. Update positions with friction (damping)
         const friction = 0.84;
         nodes.forEach((node) => {
           if (node.x === undefined || node.y === undefined || dragNodeRef.current?.id === node.id) return;
@@ -318,7 +307,6 @@ function Brain() {
       ctx.translate(zoomX * zoomK, zoomY * zoomK);
       ctx.scale(zoomK, zoomK);
 
-      // Draw links
       links.forEach((link) => {
         const source = nodeMap.get(link.source);
         const target = nodeMap.get(link.target);
@@ -334,13 +322,12 @@ function Brain() {
           ctx.lineWidth = 1.0 / zoomK;
         } else {
           const colors = CATEGORY_COLORS[source.category] || CATEGORY_COLORS.foundation;
-          ctx.strokeStyle = `${colors.border}1c`; // opacity 0.11
+          ctx.strokeStyle = `${colors.border}1c`;
           ctx.lineWidth = 0.6 / zoomK;
         }
         ctx.stroke();
       });
 
-      // Draw nodes
       nodes.forEach((node) => {
         if (!node.x || !node.y) return;
         const colors = CATEGORY_COLORS[node.category] || CATEGORY_COLORS.foundation;
@@ -359,7 +346,6 @@ function Brain() {
         ctx.beginPath();
         ctx.arc(node.x, node.y, finalSize, 0, 2 * Math.PI);
         
-        // Glow effect
         if (isMain || isHovered) {
           ctx.shadowColor = colors.border;
           ctx.shadowBlur = isHovered ? 15 : 6;
@@ -375,7 +361,6 @@ function Brain() {
         
         ctx.shadowBlur = 0;
 
-        // Draw labels
         const label = node.short || node.name;
         const showLabel = isMain || zoomK > 1.15 || isRelated || isHovered;
         
@@ -389,12 +374,10 @@ function Brain() {
           
           const textY = node.y - finalSize - 4;
           
-          // Outline
           ctx.strokeStyle = "rgba(0, 0, 0, 0.85)";
           ctx.lineWidth = 3.5;
           ctx.strokeText(label, node.x, textY);
           
-          // Fill
           ctx.fillStyle = isHovered 
             ? "#ffffff" 
             : isMain 
@@ -440,7 +423,7 @@ function Brain() {
         mouseRef.current = pos;
         hasDraggedRef.current = false;
         canvas.style.cursor = "grabbing";
-        tick = 0; // reset tick to wake up simulation
+        tick = 0;
       } else {
         isPanningRef.current = true;
         panStartRef.current = { x: e.clientX, y: e.clientY };
@@ -461,7 +444,7 @@ function Brain() {
         dragNodeRef.current.vx = 0;
         dragNodeRef.current.vy = 0;
         mouseRef.current = pos;
-        tick = 0; // reset tick during drag
+        tick = 0;
       } else if (isPanningRef.current) {
         hasDraggedRef.current = true;
         const dx = (e.clientX - panStartRef.current.x) / zoomRef.current.k;
@@ -508,7 +491,7 @@ function Brain() {
       zoomRef.current.x = zoomRef.current.x + mouseX / newK - mouseX / oldK;
       zoomRef.current.y = zoomRef.current.y + mouseY / newK - mouseY / oldK;
       zoomRef.current.k = newK;
-      tick = 0; // wake up simulation on wheel zoom
+      tick = 0;
     };
 
     canvas.addEventListener("mousedown", handleMouseDown);
