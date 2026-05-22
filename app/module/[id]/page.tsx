@@ -3,64 +3,28 @@
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { fullModulesContent, modulesList } from "@/data/completeModulesData";
-import { odfBaseModules, odfBaseModulesList } from "@/data/odfBaseModules";
 import DiscordGate from "@/app/components/DiscordGate";
-import AsciiFormulaViz, { VizPreset } from "@/app/components/AsciiFormulaViz";
 
-// Map topic titles to which ASCII visualizations to show
-const ASCII_VIZ_MAP: Record<string, { preset: VizPreset; description: string }[]> = {
-  "Footprint Chart": [
-    { preset: "imbalance", description: "Live imbalance heatmap — brighter = stronger directional conviction (>70% = institutional flow)" },
-    { preset: "absorption", description: "Absorption signal — volume spike at a price level without price movement = strong hands defending" },
-  ],
-  "Delta (Bid-Ask Delta)": [
-    { preset: "delta", description: "CVD = Σ Δ(t). When price rises but CVD falls → bearish divergence. When price falls but CVD rises → bullish divergence." },
-  ],
-  "Volume Profile": [
-    { preset: "vpoc", description: "VPOC reversion probability — P(reversion) = 1 − e^(−λ × |price − VPOC|). Greater distance from VPOC = higher pull." },
-    { preset: "gaussian", description: "Gaussian volume distribution across price — double distribution day showing two distinct acceptance zones (value areas)." },
-  ],
-  "CVD Divergence": [
-    { preset: "delta", description: "Cumulative Delta divergence — price making new high while CVD declines signals hidden selling pressure." },
-  ],
+const moduleMapping: Record<string, string> = {
+  "00": "intro",
+  "01": "m1",
+  "02": "m2",
+  "03": "m3",
+  "04": "m4",
+  "05": "m5",
+  "06": "m6",
+  "07": "m7",
+  "08": "m8",
+  "09": "m9",
+  "10": "m10",
 };
 
 export default function ModulePage() {
   const params = useParams();
   const moduleId = params?.id as string;
-
-  const idMap: Record<string, string> = {
-    "00": "intro",
-    "01": "m1",
-    "02": "m2",
-    "03": "m3",
-    "04": "m4",
-    "05": "m5",
-    "06": "m6",
-    "07": "m7",
-    "08": "m8",
-    "09": "m9",
-    "10": "m10",
-    "change-point": "m1",
-    "markov": "m2",
-    "hmm": "m3",
-    "vol-regime": "m4",
-    "microstructure-model": "m5",
-    "correlation": "m6",
-    "machine-learning": "m7",
-    "options-regime": "m8",
-    "real-time": "m9",
-    "applications": "m10",
-  };
-
-  const targetId = idMap[moduleId] || moduleId;
-  const moduleContent = 
-    fullModulesContent[targetId as keyof typeof fullModulesContent] || 
-    odfBaseModules[targetId as keyof typeof odfBaseModules];
-
-  const moduleInfo = 
-    modulesList.find(m => m.id === targetId) || 
-    odfBaseModulesList.find(m => m.id === targetId);
+  const contentKey = moduleMapping[moduleId] || moduleId;
+  const moduleContent = fullModulesContent[contentKey as keyof typeof fullModulesContent];
+  const moduleInfo = modulesList.find(m => m.id === moduleId);
 
   if (!moduleContent) {
     return (
@@ -172,21 +136,12 @@ export default function ModulePage() {
         </p>
 
         <div className="space-y-8">
-          {moduleContent.topics?.map((topic: any, idx: number) => {
-            const asciiVizs = ASCII_VIZ_MAP[topic.title] || [];
-            return (
+          {moduleContent.topics?.map((topic: any, idx: number) => (
             <div key={idx} className="bg-[#0c0c10] rounded-2xl border border-[rgba(255,255,255,0.08)] overflow-hidden">
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <h2 className="text-[20px] font-semibold text-[var(--color-holo-white)]">
-                    {topic.title}
-                  </h2>
-                  {asciiVizs.length > 0 && (
-                    <span className="px-2 py-0.5 text-[9px] font-mono font-semibold rounded uppercase bg-[rgba(167,139,250,0.15)] text-[#a78bfa] border border-[rgba(167,139,250,0.2)] tracking-wider">
-                      ◈ ASCII VIZ
-                    </span>
-                  )}
-                </div>
+                <h2 className="text-[20px] font-semibold text-[var(--color-holo-white)]">
+                  {topic.title}
+                </h2>
                 <span className={`px-3 py-1 text-[10px] font-semibold rounded uppercase ${
                   topic.tag === 'core' ? 'bg-[rgba(59,130,246,0.15)] text-[var(--color-cosmic-violet)]' :
                   topic.tag === 'advanced' ? 'bg-[rgba(239,68,68,0.15)] text-[#f87171]' :
@@ -200,20 +155,9 @@ export default function ModulePage() {
               </div>
               <div className="p-6">
                 {renderContent(topic.content)}
-                {asciiVizs.map((viz, vi) => (
-                  <AsciiFormulaViz
-                    key={vi}
-                    preset={viz.preset}
-                    description={viz.description}
-                    cols={90}
-                    rows={20}
-                    animated
-                  />
-                ))}
               </div>
             </div>
-            );
-          })}
+          ))}
         </div>
       </div>
     </main>

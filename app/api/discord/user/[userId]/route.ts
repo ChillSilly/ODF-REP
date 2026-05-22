@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabaseAdmin } from "@/lib/supabase";
 
 const DISCORD_API_URL = "https://discord.com/api/v10";
 
@@ -6,11 +7,35 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ userId: string }> }
 ) {
+  const { userId } = await params;
+
   try {
-    const { userId } = await params;
-    const botToken = process.env.DISCORD_BOT_TOKEN || "MTUwNDk0NTkxMTg1MDIwNTIwNQ.GY7jiO.d8c5UQyZkIts3bDA1oft5a1dMF3uXIrfu1vD0s";
+    const botToken = process.env.DISCORD_BOT_TOKEN;
 
     if (!botToken) {
+      if (supabaseAdmin) {
+        const { data: profile } = await supabaseAdmin
+          .from("profiles")
+          .select("username, avatar_url")
+          .eq("discord_id", userId)
+          .maybeSingle();
+
+        if (profile) {
+          let defaultIndex = 0;
+          try {
+            defaultIndex = Number((BigInt(userId) >> BigInt(22)) % BigInt(6));
+          } catch {}
+
+          return NextResponse.json({
+            id: userId,
+            username: profile.username || "Owner",
+            discriminator: null,
+            avatar: null,
+            avatarUrl: profile.avatar_url || `https://cdn.discordapp.com/embed/avatars/${defaultIndex}.png`,
+            global_name: profile.username || "Owner",
+          });
+        }
+      }
       return NextResponse.json(
         { error: "Discord bot token not configured" },
         { status: 500 }
@@ -25,6 +50,29 @@ export async function GET(
     });
 
     if (!response.ok) {
+      if (supabaseAdmin) {
+        const { data: profile } = await supabaseAdmin
+          .from("profiles")
+          .select("username, avatar_url")
+          .eq("discord_id", userId)
+          .maybeSingle();
+
+        if (profile) {
+          let defaultIndex = 0;
+          try {
+            defaultIndex = Number((BigInt(userId) >> BigInt(22)) % BigInt(6));
+          } catch {}
+
+          return NextResponse.json({
+            id: userId,
+            username: profile.username || "Owner",
+            discriminator: null,
+            avatar: null,
+            avatarUrl: profile.avatar_url || `https://cdn.discordapp.com/embed/avatars/${defaultIndex}.png`,
+            global_name: profile.username || "Owner",
+          });
+        }
+      }
       if (response.status === 404) {
         return NextResponse.json({ error: "User not found" }, { status: 404 });
       }
@@ -62,6 +110,33 @@ export async function GET(
     });
   } catch (error) {
     console.error("Discord API error:", error);
+    try {
+      if (supabaseAdmin) {
+        const { data: profile } = await supabaseAdmin
+          .from("profiles")
+          .select("username, avatar_url")
+          .eq("discord_id", userId)
+          .maybeSingle();
+
+        if (profile) {
+          let defaultIndex = 0;
+          try {
+            defaultIndex = Number((BigInt(userId) >> BigInt(22)) % BigInt(6));
+          } catch {}
+
+          return NextResponse.json({
+            id: userId,
+            username: profile.username || "Owner",
+            discriminator: null,
+            avatar: null,
+            avatarUrl: profile.avatar_url || `https://cdn.discordapp.com/embed/avatars/${defaultIndex}.png`,
+            global_name: profile.username || "Owner",
+          });
+        }
+      }
+    } catch (fallbackError) {
+      console.error("Supabase fallback error:", fallbackError);
+    }
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

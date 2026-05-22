@@ -7,34 +7,8 @@ import { ContentRenderer } from "@/components/ContentRenderer";
 import { useProgress } from "@/hooks/useProgress";
 import { courseContent } from "@/data/courseContent";
 import { odfBaseModules, odfBaseModulesList } from "@/data/odfBaseModules";
-import { fullModulesContent } from "@/data/completeModulesData";
 import DiscordGate from "@/app/components/DiscordGate";
 import "@/styles/course.css";
-
-// Map numeric dashboard IDs to their completeModulesData keys
-const numericIdMap: Record<string, string> = {
-  "00": "intro",
-  "01": "m1",
-  "02": "m2",
-  "03": "m3",
-  "04": "m4",
-  "05": "m5",
-  "06": "m6",
-  "07": "m7",
-  "08": "m8",
-  "09": "m9",
-  "10": "m10",
-  "change-point": "m1",
-  "markov": "m2",
-  "hmm": "m3",
-  "vol-regime": "m4",
-  "microstructure-model": "m5",
-  "correlation": "m6",
-  "machine-learning": "m7",
-  "options-regime": "m8",
-  "real-time": "m9",
-  "applications": "m10",
-};
 
 interface ModulePageProps {
   params: Promise<{ id: string }>;
@@ -56,16 +30,6 @@ export default function ModulePage({ params }: ModulePageProps) {
   }, [params]);
 
   const getModule = useCallback(() => {
-    // 1. Check if it's a numeric ID that maps to completeModulesData
-    const mappedId = numericIdMap[moduleId];
-    if (mappedId) {
-      const completeModule = fullModulesContent[mappedId as keyof typeof fullModulesContent];
-      if (completeModule) {
-        return completeModule;
-      }
-    }
-
-    // 2. Check odfBaseModules (order-flow, options-flow, macro, etc.)
     const isOdfBase = odfBaseModulesList.some(m => m.id === moduleId);
     
     if (isOdfBase) {
@@ -85,8 +49,6 @@ export default function ModulePage({ params }: ModulePageProps) {
         };
       }
     }
-
-    // 3. Fallback to courseContent
     return courseContent[moduleId as keyof typeof courseContent];
   }, [moduleId]);
 
@@ -205,7 +167,7 @@ export default function ModulePage({ params }: ModulePageProps) {
       <div style={{ display: "flex" }}>
         <aside style={{ display: "none", width: "280px", background: "#0c0c10", borderRight: "1px solid var(--color-border)", padding: "24px", position: "sticky", top: "136px", height: "calc(100vh - 136px)", overflowY: "auto" }} className="hidden lg:block">
           <h2 style={{ fontSize: "14px", fontWeight: 600, color: "#858585", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
-            Modulos
+            Modules
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             {allModules.map((module: any, idx: number) => {
@@ -324,7 +286,7 @@ export default function ModulePage({ params }: ModulePageProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "12px", color: "#858585" }}>Anterior</div>
+                  <div style={{ fontSize: "12px", color: "#858585" }}>Previous</div>
                   <div style={{ fontSize: "14px" }}>{navigation.prev?.title || ""}</div>
                 </div>
               </button>
@@ -345,7 +307,7 @@ export default function ModulePage({ params }: ModulePageProps) {
                   }}
                 >
                   <div style={{ textAlign: "right" }}>
-                    <div style={{ fontSize: "12px", opacity: 0.8 }}>Siguiente</div>
+                    <div style={{ fontSize: "12px", opacity: 0.8 }}>Next</div>
                     <div style={{ fontSize: "14px" }}>{navigation.next.title}</div>
                   </div>
                   <svg style={{ width: "16px", height: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -371,8 +333,8 @@ export default function ModulePage({ params }: ModulePageProps) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                   <div>
-                    <div style={{ fontSize: "12px", opacity: 0.8 }}>Completar</div>
-                    <div style={{ fontSize: "14px" }}>Finalizar modulo</div>
+                    <div style={{ fontSize: "12px", opacity: 0.8 }}>Complete</div>
+                    <div style={{ fontSize: "14px" }}>Finish Module</div>
                   </div>
                 </button>
               )}

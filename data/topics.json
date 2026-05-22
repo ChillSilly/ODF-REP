@@ -1,51 +1,859 @@
 {
   "categories": [
     {
-      "id": "foundation",
-      "name": "Foundation",
+      "id": "foundations",
+      "name": "Foundations",
       "topics": [
-        { "id": "cpd", "name": "Change Point Detection", "short": "CPD" },
-        { "id": "sb", "name": "Structural Breaks", "short": "SB" },
-        { "id": "ic", "name": "Information Criteria", "short": "IC" },
-        { "id": "amarket", "name": "Adoption Market", "short": "AMT" },
-        { "id": "mktfailure", "name": "Market Failures", "short": "FAIL" }
+        {
+          "id": "l1-futures-market-structure",
+          "name": "L1 — Futures Market Structure",
+          "short": "L1 Futures",
+          "url": "/education/lectures/l1-futures-market-structure"
+        },
+        {
+          "id": "l2-futures-pricing",
+          "name": "L2 — Futures Pricing",
+          "short": "L2 Futures",
+          "url": "/education/lectures/l2-futures-pricing"
+        },
+        {
+          "id": "l3-market-participants",
+          "name": "L3 — Market Participants",
+          "short": "L3 Market",
+          "url": "/education/lectures/l3-market-participants"
+        },
+        {
+          "id": "lecture-moc-trading-mentor-curriculum",
+          "name": "Lecture MOC — Trading Mentor Curriculum",
+          "short": "Lecture MOC...",
+          "url": "/education/foundations/lecture-moc-trading-mentor-curriculum"
+        },
+        {
+          "id": "moc-macro",
+          "name": "MOC — Macro",
+          "short": "MOC — Macro",
+          "url": "/education/foundations/moc-macro"
+        },
+        {
+          "id": "moc-options-flow",
+          "name": "MOC — Options Flow",
+          "short": "MOC — Option...",
+          "url": "/education/foundations/moc-options-flow"
+        },
+        {
+          "id": "moc-orderflow",
+          "name": "MOC — Orderflow",
+          "short": "MOC — Orderflow",
+          "url": "/education/foundations/moc-orderflow"
+        },
+        {
+          "id": "moc-risk-management",
+          "name": "MOC — Risk Management",
+          "short": "MOC — Risk M...",
+          "url": "/education/foundations/moc-risk-management"
+        },
+        {
+          "id": "the-abyss-complete-trading-vault",
+          "name": "The Abyss — Complete Trading Vault",
+          "short": "The Abyss —...",
+          "url": "/education/foundations/the-abyss-complete-trading-vault"
+        },
+        {
+          "id": "odf-base-vault",
+          "name": "ODF BASE VAULT",
+          "short": "ODF BASE VAULT",
+          "url": "/education/foundations/odf-base-vault"
+        }
       ]
     },
     {
-      "id": "structure",
-      "name": "Structure",
+      "id": "macro",
+      "name": "Macro",
       "topics": [
-        { "id": "hms", "name": "Hamilton Markov", "short": "HMS" },
-        { "id": "hmm", "name": "Hidden Markov Models", "short": "HMM" },
-        { "id": "vol", "name": "Volatility Regimes", "short": "VOL" },
-        { "id": "regimes", "name": "Regime Theory", "short": "REG" }
+        {
+          "id": "l4-narrative-framework",
+          "name": "L4 — Narrative Framework",
+          "short": "L4 Narrative",
+          "url": "/education/lectures/l4-narrative-framework"
+        },
+        {
+          "id": "l5-macro-variables-that-move-futures",
+          "name": "L5 — Macro Variables That Move Futures",
+          "short": "L5 Macro",
+          "url": "/education/lectures/l5-macro-variables-that-move-futures"
+        },
+        {
+          "id": "l6-central-banks",
+          "name": "L6 — Central Banks",
+          "short": "L6 Central",
+          "url": "/education/lectures/l6-central-banks"
+        },
+        {
+          "id": "l7-intermarket-relationships",
+          "name": "L7 — Intermarket Relationships",
+          "short": "L7 Intermarket",
+          "url": "/education/lectures/l7-intermarket-relationships"
+        },
+        {
+          "id": "l8-economic-calendar-mastery",
+          "name": "L8 — Economic Calendar Mastery",
+          "short": "L8 Economic",
+          "url": "/education/lectures/l8-economic-calendar-mastery"
+        },
+        {
+          "id": "l9-narrative-shifts",
+          "name": "L9 — Narrative Shifts",
+          "short": "L9 Narrative",
+          "url": "/education/lectures/l9-narrative-shifts"
+        },
+        {
+          "id": "bridge-macro-volatility-catalysts",
+          "name": "Bridge — Macro Volatility Catalysts",
+          "short": "Bridge — Mac...",
+          "url": "/education/macro/bridge-macro-volatility-catalysts"
+        },
+        {
+          "id": "cpi-release",
+          "name": "CPI Release",
+          "short": "CPI Release",
+          "url": "/education/macro/cpi-release"
+        },
+        {
+          "id": "fomc-decision",
+          "name": "FOMC Decision",
+          "short": "FOMC Decision",
+          "url": "/education/macro/fomc-decision"
+        },
+        {
+          "id": "nfp-release",
+          "name": "NFP Release",
+          "short": "NFP Release",
+          "url": "/education/macro/nfp-release"
+        },
+        {
+          "id": "qe-vs-qt-liquidity-mechanism",
+          "name": "QE vs QT — Liquidity Mechanism",
+          "short": "QE vs QT — L...",
+          "url": "/education/macro/qe-vs-qt-liquidity-mechanism"
+        },
+        {
+          "id": "risk-appetite",
+          "name": "Risk Appetite",
+          "short": "Risk Appetite",
+          "url": "/education/macro/risk-appetite"
+        },
+        {
+          "id": "employment-data",
+          "name": "Employment Data",
+          "short": "Employment Data",
+          "url": "/education/macro/employment-data"
+        },
+        {
+          "id": "geopolitical-risk",
+          "name": "Geopolitical Risk",
+          "short": "Geopolitical...",
+          "url": "/education/macro/geopolitical-risk"
+        },
+        {
+          "id": "inflation",
+          "name": "Inflation",
+          "short": "Inflation",
+          "url": "/education/macro/inflation"
+        },
+        {
+          "id": "interest-rates",
+          "name": "Interest Rates",
+          "short": "Interest Rates",
+          "url": "/education/macro/interest-rates"
+        },
+        {
+          "id": "treasury-yields",
+          "name": "Treasury Yields",
+          "short": "Treasury Yields",
+          "url": "/education/macro/treasury-yields"
+        }
       ]
     },
     {
-      "id": "advanced",
-      "name": "Advanced",
+      "id": "options",
+      "name": "Options",
       "topics": [
-        { "id": "mm", "name": "Market Microstructure", "short": "MM" },
-        { "id": "cr", "name": "Correlation Regimes", "short": "CR" },
-        { "id": "ml", "name": "Machine Learning", "short": "ML" },
-        { "id": "dl", "name": "Deep Learning", "short": "DL" }
+        {
+          "id": "l10-options-primer-for-futures-traders",
+          "name": "L10 — Options Primer for Futures Traders",
+          "short": "L10 Options",
+          "url": "/education/lectures/l10-options-primer-for-futures-traders"
+        },
+        {
+          "id": "l11-reading-the-options-chain",
+          "name": "L11 — Reading the Options Chain",
+          "short": "L11 Reading",
+          "url": "/education/lectures/l11-reading-the-options-chain"
+        },
+        {
+          "id": "l12-gex-dex-and-dealer-hedging",
+          "name": "L12 — GEX, DEX, and Dealer Hedging",
+          "short": "L12 GEX",
+          "url": "/education/lectures/l12-gex-dex-and-dealer-hedging"
+        },
+        {
+          "id": "l13-implied-volatility-as-a-market-signal",
+          "name": "L13 — Implied Volatility as a Market Signal",
+          "short": "L13 Implied",
+          "url": "/education/lectures/l13-implied-volatility-as-a-market-signal"
+        },
+        {
+          "id": "l14-unusual-options-activity",
+          "name": "L14 — Unusual Options Activity",
+          "short": "L14 Unusual",
+          "url": "/education/lectures/l14-unusual-options-activity"
+        },
+        {
+          "id": "l15-opex-mechanics",
+          "name": "L15 — OPEX Mechanics",
+          "short": "L15 OPEX",
+          "url": "/education/lectures/l15-opex-mechanics"
+        },
+        {
+          "id": "call-and-put-walls",
+          "name": "Call and Put Walls",
+          "short": "Call and Put...",
+          "url": "/education/options/call-and-put-walls"
+        },
+        {
+          "id": "dealer-hedging",
+          "name": "Dealer Hedging",
+          "short": "Dealer Hedging",
+          "url": "/education/options/dealer-hedging"
+        },
+        {
+          "id": "gamma-flip",
+          "name": "Gamma Flip",
+          "short": "Gamma Flip",
+          "url": "/education/options/gamma-flip"
+        },
+        {
+          "id": "gex-gamma-exposure",
+          "name": "GEX — Gamma Exposure",
+          "short": "GEX — Gamma...",
+          "url": "/education/options/gex-gamma-exposure"
+        },
+        {
+          "id": "implied-volatility",
+          "name": "Implied Volatility",
+          "short": "Implied Vola...",
+          "url": "/education/options/implied-volatility"
+        },
+        {
+          "id": "net-delta-exposure",
+          "name": "Net Delta Exposure",
+          "short": "Net Delta Ex...",
+          "url": "/education/options/net-delta-exposure"
+        },
+        {
+          "id": "put-skew",
+          "name": "Put Skew",
+          "short": "Put Skew",
+          "url": "/education/options/put-skew"
+        },
+        {
+          "id": "delta",
+          "name": "Delta",
+          "short": "Delta",
+          "url": "/education/options/delta"
+        },
+        {
+          "id": "gamma",
+          "name": "Gamma",
+          "short": "Gamma",
+          "url": "/education/options/gamma"
+        },
+        {
+          "id": "greeks-introduction",
+          "name": "Greeks Introduction",
+          "short": "Greeks Intro...",
+          "url": "/education/options/greeks-introduction"
+        },
+        {
+          "id": "theta",
+          "name": "Theta",
+          "short": "Theta",
+          "url": "/education/options/theta"
+        },
+        {
+          "id": "vega",
+          "name": "Vega",
+          "short": "Vega",
+          "url": "/education/options/vega"
+        },
+        {
+          "id": "dealer-hedging-mechanics",
+          "name": "Dealer Hedging Mechanics",
+          "short": "Dealer Hedgi...",
+          "url": "/education/options/dealer-hedging-mechanics"
+        },
+        {
+          "id": "sweeps-and-blocks-options-flow",
+          "name": "Sweeps and Blocks — Options Flow",
+          "short": "Sweeps and B...",
+          "url": "/education/options/sweeps-and-blocks-options-flow"
+        },
+        {
+          "id": "long-gamma-regime",
+          "name": "Long Gamma Regime",
+          "short": "Long Gamma R...",
+          "url": "/education/options/long-gamma-regime"
+        },
+        {
+          "id": "opex-pinning-regime",
+          "name": "OpEx Pinning Regime",
+          "short": "OpEx Pinning...",
+          "url": "/education/options/opex-pinning-regime"
+        },
+        {
+          "id": "qe-regime",
+          "name": "QE Regime",
+          "short": "QE Regime",
+          "url": "/education/options/qe-regime"
+        },
+        {
+          "id": "short-gamma-regime",
+          "name": "Short Gamma Regime",
+          "short": "Short Gamma...",
+          "url": "/education/options/short-gamma-regime"
+        },
+        {
+          "id": "iv-crush",
+          "name": "IV Crush",
+          "short": "IV Crush",
+          "url": "/education/options/iv-crush"
+        },
+        {
+          "id": "iv-skew-and-smile",
+          "name": "IV Skew and Smile",
+          "short": "IV Skew and...",
+          "url": "/education/options/iv-skew-and-smile"
+        },
+        {
+          "id": "vix-volatility-index",
+          "name": "VIX — Volatility Index",
+          "short": "VIX — Volati...",
+          "url": "/education/options/vix-volatility-index"
+        },
+        {
+          "id": "volatility-regime",
+          "name": "Volatility Regime",
+          "short": "Volatility R...",
+          "url": "/education/options/volatility-regime"
+        }
       ]
     },
     {
-      "id": "applications",
-      "name": "Applications",
+      "id": "orderflow",
+      "name": "Orderflow",
       "topics": [
-        { "id": "ta", "name": "Trading Applications", "short": "TA" },
-        { "id": "opt", "name": "Portfolio Optimization", "short": "OPT" },
-        { "id": "risk", "name": "Risk Management", "short": "RSK" }
+        {
+          "id": "l16-market-microstructure",
+          "name": "L16 — Market Microstructure",
+          "short": "L16 Market",
+          "url": "/education/lectures/l16-market-microstructure"
+        },
+        {
+          "id": "l17-footprint-charts-and-volume-at-price",
+          "name": "L17 — Footprint Charts and Volume at Price",
+          "short": "L17 Footprint",
+          "url": "/education/lectures/l17-footprint-charts-and-volume-at-price"
+        },
+        {
+          "id": "l18-market-profile-and-auction-market-theory",
+          "name": "L18 — Market Profile and Auction Market Theory",
+          "short": "L18 Market",
+          "url": "/education/lectures/l18-market-profile-and-auction-market-theory"
+        },
+        {
+          "id": "cot-report-master-lecture",
+          "name": "COT Report — Master Lecture",
+          "short": "COT Report —...",
+          "url": "/education/lectures/cot-report-master-lecture"
+        },
+        {
+          "id": "l20-liquidity-sweeps-stops-and-engineered-moves",
+          "name": "L20 — Liquidity: Sweeps, Stops, and Engineered Moves",
+          "short": "L20 Liquidity",
+          "url": "/education/lectures/l20-liquidity-sweeps-stops-and-engineered-moves"
+        },
+        {
+          "id": "l21-dom-and-tape-reading-in-real-time",
+          "name": "L21 — DOM and Tape Reading in Real Time",
+          "short": "L21 DOM",
+          "url": "/education/lectures/l21-dom-and-tape-reading-in-real-time"
+        },
+        {
+          "id": "adverse-selection",
+          "name": "Adverse Selection",
+          "short": "Adverse Sele...",
+          "url": "/education/orderflow/adverse-selection"
+        },
+        {
+          "id": "bid-ask-spread",
+          "name": "Bid Ask Spread",
+          "short": "Bid Ask Spread",
+          "url": "/education/orderflow/bid-ask-spread"
+        },
+        {
+          "id": "liquidity",
+          "name": "Liquidity",
+          "short": "Liquidity",
+          "url": "/education/orderflow/liquidity"
+        },
+        {
+          "id": "market-impact",
+          "name": "Market Impact",
+          "short": "Market Impact",
+          "url": "/education/orderflow/market-impact"
+        },
+        {
+          "id": "orderflow",
+          "name": "Orderflow",
+          "short": "Orderflow",
+          "url": "/education/orderflow/orderflow"
+        },
+        {
+          "id": "vpoc-volume-point-of-control",
+          "name": "VPOC — Volume Point of Control",
+          "short": "VPOC — Volum...",
+          "url": "/education/orderflow/vpoc-volume-point-of-control"
+        },
+        {
+          "id": "r1-dealer-gamma-constraint",
+          "name": "R1 — Dealer Gamma Constraint",
+          "short": "R1 — Dealer...",
+          "url": "/education/orderflow/r1-dealer-gamma-constraint"
+        },
+        {
+          "id": "r2-spread-expansion",
+          "name": "R2 — Spread Expansion",
+          "short": "R2 — Spread...",
+          "url": "/education/orderflow/r2-spread-expansion"
+        },
+        {
+          "id": "r3-orderflow-heterogeneity",
+          "name": "R3 — Orderflow Heterogeneity",
+          "short": "R3 — Orderfl...",
+          "url": "/education/orderflow/r3-orderflow-heterogeneity"
+        },
+        {
+          "id": "r4-market-impact",
+          "name": "R4 — Market Impact",
+          "short": "R4 — Market...",
+          "url": "/education/orderflow/r4-market-impact"
+        },
+        {
+          "id": "r5-fragmentation",
+          "name": "R5 — Fragmentation",
+          "short": "R5 — Fragmen...",
+          "url": "/education/orderflow/r5-fragmentation"
+        },
+        {
+          "id": "amt-auction-market-theory",
+          "name": "AMT — Auction Market Theory",
+          "short": "AMT — Auctio...",
+          "url": "/education/orderflow/amt-auction-market-theory"
+        },
+        {
+          "id": "cvd-divergence",
+          "name": "CVD Divergence",
+          "short": "CVD Divergence",
+          "url": "/education/orderflow/cvd-divergence"
+        },
+        {
+          "id": "delta-bid-ask-delta",
+          "name": "Delta — Bid-Ask Delta",
+          "short": "Delta — Bid-...",
+          "url": "/education/orderflow/delta-bid-ask-delta"
+        },
+        {
+          "id": "dom-depth-of-market",
+          "name": "DOM — Depth of Market",
+          "short": "DOM — Depth...",
+          "url": "/education/orderflow/dom-depth-of-market"
+        },
+        {
+          "id": "footprint-chart",
+          "name": "Footprint Chart",
+          "short": "Footprint Chart",
+          "url": "/education/orderflow/footprint-chart"
+        },
+        {
+          "id": "heatmap",
+          "name": "Heatmap",
+          "short": "Heatmap",
+          "url": "/education/orderflow/heatmap"
+        },
+        {
+          "id": "tape-time-and-sales",
+          "name": "Tape (Time and Sales)",
+          "short": "Tape (Time a...",
+          "url": "/education/orderflow/tape-time-and-sales"
+        },
+        {
+          "id": "tpo-and-market-profile",
+          "name": "TPO and Market Profile",
+          "short": "TPO and Mark...",
+          "url": "/education/orderflow/tpo-and-market-profile"
+        },
+        {
+          "id": "volume-profile",
+          "name": "Volume Profile",
+          "short": "Volume Profile",
+          "url": "/education/orderflow/volume-profile"
+        },
+        {
+          "id": "vwap-volume-weighted-average-price",
+          "name": "VWAP — Volume Weighted Average Price",
+          "short": "VWAP — Volum...",
+          "url": "/education/orderflow/vwap-volume-weighted-average-price"
+        },
+        {
+          "id": "hvn",
+          "name": "HVN",
+          "short": "HVN",
+          "url": "/education/orderflow/hvn"
+        },
+        {
+          "id": "initial-balance",
+          "name": "Initial Balance",
+          "short": "Initial Balance",
+          "url": "/education/orderflow/initial-balance"
+        },
+        {
+          "id": "lvn",
+          "name": "LVN",
+          "short": "LVN",
+          "url": "/education/orderflow/lvn"
+        },
+        {
+          "id": "poc",
+          "name": "POC",
+          "short": "POC",
+          "url": "/education/orderflow/poc"
+        },
+        {
+          "id": "single-prints",
+          "name": "Single Prints",
+          "short": "Single Prints",
+          "url": "/education/orderflow/single-prints"
+        },
+        {
+          "id": "vah",
+          "name": "VAH",
+          "short": "VAH",
+          "url": "/education/orderflow/vah"
+        },
+        {
+          "id": "val",
+          "name": "VAL",
+          "short": "VAL",
+          "url": "/education/orderflow/val"
+        },
+        {
+          "id": "vpoc",
+          "name": "VPOC",
+          "short": "VPOC",
+          "url": "/education/orderflow/vpoc"
+        }
+      ]
+    },
+    {
+      "id": "trading-strategy",
+      "name": "Trading Strategy",
+      "topics": [
+        {
+          "id": "l22-top-and-bottom-ticking-the-complete-framework",
+          "name": "L22 — Top and Bottom Ticking: The Complete Framework",
+          "short": "L22 Top",
+          "url": "/education/lectures/l22-top-and-bottom-ticking-the-complete-framework"
+        },
+        {
+          "id": "l23-exhaustion-signals",
+          "name": "L23 — Exhaustion Signals",
+          "short": "L23 Exhaustion",
+          "url": "/education/lectures/l23-exhaustion-signals"
+        },
+        {
+          "id": "l24-full-integration-macro-options-orderflow-one-trade",
+          "name": "L24 — Full Integration: Macro + Options + Orderflow → One Trade",
+          "short": "L24 Full",
+          "url": "/education/lectures/l24-full-integration-macro-options-orderflow-one-trade"
+        },
+        {
+          "id": "l25-live-case-studies-historical-top-bottom-ticks-dissected",
+          "name": "L25 — Live Case Studies: Historical Top/Bottom Ticks Dissected",
+          "short": "L25 Live",
+          "url": "/education/lectures/l25-live-case-studies-historical-top-bottom-ticks-dissected"
+        },
+        {
+          "id": "l26-risk-management-for-high-conviction-reversals",
+          "name": "L26 — Risk Management for High-Conviction Reversals",
+          "short": "L26 Risk",
+          "url": "/education/lectures/l26-risk-management-for-high-conviction-reversals"
+        },
+        {
+          "id": "l27-building-your-pre-market-ritual-and-trade-plan",
+          "name": "L27 — Building Your Pre-Market Ritual and Trade Plan",
+          "short": "L27 Building",
+          "url": "/education/lectures/l27-building-your-pre-market-ritual-and-trade-plan"
+        },
+        {
+          "id": "bridge-regimes-to-strategies",
+          "name": "Bridge — Regimes to Strategies",
+          "short": "Bridge — Reg...",
+          "url": "/education/trading-strategy/bridge-regimes-to-strategies"
+        },
+        {
+          "id": "bottom-tick-setup",
+          "name": "Bottom Tick Setup",
+          "short": "Bottom Tick...",
+          "url": "/education/trading-strategy/bottom-tick-setup"
+        },
+        {
+          "id": "invalidation-rules",
+          "name": "Invalidation Rules",
+          "short": "Invalidation...",
+          "url": "/education/trading-strategy/invalidation-rules"
+        },
+        {
+          "id": "pre-session-checklist",
+          "name": "Pre-Session Checklist",
+          "short": "Pre-Session...",
+          "url": "/education/trading-strategy/pre-session-checklist"
+        },
+        {
+          "id": "top-tick-setup",
+          "name": "Top Tick Setup",
+          "short": "Top Tick Setup",
+          "url": "/education/trading-strategy/top-tick-setup"
+        }
+      ]
+    },
+    {
+      "id": "quant",
+      "name": "Quant",
+      "topics": [
+        {
+          "id": "correlated-instruments",
+          "name": "Correlated Instruments",
+          "short": "Correlated I...",
+          "url": "/education/quant/correlated-instruments"
+        },
+        {
+          "id": "black-scholes-and-greeks-math",
+          "name": "Black-Scholes and Greeks Math",
+          "short": "Black-Schole...",
+          "url": "/education/quant/black-scholes-and-greeks-math"
+        },
+        {
+          "id": "dispersion-and-correlation-the-volatility-map",
+          "name": "Dispersion and Correlation — The Volatility Map",
+          "short": "Dispersion a...",
+          "url": "/education/quant/dispersion-and-correlation-the-volatility-map"
+        },
+        {
+          "id": "ndx-vs-spx-volatility",
+          "name": "NDX vs SPX Volatility",
+          "short": "NDX vs SPX V...",
+          "url": "/education/quant/ndx-vs-spx-volatility"
+        },
+        {
+          "id": "statistical-foundations",
+          "name": "Statistical Foundations",
+          "short": "Statistical...",
+          "url": "/education/quant/statistical-foundations"
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "name": "Risk",
+      "topics": [
+        {
+          "id": "bridge-risk-execution-and-psychology",
+          "name": "Bridge — Risk, Execution, and Psychology",
+          "short": "Bridge — Ris...",
+          "url": "/education/risk/bridge-risk-execution-and-psychology"
+        },
+        {
+          "id": "bayesian-adaptive-kelly-framework",
+          "name": "Bayesian-Adaptive Kelly Framework",
+          "short": "Bayesian-Ada...",
+          "url": "/education/risk/bayesian-adaptive-kelly-framework"
+        },
+        {
+          "id": "convexity-and-expected-value",
+          "name": "Convexity and Expected Value",
+          "short": "Convexity an...",
+          "url": "/education/risk/convexity-and-expected-value"
+        },
+        {
+          "id": "drawdown-management",
+          "name": "Drawdown Management",
+          "short": "Drawdown Man...",
+          "url": "/education/risk/drawdown-management"
+        },
+        {
+          "id": "position-sizing",
+          "name": "Position Sizing",
+          "short": "Position Sizing",
+          "url": "/education/risk/position-sizing"
+        },
+        {
+          "id": "risk-management-overview",
+          "name": "Risk Management Overview",
+          "short": "Risk Managem...",
+          "url": "/education/risk/risk-management-overview"
+        }
+      ]
+    },
+    {
+      "id": "participants",
+      "name": "Participants",
+      "topics": [
+        {
+          "id": "bridge-participants-and-market-structure",
+          "name": "Bridge — Participants and Market Structure",
+          "short": "Bridge — Par...",
+          "url": "/education/participants/bridge-participants-and-market-structure"
+        },
+        {
+          "id": "commercials",
+          "name": "Commercials",
+          "short": "Commercials",
+          "url": "/education/participants/commercials"
+        },
+        {
+          "id": "cot-and-day-trading",
+          "name": "COT and Day Trading",
+          "short": "COT and Day...",
+          "url": "/education/participants/cot-and-day-trading"
+        },
+        {
+          "id": "cot-report-overview",
+          "name": "COT Report Overview",
+          "short": "COT Report O...",
+          "url": "/education/participants/cot-report-overview"
+        },
+        {
+          "id": "net-position",
+          "name": "Net Position",
+          "short": "Net Position",
+          "url": "/education/participants/net-position"
+        },
+        {
+          "id": "non-commercials-large-speculators",
+          "name": "Non-Commercials (Large Speculators)",
+          "short": "Non-Commerci...",
+          "url": "/education/participants/non-commercials-large-speculators"
+        },
+        {
+          "id": "open-interest-cot",
+          "name": "Open Interest COT",
+          "short": "Open Interes...",
+          "url": "/education/participants/open-interest-cot"
+        },
+        {
+          "id": "cot-positioning-extremes",
+          "name": "COT Positioning Extremes",
+          "short": "COT Position...",
+          "url": "/education/participants/cot-positioning-extremes"
+        },
+        {
+          "id": "dealers-market-makers",
+          "name": "Dealers / Market Makers",
+          "short": "Dealers / Ma...",
+          "url": "/education/participants/dealers-market-makers"
+        },
+        {
+          "id": "hfts",
+          "name": "HFTs",
+          "short": "HFTs",
+          "url": "/education/participants/hfts"
+        },
+        {
+          "id": "institutions",
+          "name": "Institutions",
+          "short": "Institutions",
+          "url": "/education/participants/institutions"
+        },
+        {
+          "id": "retail",
+          "name": "Retail",
+          "short": "Retail",
+          "url": "/education/participants/retail"
+        },
+        {
+          "id": "vol-target-funds",
+          "name": "Vol Target Funds",
+          "short": "Vol Target F...",
+          "url": "/education/participants/vol-target-funds"
+        }
       ]
     }
   ],
   "relations": [
-    { "source": "foundation", "target": "structure", "type": "cross" },
-    { "source": "structure", "target": "advanced", "type": "cross" },
-    { "source": "structure", "target": "applications", "type": "cross" },
-    { "source": "advanced", "target": "applications", "type": "cross" },
-    { "source": "foundation", "target": "applications", "type": "cross" }
+    {
+      "source": "foundations",
+      "target": "macro",
+      "type": "cross"
+    },
+    {
+      "source": "foundations",
+      "target": "options",
+      "type": "cross"
+    },
+    {
+      "source": "foundations",
+      "target": "orderflow",
+      "type": "cross"
+    },
+    {
+      "source": "macro",
+      "target": "trading-strategy",
+      "type": "cross"
+    },
+    {
+      "source": "options",
+      "target": "trading-strategy",
+      "type": "cross"
+    },
+    {
+      "source": "orderflow",
+      "target": "trading-strategy",
+      "type": "cross"
+    },
+    {
+      "source": "quant",
+      "target": "options",
+      "type": "cross"
+    },
+    {
+      "source": "quant",
+      "target": "trading-strategy",
+      "type": "cross"
+    },
+    {
+      "source": "risk",
+      "target": "trading-strategy",
+      "type": "cross"
+    },
+    {
+      "source": "participants",
+      "target": "macro",
+      "type": "cross"
+    },
+    {
+      "source": "participants",
+      "target": "orderflow",
+      "type": "cross"
+    }
   ]
 }

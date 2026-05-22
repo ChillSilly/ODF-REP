@@ -139,15 +139,7 @@ const glossaryTerms = [
   ]},
 ];
 
-export default function GlossaryPage() {
-  return (
-    <DiscordGate>
-      <Glossary />
-    </DiscordGate>
-  );
-}
-
-function Glossary() {
+export default function Glossary() {
   const [activeLetter, setActiveLetter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -163,124 +155,126 @@ function Glossary() {
   })).filter(g => g.terms.length > 0);
 
   return (
-    <main className="min-h-screen py-12 px-6" style={{ background: "var(--color-absolute-zero)" }}>
-      <div className="max-w-[1432px] mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
-        >
-          <span className="font-ui text-[12px] tracking-[0.15em] block mb-4" style={{ color: "var(--color-violet)" }}>
-            03 - Glossary
-          </span>
-          <h1 className="font-display text-[40px] mb-4" style={{ color: "var(--color-frost-white)" }}>
-            Terms & Concepts
-          </h1>
-          <p className="font-ui text-[16px] max-w-[600px]" style={{ color: "var(--color-whisper-gray)" }}>
-            Complete index of terms and concepts in regime analysis, trading, and market microstructure.
-          </p>
-        </motion.div>
+    <DiscordGate>
+      <main className="min-h-screen py-12 px-6" style={{ background: "var(--color-midnight-void)" }}>
+        <div className="max-w-[1432px] mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-12"
+          >
+            <span className="font-ui text-[12px] tracking-[0.15em] block mb-4" style={{ color: "var(--color-violet)" }}>
+              03 - Glossary
+            </span>
+            <h1 className="font-display text-[40px] mb-4" style={{ color: "var(--color-frost-white)" }}>
+              Terms & Concepts
+            </h1>
+            <p className="font-ui text-[16px] max-w-[600px]" style={{ color: "var(--color-whisper-gray)" }}>
+              Complete index of terms and concepts in regime analysis, trading, and market microstructure.
+            </p>
+          </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-wrap items-center gap-3 mb-12"
-        >
-          {letters.map((letter, idx) => (
-            <motion.button
-              key={letter}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.03 }}
-              onClick={() => setActiveLetter(letter)}
-              className="px-4 py-2.5 rounded-full font-ui text-[13px] transition-all duration-300"
-              style={{
-                background: activeLetter === letter ? "var(--color-violet)" : "var(--color-deep-space)",
-                color: activeLetter === letter ? "white" : "var(--color-whisper-gray)",
-                border: `1px solid ${activeLetter === letter ? "var(--color-violet)" : "var(--color-border)"}`,
-              }}
-            >
-              {letter === "all" ? "All" : letter}
-            </motion.button>
-          ))}
-
-          <div className="relative flex-1 min-w-[200px] max-w-[300px] ml-auto">
-            <input
-              type="text"
-              placeholder="Search terms..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2.5 pr-10 rounded-full font-ui text-[14px] transition-all duration-200"
-              style={{
-                background: "var(--color-deep-space)",
-                color: "var(--color-frost-white)",
-                border: "1px solid var(--color-border)",
-                outline: "none",
-              }}
-            />
-            <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--color-whisper-gray)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-        </motion.div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${activeLetter}-${searchTerm}`}
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="flex flex-col gap-12"
+            transition={{ delay: 0.2 }}
+            className="flex flex-wrap items-center gap-3 mb-12"
           >
-            {filteredTerms.map((group, gIdx) => (
-              <motion.div
-                key={group.letter}
-                initial={{ opacity: 0, y: 20 }}
+            {letters.map((letter, idx) => (
+              <motion.button
+                key={letter}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: gIdx * 0.1 }}
+                transition={{ delay: idx * 0.03 }}
+                onClick={() => setActiveLetter(letter)}
+                className="px-4 py-2.5 rounded-full font-ui text-[13px] transition-all duration-300"
+                style={{
+                  background: activeLetter === letter ? "var(--color-violet)" : "var(--color-deep-space)",
+                  color: activeLetter === letter ? "white" : "var(--color-whisper-gray)",
+                  border: `1px solid ${activeLetter === letter ? "var(--color-violet)" : "var(--color-border)"}`,
+                }}
               >
-                <h2 className="font-ui text-[32px] font-bold mb-6 pb-4 border-b" style={{ color: "var(--color-violet)", borderColor: "var(--color-border)" }}>
-                  {group.letter}
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {group.terms.map((term, tIdx) => (
-                    <motion.div
-                      key={term.term}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: (gIdx * group.terms.length + tIdx) * 0.02 }}
-                    >
-                      <Link
-                        href={term.link || "#"}
-                        className="block p-6 rounded-[10px] transition-all duration-300 group h-full"
-                        style={{ background: "var(--color-deep-space)", border: "1px solid var(--color-border)" }}
-                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--color-violet)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.transform = "translateY(0)"; }}
-                      >
-                        <h3 className="font-ui text-[16px] font-medium mb-2 transition-colors duration-200" style={{ color: "var(--color-frost-white)" }}>
-                          {term.name}
-                        </h3>
-                        <p className="font-ui text-[13px] leading-relaxed" style={{ color: "var(--color-whisper-gray)" }}>
-                          {term.desc}
-                        </p>
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                {letter === "all" ? "All" : letter}
+              </motion.button>
             ))}
-          </motion.div>
-        </AnimatePresence>
 
-        {filteredTerms.length === 0 && (
-          <div className="text-center py-20">
-            <p className="font-ui text-[16px]" style={{ color: "var(--color-whisper-gray)" }}>
-              No terms found matching your search.
-            </p>
-          </div>
-        )}
-      </div>
-    </main>
+            <div className="relative flex-1 min-w-[200px] max-w-[300px] ml-auto">
+              <input
+                type="text"
+                placeholder="Search terms..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-2.5 pr-10 rounded-full font-ui text-[14px] transition-all duration-200"
+                style={{
+                  background: "var(--color-deep-space)",
+                  color: "var(--color-frost-white)",
+                  border: "1px solid var(--color-border)",
+                  outline: "none",
+                }}
+              />
+              <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--color-whisper-gray)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+          </motion.div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${activeLetter}-${searchTerm}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col gap-12"
+            >
+              {filteredTerms.map((group, gIdx) => (
+                <motion.div
+                  key={group.letter}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: gIdx * 0.1 }}
+                >
+                  <h2 className="font-ui text-[32px] font-bold mb-6 pb-4 border-b" style={{ color: "var(--color-violet)", borderColor: "var(--color-border)" }}>
+                    {group.letter}
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {group.terms.map((term, tIdx) => (
+                      <motion.div
+                        key={term.term}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: (gIdx * group.terms.length + tIdx) * 0.02 }}
+                      >
+                        <Link
+                          href={term.link || "#"}
+                          className="block p-6 rounded-[10px] transition-all duration-300 group h-full"
+                          style={{ background: "var(--color-deep-space)", border: "1px solid var(--color-border)" }}
+                          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--color-violet)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.transform = "translateY(0)"; }}
+                        >
+                          <h3 className="font-ui text-[16px] font-medium mb-2 transition-colors duration-200" style={{ color: "var(--color-frost-white)" }}>
+                            {term.name}
+                          </h3>
+                          <p className="font-ui text-[13px] leading-relaxed" style={{ color: "var(--color-whisper-gray)" }}>
+                            {term.desc}
+                          </p>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          {filteredTerms.length === 0 && (
+            <div className="text-center py-20">
+              <p className="font-ui text-[16px]" style={{ color: "var(--color-whisper-gray)" }}>
+                No terms found matching your search.
+              </p>
+            </div>
+          )}
+        </div>
+      </main>
+    </DiscordGate>
   );
 }

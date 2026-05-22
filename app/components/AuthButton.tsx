@@ -28,8 +28,10 @@ export default function AuthButton() {
       .finally(() => setLoading(false));
   }, []);
 
-  const handleLogin = () => {
-    window.location.href = "/api/auth/login";
+  const handleLogin = async () => {
+    const res = await fetch("/api/auth/login");
+    const data = await res.json();
+    window.location.href = data.url;
   };
 
   const handleLogout = async () => {

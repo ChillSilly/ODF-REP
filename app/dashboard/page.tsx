@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect, Suspense } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/hooks/useProgress";
 import { courseContent } from "@/data/courseContent";
@@ -31,17 +30,17 @@ interface Phase {
 }
 
 const phases: Phase[] = [
-  { id: "00", num: "00", name: "Plan de estudio", description: "Secuencia óptima de aprendizaje", color: "#8052ff", category: "foundation" },
-  { id: "01", num: "01", name: "Bases estadísticas", description: "El lenguaje matemático detrás de todo", color: "#06b6d4", category: "foundation" },
-  { id: "02", num: "02", name: "Regime Switching", description: "Hamilton (1989) y su familia extendida", color: "#ffb829", category: "foundation" },
-  { id: "03", num: "03", name: "Hidden Markov Models", description: "El framework probabilístico para regímenes latentes", color: "#15846e", category: "structure" },
-  { id: "04", num: "04", name: "Volatility Regimes", description: "La dimensión más crítica para trading", color: "#8052ff", category: "structure" },
-  { id: "05", num: "05", name: "Order Flow Regimes", description: "Regímenes a nivel de trades y DOM", color: "#06b6d4", category: "structure" },
-  { id: "06", num: "06", name: "Correlation Regimes", description: "Cuando todo se mueve juntos (o no)", color: "#ffb829", category: "structure" },
-  { id: "07", num: "07", name: "Machine Learning", description: "Más allá de los modelos paramétricos", color: "#15846e", category: "advanced" },
-  { id: "08", num: "08", name: "Options Market Regimes", description: "El mercado de opciones como regime indicator", color: "#8052ff", category: "advanced" },
-  { id: "09", num: "09", name: "Real-Time Detection", description: "Detección online sin look-ahead bias", color: "#06b6d4", category: "advanced" },
-  { id: "10", num: "10", name: "Trading Applications", description: "De la teoría a la aplicación real", color: "#ffb829", category: "applications" },
+  { id: "00", num: "00", name: "Study Plan", description: "Optimal learning sequence", color: "#8052ff", category: "foundation" },
+  { id: "01", num: "01", name: "Statistical Foundations", description: "The mathematical language behind everything", color: "#06b6d4", category: "foundation" },
+  { id: "02", num: "02", name: "Regime Switching", description: "Hamilton (1989) and his extended family", color: "#ffb829", category: "foundation" },
+  { id: "03", num: "03", name: "Hidden Markov Models", description: "The probabilistic framework for latent regimes", color: "#15846e", category: "structure" },
+  { id: "04", num: "04", name: "Volatility Regimes", description: "The most critical dimension for trading", color: "#8052ff", category: "structure" },
+  { id: "05", num: "05", name: "Order Flow Regimes", description: "Regimes at the level of trades and DOM", color: "#06b6d4", category: "structure" },
+  { id: "06", num: "06", name: "Correlation Regimes", description: "When everything moves together (or not)", color: "#ffb829", category: "structure" },
+  { id: "07", num: "07", name: "Machine Learning", description: "Beyond parametric models", color: "#15846e", category: "advanced" },
+  { id: "08", num: "08", name: "Options Market Regimes", description: "The options market as a regime indicator", color: "#8052ff", category: "advanced" },
+  { id: "09", num: "09", name: "Real-Time Detection", description: "Online detection without look-ahead bias", color: "#06b6d4", category: "advanced" },
+  { id: "10", num: "10", name: "Trading Applications", description: "From theory to real-world application", color: "#ffb829", category: "applications" },
   { id: "order-flow", num: "11", name: "Order Flow", description: "AMT, Volume Profile, Footprints, Delta, VWAP, DOM, Tape", color: "#15846e", category: "applications" },
   { id: "options-flow", num: "12", name: "Options Flow", description: "GEX, Dealer Hedging, Sweeps, Blocks, OPEX", color: "#8052ff", category: "applications" },
   { id: "macro", num: "13", name: "Macro", description: "Interest Rates, Treasury Yields, Inflation, FOMC, CPI, NFP", color: "#06b6d4", category: "applications" },
@@ -65,59 +64,59 @@ const categoryColors: Record<string, string> = {
 
 const examples: Record<string, { title: string; description: string }[]> = {
   "00": [
-    { title: "Semana 1-2: Bases estadísticas", description: "Stationarity, tests de Chow, CUSUM, criterios de información (AIC/BIC/HQ)." },
-    { title: "Semana 3-4: Hamilton Markov Switching", description: "Filtro de Hamilton, MS-VAR, MS-GARCH. Implementación en statsmodels." },
-    { title: "Semana 5-6: Hidden Markov Models", description: "Baum-Welch, Viterbi, Gaussian HMM vs GMM-HMM. hmmlearn en Python." },
+    { title: "Weeks 1-2: Statistical Foundations", description: "Stationarity, Chow tests, CUSUM, information criteria (AIC/BIC/HQ)." },
+    { title: "Weeks 3-4: Hamilton Markov Switching", description: "Hamilton Filter, MS-VAR, MS-GARCH. Implementation in statsmodels." },
+    { title: "Weeks 5-6: Hidden Markov Models", description: "Baum-Welch, Viterbi, Gaussian HMM vs GMM-HMM. hmmlearn in Python." },
   ],
   "01": [
-    { title: "PELT Algorithm", description: "Programación dinámica O(n) para detección de change points." },
-    { title: "BOCPD (Bayesian Online)", description: "Detección en tiempo real sin look-ahead bias." },
-    { title: "Criterios AIC/BIC", description: "Selección del número óptimo de regímenes." },
+    { title: "PELT Algorithm", description: "Dynamic programming O(n) for change point detection." },
+    { title: "BOCPD (Bayesian Online)", description: "Real-time detection without look-ahead bias." },
+    { title: "AIC/BIC Criteria", description: "Selection of the optimal number of regimes." },
   ],
   "02": [
-    { title: "Hamilton Filter", description: "Inferencia sobre estados latentes usando probabilidades filtradas." },
-    { title: "Kim Smoother", description: "Probabilidades suavizadas usando toda la muestra." },
-    { title: "Duration Analysis", description: "Calcular duración esperada: E[duración] = 1/(1-p_ii)." },
+    { title: "Hamilton Filter", description: "Inference on latent states using filtered probabilities." },
+    { title: "Kim Smoother", description: "Smoothed probabilities using the entire sample." },
+    { title: "Duration Analysis", description: "Calculate expected duration: E[duration] = 1/(1-p_ii)." },
   ],
   "03": [
-    { title: "Rabiner's Three Problems", description: "Evaluación, decodificación y entrenamiento de HMMs." },
-    { title: "Baum-Welch Algorithm", description: "EM algorithm para estimar parámetros sin etiquetas." },
-    { title: "Viterbi Path", description: "Secuencia más probable de estados ocultos." },
+    { title: "Rabiner's Three Problems", description: "Evaluation, decoding and training of HMMs." },
+    { title: "Baum-Welch Algorithm", description: "EM algorithm to estimate parameters without labels." },
+    { title: "Viterbi Path", description: "Most probable sequence of hidden states." },
   ],
   "04": [
-    { title: "HAR-RV Model", description: "Heterogeneous Autoregressive - captura multiscale vol." },
-    { title: "VIX Term Structure", description: "Curva de volatilidad explícita para sentimiento." },
-    { title: "GARCH Extensions", description: "Modelos asimétricos (EGARCH, TGARCH) para leverage effect." },
+    { title: "HAR-RV Model", description: "Heterogeneous Autoregressive - captures multiscale vol." },
+    { title: "VIX Term Structure", description: "Explicit volatility curve for sentiment." },
+    { title: "GARCH Extensions", description: "Asymmetric models (EGARCH, TGARCH) for leverage effect." },
   ],
   "05": [
     { title: "PIN/VPIN Metrics", description: "Probability of Informed Trading, Volume-synchronized PIN." },
-    { title: "DOM Analysis", description: "Depth of Market - absorption y exhaustion patterns." },
+    { title: "DOM Analysis", description: "Depth of Market - absorption and exhaustion patterns." },
     { title: "Delta Divergence", description: "Price moves without confirming delta - early warning." },
   ],
   "06": [
-    { title: "Dynamic Conditional Correlation", description: "DCC-GARCH para correlaciones tiempo-variante." },
-    { title: "Correlation Breakdown", description: "Cuando las correlaciones fallan en stress." },
-    { title: "Cross-Asset Regimes", description: "SPX, NDX, VIX, DXY - regímenes conjuntos." },
+    { title: "Dynamic Conditional Correlation", description: "DCC-GARCH for time-varying correlations." },
+    { title: "Correlation Breakdown", description: "When correlations break down under stress." },
+    { title: "Cross-Asset Regimes", description: "SPX, NDX, VIX, DXY - joint regimes." },
   ],
   "07": [
-    { title: "Random Forest Regime Detection", description: "Feature engineering para clasificación de regímenes." },
-    { title: "LSTM for Sequential Regimes", description: "Redes recurrentes para patrones temporales." },
-    { title: "Clustering Unsupervised", description: "K-means, DBSCAN para descubrimiento de regímenes." },
+    { title: "Random Forest Regime Detection", description: "Feature engineering for regime classification." },
+    { title: "LSTM for Sequential Regimes", description: "Recurrent networks for temporal patterns." },
+    { title: "Clustering Unsupervised", description: "K-means, DBSCAN for unsupervised regime discovery." },
   ],
   "08": [
-    { title: "Gamma Exposure (GEX)", description: "Net gamma de dealers como indicador de régimen." },
-    { title: "Dealer Hedging Flows", description: "Cómo el delta-hedging crea presión de precio." },
-    { title: "OPEX Pinning", description: "Efecto de vencimiento en niveles de precio." },
+    { title: "Gamma Exposure (GEX)", description: "Net gamma of dealers as a regime indicator." },
+    { title: "Dealer Hedging Flows", description: "How delta-hedging creates price pressure." },
+    { title: "OPEX Pinning", description: "Expiration effect on price levels." },
   ],
   "09": [
-    { title: "Online Change Point Detection", description: "Algoritmos en tiempo real sin look-ahead." },
-    { title: "Sequential Probability Ratio", description: "SPRT para detección rápida de cambios." },
-    { title: "Kalman Filter Regimes", description: "Filtro de Kalman para estados latentes online." },
+    { title: "Online Change Point Detection", description: "Real-time algorithms without look-ahead." },
+    { title: "Sequential Probability Ratio", description: "SPRT for rapid change detection." },
+    { title: "Kalman Filter Regimes", description: "Kalman filter for online latent states." },
   ],
   "10": [
-    { title: "Regime-Based Position Sizing", description: "Ajustar tamaño según régimen detectado." },
-    { title: "Volatility Targeting", description: "Target vol constante ajustando exposición." },
-    { title: "Regime Switching Strategies", description: "Cambiar estrategia según régimen actual." },
+    { title: "Regime-Based Position Sizing", description: "Adjust position size based on detected regime." },
+    { title: "Volatility Targeting", description: "Constant vol target by adjusting exposure." },
+    { title: "Regime Switching Strategies", description: "Switch strategies based on current regime." },
   ],
   "order-flow": [
     { title: "AMT - Auction Market Theory", description: "Steidlmayer's framework: price discovery, value areas, market states." },
@@ -232,10 +231,42 @@ function CategoryAnimation({ category }: { category: string }) {
     },
   };
 
-  const animate = (ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
-    const anim = animations[category];
-    if (anim) anim(ctx, width, height, time);
-  };
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animFrame: number;
+
+    const resize = () => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = parent.clientWidth * dpr;
+      canvas.height = parent.clientHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    const loop = (time: number) => {
+      const w = canvas.width / (window.devicePixelRatio || 1);
+      const h = canvas.height / (window.devicePixelRatio || 1);
+      ctx.clearRect(0, 0, w, h);
+      const anim = animations[category];
+      if (anim) anim(ctx, w, h, time / 1000);
+      animFrame = requestAnimationFrame(loop);
+    };
+
+    animFrame = requestAnimationFrame(loop);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animFrame);
+    };
+  }, [category]);
 
   return (
     <canvas
@@ -246,21 +277,12 @@ function CategoryAnimation({ category }: { category: string }) {
   );
 }
 
-function DashboardContent() {
+export default function Dashboard() {
   const [activePhase, setActivePhase] = useState("00");
   const { progress, toggleComplete, isModuleCompleted } = useProgress();
-  const searchParams = useSearchParams();
-  const moduleParam = searchParams.get("module");
 
-  useEffect(() => {
-    if (moduleParam && phases.some((p) => p.id === moduleParam)) {
-      setActivePhase(moduleParam);
-    }
-  }, [moduleParam]);
-
-  const totalModules = phases.filter((p) => p.id !== "00").length;
-  const completedCount = progress.completedModules.filter((id) => id !== "00").length;
-  const progressPercent = totalModules > 0 ? Math.round((completedCount / totalModules) * 100) : 0;
+  const totalModules = phases.length;
+  const progressPercent = Math.round((progress.completedModules.length / totalModules) * 100);
   const phase = phases.find((p) => p.id === activePhase) || phases[0];
   const accent = categoryColors[phase.category] || "#8052ff";
   const categoryAccent = categoryColors[phase.category] || "#8052ff";
@@ -270,8 +292,8 @@ function DashboardContent() {
 
   return (
     <DiscordGate>
-      <main className="min-h-screen" style={{ background: "var(--color-midnight-canvas)" }}>
-      <div style={{ position: "sticky", top: "64px", zIndex: 40, background: "var(--color-midnight-canvas)", borderBottom: "1px solid var(--color-border)", padding: "16px 24px" }}>
+      <main className="min-h-screen" style={{ background: "var(--color-midnight-void)" }}>
+      <div style={{ position: "sticky", top: "64px", zIndex: 40, background: "var(--color-midnight-void)", borderBottom: "1px solid var(--color-border)", padding: "16px 24px" }}>
         <div style={{ maxWidth: "1078px", margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
             <span className="font-ui text-[13px]" style={{ color: "var(--color-ash-gray)" }}>Your Progress</span>
@@ -289,8 +311,8 @@ function DashboardContent() {
       </div>
 
       <div style={{ display: "flex", minHeight: "calc(100vh - 100px)" }}>
-        <aside className="hidden lg:block" style={{ width: "280px", height: "calc(100vh - 100px)", background: "var(--color-deep-space)", borderRight: "1px solid var(--color-border)", position: "sticky", top: "100px", overflowY: "auto" }}>
-          <div style={{ padding: "24px", paddingBottom: "60px" }}>
+        <aside className="hidden lg:block" style={{ width: "280px", minHeight: "calc(100vh - 100px)", background: "var(--color-deep-space)", borderRight: "1px solid var(--color-border)", position: "sticky", top: "100px" }}>
+          <div style={{ padding: "24px" }}>
             <h2 className="font-ui text-[12px] font-medium uppercase tracking-widest mb-6" style={{ color: "var(--color-ash-gray)" }}>
               Modules
             </h2>
@@ -491,24 +513,12 @@ function DashboardContent() {
       <div style={{ position: "fixed", bottom: "0", left: "0", right: "0", background: "var(--color-deep-space)", borderTop: "1px solid var(--color-border)", padding: "12px 24px" }}>
         <div style={{ maxWidth: "1078px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "baseline", gap: "4px" }}>
-            <span className="font-ui text-[24px] font-bold" style={{ color: "var(--color-polar-white)" }}>{completedCount}</span>
+            <span className="font-ui text-[24px] font-bold" style={{ color: "var(--color-polar-white)" }}>{progress.completedModules.length}</span>
             <span className="font-ui text-[14px]" style={{ color: "var(--color-ash-gray)" }}>/ {totalModules} completed</span>
           </div>
         </div>
       </div>
     </main>
     </DiscordGate>
-  );
-}
-
-export default function Dashboard() {
-  return (
-    <Suspense fallback={
-      <main className="min-h-screen" style={{ background: "var(--color-midnight-canvas)", display: "flex", alignItems: "center", justifyItems: "center" }}>
-        <div style={{ margin: "auto", color: "var(--color-ash-gray)", fontFamily: "var(--font-mono)" }}>Loading Dashboard...</div>
-      </main>
-    }>
-      <DashboardContent />
-    </Suspense>
   );
 }

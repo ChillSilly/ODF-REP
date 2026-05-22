@@ -10,6 +10,7 @@ interface Topic {
   id: string;
   name: string;
   short: string;
+  url?: string;
 }
 
 interface Category {
@@ -25,33 +26,14 @@ interface Relation {
 }
 
 const CATEGORY_COLORS: Record<string, { border: string; text: string; bg: string }> = {
-  foundation: { border: "#8052ff", text: "#c4b5fd", bg: "rgba(128, 82, 255, 0.15)" },
-  structure: { border: "#06b6d4", text: "#a5f3fc", bg: "rgba(6, 182, 212, 0.15)" },
-  advanced: { border: "#ffb829", text: "#fde68a", bg: "rgba(255, 184, 41, 0.15)" },
-  applications: { border: "#15846e", text: "#6ee7b7", bg: "rgba(21, 132, 110, 0.15)" },
-};
-
-const NODE_REDIRECT_MAP: Record<string, string> = {
-  foundation: "/dashboard?module=01",
-  structure: "/dashboard?module=03",
-  advanced: "/dashboard?module=07",
-  applications: "/dashboard?module=10",
-  cpd: "/module/01",
-  sb: "/module/01",
-  ic: "/module/01",
-  amarket: "/module/order-flow",
-  mktfailure: "/module/microstructure",
-  hms: "/module/02",
-  hmm: "/module/03",
-  vol: "/module/04",
-  regimes: "/module/regimes",
-  mm: "/module/05",
-  cr: "/module/06",
-  ml: "/module/07",
-  dl: "/module/07",
-  ta: "/module/10",
-  opt: "/module/10",
-  risk: "/module/risk-management",
+  foundations: { border: "#8052ff", text: "#c4b5fd", bg: "rgba(128, 82, 255, 0.15)" },
+  macro: { border: "#06b6d4", text: "#a5f3fc", bg: "rgba(6, 182, 212, 0.15)" },
+  options: { border: "#f59e0b", text: "#fde68a", bg: "rgba(245, 158, 11, 0.15)" },
+  orderflow: { border: "#10b981", text: "#a7f3d0", bg: "rgba(16, 185, 129, 0.15)" },
+  "trading-strategy": { border: "#ef4444", text: "#fecaca", bg: "rgba(239, 68, 68, 0.15)" },
+  quant: { border: "#8b5cf6", text: "#ddd6fe", bg: "rgba(139, 92, 246, 0.15)" },
+  risk: { border: "#ec4899", text: "#fbcfe8", bg: "rgba(236, 72, 153, 0.15)" },
+  participants: { border: "#6366f1", text: "#c7d2fe", bg: "rgba(99, 102, 241, 0.15)" },
 };
 
 interface GraphNode {
@@ -60,6 +42,7 @@ interface GraphNode {
   short: string;
   level: "main" | "sub";
   category: string;
+  url?: string;
   x?: number;
   y?: number;
   vx?: number;
@@ -84,6 +67,7 @@ function generateGraphData(data: typeof topicData) {
       short: cat.name.toUpperCase(),
       level: "main",
       category: cat.id,
+      url: `/education/${cat.id}`,
     });
 
     cat.topics.forEach((topic: Topic) => {
@@ -93,6 +77,7 @@ function generateGraphData(data: typeof topicData) {
         short: topic.short,
         level: "sub",
         category: cat.id,
+        url: topic.url,
       });
 
       links.push({
@@ -162,10 +147,11 @@ function Brain() {
     const centerX = canvas.width / (2 * window.devicePixelRatio);
     const centerY = canvas.height / (2 * window.devicePixelRatio);
     
+    const totalCategories = graphData.nodes.filter(node => node.level === "main").length || 8;
     nodesRef.current = graphData.nodes.map((n, i) => {
       const categoryIndex = graphData.nodes.filter(node => node.level === "main").findIndex(node => node.id === n.category);
-      const angle = (categoryIndex / 4) * 2 * Math.PI + (i % 3) * 0.5;
-      const radius = n.level === "main" ? 90 : 135 + (i % 4) * 25;
+      const angle = (categoryIndex / totalCategories) * 2 * Math.PI + (i % 3) * 0.5;
+      const radius = n.level === "main" ? 95 : 155 + (i % 4) * 35;
       
       return {
         ...n,
@@ -321,7 +307,7 @@ function Brain() {
           ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
           ctx.lineWidth = 1.0 / zoomK;
         } else {
-          const colors = CATEGORY_COLORS[source.category] || CATEGORY_COLORS.foundation;
+          const colors = CATEGORY_COLORS[source.category] || CATEGORY_COLORS.foundations;
           ctx.strokeStyle = `${colors.border}1c`;
           ctx.lineWidth = 0.6 / zoomK;
         }
@@ -330,7 +316,7 @@ function Brain() {
 
       nodes.forEach((node) => {
         if (!node.x || !node.y) return;
-        const colors = CATEGORY_COLORS[node.category] || CATEGORY_COLORS.foundation;
+        const colors = CATEGORY_COLORS[node.category] || CATEGORY_COLORS.foundations;
         const isMain = node.level === "main";
         
         const isHovered = hoveredNode?.id === node.id;
@@ -469,13 +455,88 @@ function Brain() {
       const pos = getMousePos(e);
       const node = findNodeAt(pos.x, pos.y);
       if (node) {
-        const targetPath = NODE_REDIRECT_MAP[node.id];
-        if (targetPath) {
-          router.push(targetPath);
+        if (node.url) {
+          router.push(node.url);
+        } else if (node.level === "main") {
+          router.push(`/education/${node.id}`);
         } else {
-          router.push(`/content/${node.id}`);
+          router.push(`/education/${node.category}/${node.id}`);
         }
       }
+    };
+
+    const getTouchPos = (e: TouchEvent) => {
+      if (e.touches.length === 0) return null;
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (touch.clientX - rect.left - zoomRef.current.x * zoomRef.current.k) / zoomRef.current.k,
+        y: (touch.clientY - rect.top - zoomRef.current.y * zoomRef.current.k) / zoomRef.current.k,
+      };
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      const pos = getTouchPos(e);
+      if (!pos) return;
+      
+      const node = findNodeAt(pos.x, pos.y);
+      if (node) {
+        e.preventDefault();
+        dragNodeRef.current = node;
+        mouseRef.current = pos;
+        hasDraggedRef.current = false;
+        canvas.style.cursor = "grabbing";
+        tick = 0;
+      } else {
+        isPanningRef.current = true;
+        const touch = e.touches[0];
+        panStartRef.current = { x: touch.clientX, y: touch.clientY };
+        panOffsetStartRef.current = { x: zoomRef.current.x, y: zoomRef.current.y };
+        hasDraggedRef.current = false;
+        canvas.style.cursor = "grabbing";
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const pos = getTouchPos(e);
+      if (!pos) return;
+
+      if (dragNodeRef.current) {
+        e.preventDefault();
+        hasDraggedRef.current = true;
+        const dx = pos.x - mouseRef.current.x;
+        const dy = pos.y - mouseRef.current.y;
+        dragNodeRef.current.x = (dragNodeRef.current.x || 0) + dx;
+        dragNodeRef.current.y = (dragNodeRef.current.y || 0) + dy;
+        dragNodeRef.current.vx = 0;
+        dragNodeRef.current.vy = 0;
+        mouseRef.current = pos;
+        tick = 0;
+      } else if (isPanningRef.current) {
+        e.preventDefault();
+        hasDraggedRef.current = true;
+        const touch = e.touches[0];
+        const dx = (touch.clientX - panStartRef.current.x) / zoomRef.current.k;
+        const dy = (touch.clientY - panStartRef.current.y) / zoomRef.current.k;
+        zoomRef.current.x = panOffsetStartRef.current.x + dx;
+        zoomRef.current.y = panOffsetStartRef.current.y + dy;
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!hasDraggedRef.current && dragNodeRef.current) {
+        const node = dragNodeRef.current;
+        if (node.url) {
+          router.push(node.url);
+        } else if (node.level === "main") {
+          router.push(`/education/${node.id}`);
+        } else {
+          router.push(`/education/${node.category}/${node.id}`);
+        }
+      }
+      dragNodeRef.current = null;
+      isPanningRef.current = false;
+      canvas.style.cursor = "default";
     };
 
     const handleWheel = (e: WheelEvent) => {
@@ -499,6 +560,9 @@ function Brain() {
     canvas.addEventListener("mouseup", handleMouseUp);
     canvas.addEventListener("click", handleClick);
     canvas.addEventListener("wheel", handleWheel, { passive: false });
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("resize", resize);
@@ -508,6 +572,9 @@ function Brain() {
       canvas.removeEventListener("mouseup", handleMouseUp);
       canvas.removeEventListener("click", handleClick);
       canvas.removeEventListener("wheel", handleWheel);
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchend", handleTouchEnd);
     };
   }, [graphData, router]);
 

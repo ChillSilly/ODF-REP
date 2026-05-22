@@ -12,14 +12,14 @@ import {
 } from "@/components/MarketRegimesVisualComponents";
 
 const timelineItems = [
-  { period: "Semana 1-2", title: "Bases estadisticas y change point detection", description: "Stationarity bajo regimes, tests de Chow y Bai-Perron, CUSUM clasico, criterios de informacion (AIC/BIC/HQ). Sin esto, todo lo demas es caja negra.", color: "#f59e0b" },
-  { period: "Semana 3-4", title: "Hamilton Markov Switching y familia MS", description: "El modelo original de Hamilton (1989), estimacion por EM, filtro de Hamilton, MS-VAR, MS-GARCH. Implementar desde cero en Python.", color: "#a78bfa" },
-  { period: "Semana 5-6", title: "Hidden Markov Models", description: "Baum-Welch (EM para HMM), Viterbi, forward-backward. Gaussian HMM vs. GMM-HMM. hmmlearn en Python. HMM multivariado aplicado a ES/NQ.", color: "#22d3ee" },
-  { period: "Semana 7-8", title: "Volatility y Correlation Regimes", description: "RS-GARCH, HAR-RV, VIX term structure, DCC-GARCH, copulas, contagion vs. interdependence. Distinguir regimes de vol de regimes de direccion.", color: "#ef4444" },
-  { period: "Semana 9-10", title: "Microestructura y Order Flow", description: "PIN/VPIN, toxicidad de orden flow, regimes AMT, DOM absorption/exhaustion, footprint regimes, delta divergence. Aplicacion directa a NQ/ES.", color: "#22c55e" },
-  { period: "Semana 11-12", title: "Machine Learning avanzado", description: "GMM clustering de retornos, BOCPD (Bayesian Online Changepoint Detection), autoencoders para anomaly-based shifts, LSTM regime classification.", color: "#f472b6" },
-  { period: "Semana 13-14", title: "Options regimes y Real-time detection", description: "GEX/DEX regimes, vol surface regime classification, 0DTE flow, SPRT, particle filters, Kalman extensions para deteccion en tiempo real.", color: "#fb923c" },
-  { period: "Semana 15-16", title: "Trading applications", description: "Regime-conditional position sizing, strategy switching, factor exposure management, portfolio construction bajo incertidumbre de regimen.", color: "#34d399" },
+  { period: "Weeks 1-2", title: "Statistical Foundations and Change Point Detection", description: "Stationarity under regimes, Chow and Bai-Perron tests, classic CUSUM, information criteria (AIC/BIC/HQ). Without this, everything else is a black box.", color: "#f59e0b" },
+  { period: "Weeks 3-4", title: "Hamilton Markov Switching and the MS Family", description: "The original model of Hamilton (1989), EM estimation, Hamilton filter, MS-VAR, MS-GARCH. Implement from scratch in Python.", color: "#a78bfa" },
+  { period: "Weeks 5-6", title: "Hidden Markov Models", description: "Baum-Welch (EM for HMM), Viterbi, forward-backward. Gaussian HMM vs. GMM-HMM. hmmlearn in Python. Multivariate HMM applied to ES/NQ.", color: "#22d3ee" },
+  { period: "Weeks 7-8", title: "Volatility and Correlation Regimes", description: "RS-GARCH, HAR-RV, VIX term structure, DCC-GARCH, copulas, contagion vs. interdependence. Distinguish volatility regimes from directional regimes.", color: "#ef4444" },
+  { period: "Weeks 9-10", title: "Microstructure and Order Flow", description: "PIN/VPIN, order flow toxicity, AMT regimes, DOM absorption/exhaustion, footprint regimes, delta divergence. Direct application to NQ/ES.", color: "#22c55e" },
+  { period: "Weeks 11-12", title: "Advanced Machine Learning", description: "GMM clustering of returns, BOCPD (Bayesian Online Changepoint Detection), autoencoders for anomaly-based shifts, LSTM regime classification.", color: "#f472b6" },
+  { period: "Weeks 13-14", title: "Options Regimes and Real-Time Detection", description: "GEX/DEX regimes, vol surface regime classification, 0DTE flow, SPRT, particle filters, Kalman extensions for real-time detection.", color: "#fb923c" },
+  { period: "Weeks 15-16", title: "Trading Applications", description: "Regime-conditional position sizing, strategy switching, factor exposure management, portfolio construction under regime uncertainty.", color: "#34d399" },
 ];
 
 export default function MarketRegimesPage() {
@@ -28,160 +28,160 @@ export default function MarketRegimesPage() {
       <div className="max-w-5xl mx-auto px-8 pb-20">
         
         <HeroSection
-          title="Master"
-          subtitle="Desde la deteccion estadistica de cambios estructurales hasta la aplicacion de HMMs, modelos de Markov switching, microestructura de mercado, opciones y deep learning. Esta guia cubre todos los niveles con enfoque cuantitativo y practico."
+          title="Master Class"
+          subtitle="From statistical detection of structural changes to the application of HMMs, Markov switching models, market microstructure, options, and deep learning. This guide covers all levels with a quantitative and practical focus."
           stats={[
-            { num: "10", label: "Modulos", color: "var(--color-cosmic-violet)" },
-            { num: "30+", label: "Temas", color: "var(--color-quantum-teal)" },
-            { num: "80+", label: "Subtopicos", color: "var(--color-sunflare-yellow)" },
-            { num: "Inf", label: "Profundidad", color: "var(--color-ghost-gray)" },
+            { num: "10", label: "Modules", color: "var(--color-cosmic-violet)" },
+            { num: "30+", label: "Topics", color: "var(--color-quantum-teal)" },
+            { num: "80+", label: "Subtopics", color: "var(--color-sunflare-yellow)" },
+            { num: "Inf", label: "Depth", color: "var(--color-ghost-gray)" },
           ]}
         />
 
-        {/* Plan de Estudio */}
-        <ModuleSection num="00" title="Plan de estudio recomendado" subtitle="secuencia optima de aprendizaje">
+        {/* Recommended Study Plan */}
+        <ModuleSection num="00" title="Recommended Study Plan" subtitle="optimal learning sequence">
           <Timeline items={timelineItems} />
         </ModuleSection>
 
-        {/* Modulo 01 */}
-        <ModuleSection num="01" title="Bases estadisticas de regimes" subtitle="el lenguaje matematico detras de todo">
+        {/* Module 01 */}
+        <ModuleSection num="01" title="Statistical Foundations of Regimes" subtitle="the mathematical language behind everything">
           <TopicCard title="Change Point Detection" tag="core" tagColor="core">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              El problema central: dado un proceso, detectar si los parametros del proceso generador de datos cambian en algun punto desconocido. Existen tres familias principales de metodos con filosofias radicalmente distintas.
+              The core problem: given a process, detect whether the parameters of the data-generating process change at some unknown point. There are three main families of methods with radically different philosophies.
             </p>
             <Subtopic title="PELT - Pruned Exact Linear Time">
-              Algoritmo de programacion dinamica que encuentra el numero optimo de change points minimizando un criterio penalizado. Complejidad O(n) en promedio. Minimiza C(y_s:t) + beta para cada segmento. La penalizacion beta controla el trade-off entre fit y parsimonia.
+              A dynamic programming algorithm that finds the optimal number of change points by minimizing a penalized criterion. Average complexity of O(n). Minimizes C(y_s:t) + beta for each segment. The beta penalty controls the trade-off between fit and parsimony.
             </Subtopic>
-            <Subtopic title="Binary Segmentation y Wild Binary Segmentation">
-              BS aplica recursivamente un test de hipotesis sobre el segmento completo, dividiendo en el punto con mayor estadistico. Wild BS (WBS) mejora la consistencia usando segmentos aleatorios para evitar que cambios tardios sean enmascarados por cambios tempranos.
+            <Subtopic title="Binary Segmentation and Wild Binary Segmentation">
+              BS recursively applies a hypothesis test over the entire segment, splitting at the point with the highest test statistic. Wild BS (WBS) improves consistency by using random segments to prevent late changes from being masked by early ones.
             </Subtopic>
             <Subtopic title="Bayesian Online Changepoint Detection (BOCPD)">
-              Adams & MacKay (2007). En vez de buscar change points en batch, calcula en tiempo real P(r_t | x_1:t) donde r_t es el "run length" (tiempo desde el ultimo change point). Usa conjugate-exponential models para que el update sea analitico.
+              Adams & MacKay (2007). Instead of looking for change points in batch, it calculates P(r_t | x_1:t) in real time, where r_t is the "run length" (time since the last change point). Uses conjugate-exponential models so that the update is analytical.
             </Subtopic>
             <FormulaBox>
-{`// CUSUM generalizado (bilateral)
+{`// Generalized CUSUM (two-sided)
 S+_t = max(0, S+_t-1 + x_t - mu_0 - k)
 S-_t = min(0, S-_t-1 + x_t - mu_0 + k)
-Alarma cuando S+_t > h  o  |S-_t| > h
+Signal alarm when S+_t > h  or  |S-_t| > h
 
-// Criterio penalizado (PELT)
+// Penalized criterion (PELT)
 Q(tau_1...tau_k) = Sum_i [C(y_tau_i-1:tau_i) + beta]`}
             </FormulaBox>
             <ResourcePills items={["ruptures (Python)", "changepoint (R)", "bayesian_changepoint_detection"]} />
           </TopicCard>
 
-          <TopicCard title="Structural Breaks - Tests formales" tag="core" tagColor="core">
+          <TopicCard title="Structural Breaks - Formal Tests" tag="core" tagColor="core">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Los structural break tests distinguen cambios en los parametros del modelo de la variabilidad normal del proceso. La diferencia filosofica con change point detection: aqui asumimos un modelo parametrico especifico y testamos si sus parametros cambian.
+              Structural break tests distinguish changes in model parameters from the normal variability of the process. The philosophical difference with change point detection: here we assume a specific parametric model and test whether its parameters change.
             </p>
-            <Subtopic title="Test de Chow (1960)">
-              El clasico para un break point conocido t: H0: beta1 = beta2 (los coeficientes son iguales antes y despues de t). Estadistico F = [(RSS_R - RSS_U)/k] / [RSS_U/(n-2k)]. Limitacion critica: requiere que t sea conocido a priori.
+            <Subtopic title="Chow Test (1960)">
+              The classic test for a known break point t: H0: beta1 = beta2 (coefficients are equal before and after t). F-statistic = [(RSS_R - RSS_U)/k] / [RSS_U/(n-2k)]. Critical limitation: requires t to be known a priori.
             </Subtopic>
             <Subtopic title="Bai-Perron (1998, 2003)">
-              Permite multiples breaks desconocidos simultaneos. Usa la teoria de supF statistics (Andrews 1993) y supF(l+1|l) para determinar el numero de breaks secuencialmente.
+              Allows multiple simultaneous unknown breaks. Uses the theory of supF statistics (Andrews 1993) and supF(l+1|l) to determine the number of breaks sequentially.
             </Subtopic>
-            <Subtopic title="Andrews supF y QLR Test">
-              Para break point desconocido en un rango. supF = max F(t). El QLR (Quasi-LR) de Andrews usa una HAC variance estimator para robustez ante heteroscedasticidad.
+            <Subtopic title="Andrews supF and QLR Test">
+              For an unknown break point in a range. supF = max F(t). The QLR (Quasi-LR) of Andrews uses a HAC variance estimator for robustness against heteroscedasticity.
             </Subtopic>
             <Callout type="warning">
-              El look-ahead bias en structural break detection es devastador. Siempre evaluar tu detector out-of-sample y medir el average detection lag (ADL).
+              Look-ahead bias in structural break detection is devastating. Always evaluate your detector out-of-sample and measure the average detection lag (ADL).
             </Callout>
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 02 */}
-        <ModuleSection num="02" title="Modelos Clasicos de Regime Switching" subtitle="Hamilton (1989) y su familia extendida">
-          <TopicCard title="Hamilton Markov-Switching Model" tag="avanzado" tagColor="advanced">
+        {/* Module 02 */}
+        <ModuleSection num="02" title="Classic Regime Switching Models" subtitle="Hamilton (1989) and his extended family">
+          <TopicCard title="Hamilton Markov-Switching Model" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              El paper de Hamilton (1989) sobre business cycles es el modelo fundacional. La idea: los parametros del proceso AR cambian dependiendo de un estado de Markov latente que no es directamente observable.
+              Hamilton's (1989) paper on business cycles is the foundational model. The idea: the parameters of the AR process change depending on a latent Markov state that is not directly observable.
             </p>
-            <Subtopic title="Especificacion completa del MS-AR(p)">
-              y_t = mu(S_t) + phi_1(S_t)(y_t-1 - mu(S_t-1)) + ... + phi_p(S_t)(y_t-p - mu(S_t-p)) + sigma(S_t)*epsilon_t. Los parametros que cambian pueden ser: solo la media (MSM), solo la varianza (MSV), o ambos (MSMV).
+            <Subtopic title="Complete MS-AR(p) Specification">
+              y_t = mu(S_t) + phi_1(S_t)(y_t-1 - mu(S_t-1)) + ... + phi_p(S_t)(y_t-p - mu(S_t-p)) + sigma(S_t)*epsilon_t. The parameters that change can be: mean only (MSM), variance only (MSV), or both (MSMV).
             </Subtopic>
-            <Subtopic title="Filtro de Hamilton">
-              Es un filtro analogo al filtro de Kalman pero para estados discretos. Define probabilidades predichas y filtradas. El update usa Bayes.
+            <Subtopic title="Hamilton Filter">
+              It is a filter analogous to the Kalman filter but for discrete states. It defines predicted and filtered probabilities. The update uses Bayes' rule.
             </Subtopic>
             <Subtopic title="Kim Smoother">
-              El filtro de Hamilton da probabilidades filtradas (usando datos hasta t). El smoother de Kim (1994) da probabilidades usando toda la muestra - mas preciso pero requiere un backward pass.
+              The Hamilton filter gives filtered probabilities (using data up to t). Kim's smoother (1994) gives smoothed probabilities using the entire sample—more precise but requires a backward pass.
             </Subtopic>
             <FormulaBox>
-{`// Matriz de transicion (K=2 regimes)
+{`// Transition matrix (K=2 regimes)
 P = [[p_11  p_12],
      [p_21  p_22]]
 
-// Duracion esperada en regimen j
-E[duracion en regimen j] = 1 / (1 - p_jj)`}
+// Expected duration in regime j
+E[duration in regime j] = 1 / (1 - p_jj)`}
             </FormulaBox>
             <ResourcePills items={["statsmodels.tsa.regime_switching", "MSM (Python)", "MSwM (R)"]} />
           </TopicCard>
 
-          <TopicCard title="Threshold Models" tag="avanzado" tagColor="advanced">
+          <TopicCard title="Threshold Models" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Los threshold models son una alternativa a los Markov-switching: el regimen no esta oculto, sino que es determinado por una variable observable cruzando un umbral.
+              Threshold models are an alternative to Markov-switching: the regime is not hidden, but is instead determined by an observable variable crossing a threshold.
             </p>
             <Subtopic title="TAR - Threshold Autoregressive">
-              y_t = (phi_10 + phi_11*y_t-1 + epsilon_t)*I(q_t-d &lt;= gamma) + (phi_20 + phi_21*y_t-1 + epsilon_t)*I(q_t-d &gt; gamma). La variable de threshold puede ser el propio precio o otra variable.
+              y_t = (phi_10 + phi_11*y_t-1 + epsilon_t)*I(q_t-d &lt;= gamma) + (phi_20 + phi_21*y_t-1 + epsilon_t)*I(q_t-d &gt; gamma). The threshold variable can be the price itself or another variable.
             </Subtopic>
             <Subtopic title="LSTAR - Logistic Smooth Transition AR">
-              En vez de la funcion indicadora discontinua, usa una transicion logistica. La transicion entre regimes es gradual - mas realista para mercados donde el regimen nunca cambia abruptamente.
+              Instead of the discontinuous indicator function, it uses a logistic transition. The transition between regimes is gradual—more realistic for markets where the regime never changes abruptly.
             </Subtopic>
             <Subtopic title="MTAR - Momentum Threshold AR">
-              Especialmente relevante para cointegracion asimetrica. El threshold no es el nivel sino la diferencia (momentum). Util para modelar ajustes asimetricos.
+              Especially relevant for asymmetric cointegration. The threshold is not the level but the difference (momentum). Useful for modeling asymmetric adjustments.
             </Subtopic>
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 03 */}
-        <ModuleSection num="03" title="Hidden Markov Models" subtitle="el framework probabilistico para regimes latentes">
-          <TopicCard title="Arquitectura HMM" tag="core" tagColor="core">
+        {/* Module 03 */}
+        <ModuleSection num="03" title="Hidden Markov Models" subtitle="the probabilistic framework for latent regimes">
+          <TopicCard title="HMM Architecture" tag="core" tagColor="core">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Un HMM se define por lambda = (A, B, pi) donde A es la matriz de transicion, B son las distribuciones de emision, y pi son las probabilidades iniciales. Rabiner (1989) definio los tres problemas fundamentales.
+              An HMM is defined by lambda = (A, B, pi) where A is the transition matrix, B are the emission distributions, and pi are the initial probabilities. Rabiner (1989) defined the three fundamental problems.
             </p>
-            <Subtopic title="Problema 1: Evaluation">
-              Cual es la probabilidad de la secuencia observada dado el modelo? Resuelto con el algoritmo forward: alpha_t(i) = P(o_1,...,o_t, S_t=i | lambda).
+            <Subtopic title="Problem 1: Evaluation">
+              What is the probability of the observed sequence given the model? Solved with the forward algorithm: alpha_t(i) = P(o_1,...,o_t, S_t=i | lambda).
             </Subtopic>
-            <Subtopic title="Problema 2: Decoding - Viterbi">
-              Cual es la secuencia mas probable de estados latentes? Viterbi usa programacion dinamica.
+            <Subtopic title="Problem 2: Decoding - Viterbi">
+              What is the most probable sequence of latent states? Viterbi uses dynamic programming.
             </Subtopic>
-            <Subtopic title="Problema 3: Learning - Baum-Welch">
-              EM para HMM. E-step: calcula gamma_t(i) y xi_t(i,j) usando forward-backward. M-step: actualiza A, B, pi.
+            <Subtopic title="Problem 3: Learning - Baum-Welch">
+              EM for HMM. E-step: computes gamma_t(i) and xi_t(i,j) using forward-backward. M-step: updates A, B, pi.
             </Subtopic>
             <FormulaBox>
-{`// Algoritmo forward-backward
+{`// Forward-backward algorithm
 alpha_t(j) = b_j(o_t) * Sum_i alpha_t-1(i)*a_ij      [forward]
 beta_t(i) = Sum_j a_ij * b_j(o_t+1) * beta_t+1(j)    [backward]
 gamma_t(i) = alpha_t(i)*beta_t(i) / Sum_j alpha_t(j)*beta_t(j)`}
             </FormulaBox>
           </TopicCard>
 
-          <TopicCard title="HMM en mercados" tag="avanzado" tagColor="advanced">
+          <TopicCard title="HMM in Markets" tag="advanced" tagColor="advanced">
             <Subtopic title="Gaussian HMM vs GMM-HMM">
-              Gaussian HMM: cada estado emite o_t ~ N(mu_i, Sigma_i). GMM-HMM: cada estado emite de una mezcla de Gaussianas - mas flexible pero mas parametros.
+              Gaussian HMM: each state emits o_t ~ N(mu_i, Sigma_i). GMM-HMM: each state emits from a mixture of Gaussians—more flexible but has more parameters.
             </Subtopic>
-            <Subtopic title="Student-t HMM para fat tails">
-              Dado que los retornos de NQ tienen kurtosis empirica alta, el Student-t HMM es mas apropiado.
+            <Subtopic title="Student-t HMM for Fat Tails">
+              Since NQ returns have high empirical kurtosis, the Student-t HMM is more appropriate.
             </Subtopic>
-            <Subtopic title="Features para HMM en mercados">
-              La eleccion del vector de observacion es crucial. Opciones: solo retornos, retornos + volatilidad realizada, retornos + vol + skew + volumen.
+            <Subtopic title="Features for HMM in Markets">
+              The choice of the observation vector is crucial. Options: returns only, returns + realized volatility, returns + vol + skew + volume.
             </Subtopic>
             <ResourcePills items={["hmmlearn (Python)", "pomegranate (Python)"]} />
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 04 */}
-        <ModuleSection num="04" title="Volatility Regimes" subtitle="la dimension mas critica para trading">
-          <TopicCard title="RS-GARCH y familia GARCH con switching" tag="avanzado" tagColor="advanced">
+        {/* Module 04 */}
+        <ModuleSection num="04" title="Volatility Regimes" subtitle="the most critical dimension for trading">
+          <TopicCard title="RS-GARCH and Volatility Switching GARCH" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Los modelos GARCH capturan clustering de volatilidad, pero asumen que las dinamicas son estacionarias. Los RS-GARCH permiten que los parametros cambien entre regimes.
+              GARCH models capture volatility clustering but assume dynamics are stationary. RS-GARCH models allow parameters to switch between regimes.
             </p>
             <Subtopic title="Haas-Mittnik-Paolella (2004)">
-              Cada regimen k tiene su propio proceso GARCH independiente: h_k,t = omega_k + alpha_k*epsilon^2_t-1 + beta_k*h_k,t-1. Esto evita el path dependence problem.
+              Each regime k has its own independent GARCH process: h_k,t = omega_k + alpha_k*epsilon^2_t-1 + beta_k*h_k,t-1. This avoids the path dependence problem.
             </Subtopic>
             <Subtopic title="Realized Volatility Regimes - HAR-RV">
-              El modelo HAR-RV captura la heterogeneous autoregressive structure de la vol realizada.
+              The HAR-RV model captures the heterogeneous autoregressive structure of realized volatility.
             </Subtopic>
-            <Subtopic title="Separating vol regimes de price regimes">
-              Error conceptual comun: asumir que regimen de alta vol = regimen bajista. Son dimensiones ortogonales.
+            <Subtopic title="Separating Volatility Regimes from Price Regimes">
+              Common conceptual error: assuming high vol regime = bearish regime. These are orthogonal dimensions.
             </Subtopic>
             <FormulaBox>
 {`// Volatility Ratio
@@ -191,176 +191,176 @@ VR < 0.7  -->  vol compression (coiling)`}
             </FormulaBox>
           </TopicCard>
 
-          <TopicCard title="VIX Term Structure Regimes" tag="avanzado" tagColor="advanced">
-            <Subtopic title="La curva VIX y sus regimes">
-              La curva de futuros VIX define 3 regimes estructurales: (1) Contango normal: mercado en calma. (2) Backwardation severa: crisis activa. (3) Kink structure: incertidumbre concentrada en el corto plazo.
+          <TopicCard title="VIX Term Structure Regimes" tag="advanced" tagColor="advanced">
+            <Subtopic title="The VIX Curve and its Regimes">
+              The VIX futures curve defines 3 structural regimes: (1) Normal Contango: calm market. (2) Severe Backwardation: active crisis. (3) Kink structure: uncertainty concentrated in the short term.
             </Subtopic>
-            <Subtopic title="Metricas cuantitativas de term structure">
-              Roll yield: (VX2 - VX1) / VX1. Contango ratio: VX1/VX3 - si &lt; 0.85: backwardation severa.
+            <Subtopic title="Quantitative Term Structure Metrics">
+              Roll yield: (VX2 - VX1) / VX1. Contango ratio: VX1/VX3 - if &lt; 0.85: severe backwardation.
             </Subtopic>
             <Subtopic title="VVIX">
-              VVIX mide la volatilidad implicita de las opciones sobre VIX. VVIX &gt; 130 tipicamente precede o coincide con spikes de VIX.
+              VVIX measures the implied volatility of options on the VIX. VVIX &gt; 130 typically precedes or coincides with VIX spikes.
             </Subtopic>
             <Callout type="info">
-              Para NQ/ES: la term structure del VIX es uno de los mejores leading indicators de regimen.
+              For NQ/ES: the VIX term structure is one of the best leading indicators of regime.
             </Callout>
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 05 */}
-        <ModuleSection num="05" title="Microestructura y Order Flow" subtitle="regimes a nivel de trades y DOM">
-          <TopicCard title="PIN y VPIN" tag="quant" tagColor="quant">
+        {/* Module 05 */}
+        <ModuleSection num="05" title="Microstructure and Order Flow" subtitle="regimes at the trade and DOM level">
+          <TopicCard title="PIN and VPIN" tag="quant" tagColor="quant">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              El modelo EKOP (Easley, Kiefer, O'Hara, Paperman 1996) define PIN como la fraccion del order flow que proviene de traders informados.
+              The EKOP model (Easley, Kiefer, O'Hara, Paperman 1996) defines PIN as the fraction of order flow coming from informed traders.
             </p>
             <Subtopic title="VPIN - Volume-Synchronized PIN">
-              PIN requiere clasificar trades. VPIN usa volumen como reloj: divide el volumen total en buckets. Un VPIN alto indica order flow toxico.
+              PIN requires classifying trades. VPIN uses volume as a clock: it divides total volume into buckets. High VPIN indicates toxic order flow.
             </Subtopic>
             <Subtopic title="Order Flow Toxicity">
-              La toxicidad del order flow = VPIN elevado + spread widening + depth reduction. En NQ: durante sesiones con VPIN alto, los moves intraday tienen mayor momentum.
+              Order flow toxicity = elevated VPIN + spread widening + depth reduction. In NQ: during high-VPIN sessions, intraday moves have higher momentum.
             </Subtopic>
             <ResourcePills items={["VPIN calculation libraries"]} />
           </TopicCard>
 
-          <TopicCard title="Regimenes AMT y DOM" tag="avanzado" tagColor="advanced">
+          <TopicCard title="AMT and DOM Regimes" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Desde la perspectiva de Auction Market Theory, los regimes se definen por el estado de la subasta: esta el mercado facilitando o rechazando precios?
+              From the perspective of Auction Market Theory, regimes are defined by the state of the auction: is the market facilitating or rejecting prices?
             </p>
-            <Subtopic title="Regimenes de balance vs desequilibrio">
-              Balance: el mercado esta en distribucion simetrica alrededor del POC. Desequilibrio: presion compradora o vendedora sostenida.
+            <Subtopic title="Balance vs. Imbalance Regimes">
+              Balance: the market is in a symmetric distribution around the POC. Imbalance: sustained buying or selling pressure.
             </Subtopic>
             <Subtopic title="DOM Absorption vs. Exhaustion">
-              Absorcion: el precio avanza contra un bid/ask stack grande que se consume progresivamente.
+              Absorption: price advances against a large bid/ask stack that is progressively consumed.
             </Subtopic>
-            <Subtopic title="POC shifting regimes">
-              El POC del perfil de volumen migra durante el dia. Un POC que migra consistentemente en una direccion = regimen de rotacion de valor.
+            <Subtopic title="POC Shifting Regimes">
+              The POC of the volume profile migrates during the day. A POC migrating consistently in one direction = value rotation regime.
             </Subtopic>
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 06 */}
-        <ModuleSection num="06" title="Correlation y Cross-Asset Regimes" subtitle="cuando todo se mueve junto (o no)">
-          <TopicCard title="DCC-GARCH" tag="avanzado" tagColor="advanced">
+        {/* Module 06 */}
+        <ModuleSection num="06" title="Correlation and Cross-Asset Regimes" subtitle="when everything moves together (or not)">
+          <TopicCard title="DCC-GARCH" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Engle (2002): el DCC-GARCH modela correlaciones que cambian en el tiempo sin la explosion de parametros del BEKK.
+              Engle (2002): DCC-GARCH models time-varying correlations without the parameter explosion of BEKK.
             </p>
-            <Subtopic title="Especificacion DCC">
-              Etapa 1: estimar un GARCH univariado para cada activo. Etapa 2: modelar la correlacion dinamica con Q_t.
+            <Subtopic title="DCC Specification">
+              Stage 1: estimate a univariate GARCH for each asset. Stage 2: model the dynamic correlation with Q_t.
             </Subtopic>
-            <Subtopic title="Correlation regimes desde DCC">
-              Una vez estimado DCC, aplicar un HMM sobre la serie de correlaciones dinamicas para clasificar regimes.
+            <Subtopic title="Correlation Regimes from DCC">
+              Once DCC is estimated, apply an HMM on the dynamic correlation series to classify regimes.
             </Subtopic>
             <ResourcePills items={["rmgarch (R)", "arch (Python)"]} />
           </TopicCard>
 
-          <TopicCard title="Copulas para regimes de dependencia extrema" tag="quant" tagColor="quant">
-            <Subtopic title="Teorema de Sklar y copulas en trading">
-              Sklar (1959): cualquier joint distribution F(x,y) = C(F_X(x), F_Y(y)) donde C es una copula.
+          <TopicCard title="Copulas for Extreme Dependence Regimes" tag="quant" tagColor="quant">
+            <Subtopic title="Sklar's Theorem and Copulas in Trading">
+              Sklar (1959): any joint distribution F(x,y) = C(F_X(x), F_Y(y)) where C is a copula.
             </Subtopic>
-            <Subtopic title="Mixture copulas para regimes">
-              Una mixture copula combina copulas de distintos regimes.
+            <Subtopic title="Mixture Copulas for Regimes">
+              A mixture copula combines copulas from different regimes.
             </Subtopic>
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 07 */}
-        <ModuleSection num="07" title="Machine Learning para Regimes" subtitle="mas alla de los modelos parametricos">
-          <TopicCard title="Unsupervised clustering" tag="avanzado" tagColor="advanced">
+        {/* Module 07 */}
+        <ModuleSection num="07" title="Machine Learning for Regimes" subtitle="beyond parametric models">
+          <TopicCard title="Unsupervised Clustering" tag="advanced" tagColor="advanced">
             <Subtopic title="GMM - Gaussian Mixture Models">
-              Caso especial de HMM donde la secuencia temporal de estados es independiente. El GMM estima K distribuciones Gaussianas que mejor describen la distribucion de features.
+              Special case of HMM where the temporal sequence of states is independent. GMM estimates K Gaussian distributions that best describe the feature distribution.
             </Subtopic>
-            <Subtopic title="K-means sobre retornos">
-              K-means asume clusters esfericos y no maneja bien la estructura temporal.
+            <Subtopic title="K-means on Returns">
+              K-means assumes spherical clusters and does not handle temporal structure well.
             </Subtopic>
-            <Subtopic title="DBSCAN para deteccion de anomalias">
-              DBSCAN no requiere especificar K a priori y puede identificar puntos no asignados.
+            <Subtopic title="DBSCAN for Anomaly Detection">
+              DBSCAN does not require specifying K a priori and can identify unassigned points.
             </Subtopic>
           </TopicCard>
 
           <TopicCard title="BOCPD" tag="quant" tagColor="quant">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Adams & MacKay (2007) es el framework mas elegante para deteccion de regimes en tiempo real. La variable clave es r_t = "run length".
+              Adams & MacKay (2007) is the most elegant framework for real-time regime detection. The key variable is r_t = "run length".
             </p>
-            <Subtopic title="Arquitectura BOCPD">
-              En cada nuevo dato x_t, el algoritmo mantiene la distribucion P(r_t | x_1:t). La hazard function es un hiperparametro.
+            <Subtopic title="BOCPD Architecture">
+              With each new data point x_t, the algorithm maintains the distribution P(r_t | x_1:t). The hazard function is a hyperparameter.
             </Subtopic>
             <ResourcePills items={["BOCPD libraries"]} />
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 08 */}
-        <ModuleSection num="08" title="Options Market Regimes" subtitle="el mercado de opciones como regime indicator">
-          <TopicCard title="GEX y DEX Regimes" tag="avanzado" tagColor="advanced">
+        {/* Module 08 */}
+        <ModuleSection num="08" title="Options Market Regimes" subtitle="the options market as a regime indicator">
+          <TopicCard title="GEX and DEX Regimes" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Gamma Exposure (GEX) captura cuanto delta hedging los dealers de opciones necesitan hacer cuando el precio se mueve.
+              Gamma Exposure (GEX) captures how much delta hedging option dealers need to do when the price moves.
             </p>
             <Subtopic title="GEX Regimes">
-              GEX positivo (dealer long gamma): los dealers actuan como amortiguadores del mercado. GEX negativo: los dealers amplifican los movimientos.
+              Positive GEX (dealer long gamma): dealers act as market buffers. Negative GEX: dealers amplify price movements.
             </Subtopic>
-            <Subtopic title="Cuantificacion del GEX">
-              GEX = Sum_options [Open_Interest * Gamma * 100 * Spot^2]. GEX &gt; +$1B en SPX: regimen de vol suprimida. GEX &lt; -$1B: regimen de vol elevada.
+            <Subtopic title="Quantifying GEX">
+              GEX = Sum_options [Open_Interest * Gamma * 100 * Spot^2]. GEX &gt; +$1B in SPX: suppressed volatility regime. GEX &lt; -$1B: elevated volatility regime.
             </Subtopic>
             <ResourcePills items={["SpotGamma methodology", "Squeezemetrics GEX"]} />
           </TopicCard>
 
-          <TopicCard title="0DTE Regimes" tag="avanzado" tagColor="advanced">
+          <TopicCard title="0DTE Regimes" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              Las opciones 0DTE en SPX han pasado a representar mas del 40% del volumen de opciones. Esto ha cambiado fundamentalmente los regimes intraday.
+              0DTE options on SPX have grown to represent more than 40% of option volume. This has fundamentally changed intraday regimes.
             </p>
-            <Subtopic title="Regimenes intraday de 0DTE flow">
-              Apertura: positions, flow bidireccional. Mediodia: precio gravitando hacia strike con mayor OI. Cierre: charm/delta decaimiento acelerado.
+            <Subtopic title="Intraday 0DTE Flow Regimes">
+              Open: positioning, two-way flow. Midday: price gravitating toward the strike with the highest OI. Close: accelerated charm/delta decay.
             </Subtopic>
-            <Subtopic title="Charm flow regimes">
-              En 0DTE, el charm es extremo: una call ATM pierde 0.02-0.05 de delta por hora.
+            <Subtopic title="Charm Flow Regimes">
+              In 0DTE, charm is extreme: an ATM call loses 0.02-0.05 delta per hour.
             </Subtopic>
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 09 */}
-        <ModuleSection num="09" title="Real-Time Regime Detection" subtitle="deteccion online sin look-ahead bias">
-          <TopicCard title="SPRT y CUSUM modernos" tag="quant" tagColor="quant">
+        {/* Module 09 */}
+        <ModuleSection num="09" title="Real-Time Regime Detection" subtitle="online detection without look-ahead bias">
+          <TopicCard title="SPRT and Modern CUSUM" tag="quant" tagColor="quant">
             <Subtopic title="Sequential Probability Ratio Test (SPRT)">
-              Wald (1945): el SPRT es el test secuencial optimo. Calcula el log-likelihood ratio acumulado.
+              Wald (1945): the SPRT is the optimal sequential test. It calculates the cumulative log-likelihood ratio.
             </Subtopic>
-            <Subtopic title="CUSUM generalizado">
-              El CUSUM de Page (1954) modernizado usa la diferencia entre log-likelihood ratios.
+            <Subtopic title="Generalized CUSUM">
+              Page's (1954) modernized CUSUM uses the difference between log-likelihood ratios.
             </Subtopic>
             <Subtopic title="Average Run Length (ARL)">
-              ARL_0 = E[tiempo de alarma | no hay cambio] - queremos esto grande. ARL_1 = E[tiempo de deteccion | hay cambio] - queremos esto pequeno.
+              ARL_0 = E[alarm time | no change] - we want this to be large. ARL_1 = E[detection time | there is a change] - we want this to be small.
             </Subtopic>
           </TopicCard>
 
           <TopicCard title="Particle Filters" tag="quant" tagColor="quant">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              El particle filter aproxima la distribucion posterior P(S_t | y_1:t) usando N particulas.
+              The particle filter approximates the posterior distribution P(S_t | y_1:t) using N particles.
             </p>
             <Subtopic title="Sequential Monte Carlo">
-              Cada particula es una hipotesis sobre el estado latente con peso proporcional a la verosimilitud.
+              Each particle is a hypothesis about the latent state with a weight proportional to likelihood.
             </Subtopic>
             <ResourcePills items={["filterpy (Python)", "pyzmq SMC"]} />
           </TopicCard>
         </ModuleSection>
 
-        {/* Modulo 10 */}
-        <ModuleSection num="10" title="Regime-Conditional Trading" subtitle="de la teoria a la aplicacion real">
-          <TopicCard title="Position Sizing bajo incertidumbre de regimen" tag="avanzado" tagColor="advanced">
-            <Subtopic title="Kelly fraction condicionado al regimen">
-              Kelly con regimes: f*(t) = Sum_k P(S_t=k) * f*_k donde f*_k = mu_k / sigma^2_k es el Kelly del regimen k.
+        {/* Module 10 */}
+        <ModuleSection num="10" title="Regime-Conditional Trading" subtitle="from theory to real-world application">
+          <TopicCard title="Position Sizing Under Regime Uncertainty" tag="advanced" tagColor="advanced">
+            <Subtopic title="Regime-Conditional Kelly Fraction">
+              Kelly with regimes: f*(t) = Sum_k P(S_t=k) * f*_k where f*_k = mu_k / sigma^2_k is the Kelly of regime k.
             </Subtopic>
-            <Subtopic title="Regime-aware stop sizing">
-              El ATR cambia radicalmente entre regimes. Un stop fijo en ticks es demasiado estrecho en vol alta y demasiado ancho en vol baja.
+            <Subtopic title="Regime-Aware Stop Sizing">
+              ATR changes radically between regimes. A fixed stop in ticks is too narrow in high vol and too wide in low vol.
             </Subtopic>
           </TopicCard>
 
-          <TopicCard title="Strategy Switching" tag="avanzado" tagColor="advanced">
+          <TopicCard title="Strategy Switching" tag="advanced" tagColor="advanced">
             <p className="text-[15px] text-[var(--color-stardust-gray)] leading-relaxed mb-6">
-              En regímenes de alta autocorrelacion: estrategias momentum funcionan. En regímenes de baja autocorrelacion: estrategias mean-reversion funcionan.
+              In regimes of high autocorrelation: momentum strategies work. In regimes of low autocorrelation: mean-reversion strategies work.
             </p>
-            <Subtopic title="Regimen-based strategy selection">
-              La autocorrelacion de retornos a distintos lags es un buen clasificador de regimen.
+            <Subtopic title="Regime-Based Strategy Selection">
+              The autocorrelation of returns at different lags is a good regime classifier.
             </Subtopic>
             <Callout type="info">
-              Diseñar un "Regime Dashboard" que combina multiples indicadores para dar una lectura compuesta del regimen del dia.
+              Design a "Regime Dashboard" that combines multiple indicators to give a composite reading of the day's regime.
             </Callout>
           </TopicCard>
         </ModuleSection>

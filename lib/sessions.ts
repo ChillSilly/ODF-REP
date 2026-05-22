@@ -5,6 +5,7 @@ interface SessionData {
   username: string;
   discriminator: string;
   avatar: string;
+  email: string;
   isMember: boolean;
   isAdmin: boolean;
 }
@@ -14,6 +15,7 @@ interface SessionPayload {
   username: string;
   discriminator: string;
   avatar: string;
+  email: string;
   isMember: boolean;
   isAdmin: boolean;
   exp: number;
@@ -35,7 +37,7 @@ function base64UrlDecode(str: string): Buffer {
 }
 
 export function createSession(
-  user: { id: string; username: string; discriminator: string; avatar: string; isMember: boolean; isAdmin?: boolean },
+  user: { id: string; username: string; discriminator: string; avatar: string; email?: string; isMember: boolean; isAdmin?: boolean },
   secret: string
 ): string {
   const payload: SessionPayload = {
@@ -43,6 +45,7 @@ export function createSession(
     username: user.username,
     discriminator: user.discriminator,
     avatar: user.avatar || "",
+    email: user.email || "",
     isMember: user.isMember,
     isAdmin: user.isAdmin || false,
     exp: Date.now() + SESSION_DURATION * 1000,
@@ -83,6 +86,7 @@ export function getSession(signedId: string, secret: string): SessionData | null
       username: payload.username,
       discriminator: payload.discriminator,
       avatar: payload.avatar,
+      email: payload.email || "",
       isMember: payload.isMember,
       isAdmin: payload.isAdmin,
     };
@@ -99,7 +103,8 @@ export function parseSessionCookie(cookieHeader: string | null, secret: string):
 }
 
 export function makeSessionCookie(signedId: string, maxAge: number = SESSION_DURATION): string {
-  return `odf_session=${signedId}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`;
+  const secure = process.env.NODE_ENV === "production" ? "; Secure" : "";
+  return `odf_session=${signedId}; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=${maxAge}`;
 }
 
 export function clearSessionCookie(): string {

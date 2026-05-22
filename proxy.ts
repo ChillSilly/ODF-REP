@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { parseSessionCookie } from "@/lib/sessions";
 
-const publicRoutes = ["/", "/market-regimes", "/api"];
+const publicRoutes = ["/", "/brain", "/glossary", "/market-regimes", "/api"];
 const authRoutes = ["/api/auth/login", "/api/auth/callback"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (publicRoutes.some((route) => pathname === route || pathname.startsWith(route + "/"))) {
@@ -15,10 +16,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const secret = process.env.SESSION_SECRET || "odf_base_session_secret_v3_xK9mP2nL4qR8tW6yZ1aB3cD5eF7gH0jI";
   const cookieHeader = request.headers.get("cookie") || "";
-  const sessionMatch = cookieHeader.match(/odf_session=([^;]+)/);
+  const session = parseSessionCookie(cookieHeader, secret);
 
-  if (!sessionMatch) {
+  if (!session) {
     const loginUrl = new URL("/api/auth/login", request.url);
     loginUrl.searchParams.set("redirect", pathname);
     return NextResponse.redirect(loginUrl);
@@ -28,14 +30,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/dashboard/:path*",
-    "/module/:path*",
-    "/content/:path*",
-    "/admin/:path*",
-    "/brain/:path*",
-    "/brain",
-    "/glossary/:path*",
-    "/glossary",
-  ],
+  matcher: ["/dashboard/:path*", "/module/:path*", "/content/:path*", "/admin/:path*"],
 };

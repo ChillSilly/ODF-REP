@@ -3,22 +3,22 @@ import type { Course } from "@/types/course";
 export const courseContent: Record<string, Course> = {
   "market-regimes": {
     id: "market-regimes",
-    title: "Market Regimes — Guía Completa",
-    subtitle: "Guía de estudio avanzada · AP",
-    description: "Desde la detección estadística de cambios estructurales hasta la aplicación de HMMs, modelos de Markov switching, microestructura de mercado, opciones y deep learning.",
-    stats: "10 Módulos · 30+ Temas · 80+ Subtópicos",
+    title: "Market Regimes — Complete Guide",
+    subtitle: "Advanced Study Guide · AP",
+    description: "From statistical structural break detection to the application of HMMs, Markov switching models, market microstructure, options, and deep learning.",
+    stats: "10 Modules · 30+ Topics · 80+ Subtopics",
     modules: [
       {
         id: "00",
-        title: "Plan de estudio recomendado",
-        subtitle: "Secuencia óptima de aprendizaje",
+        title: "Recommended study plan",
+        subtitle: "Optimal learning sequence",
         topics: [
           {
             id: "00-01",
-            title: "Semana 1-2 — Bases estadísticas y change point detection",
-            content: "Stationarity bajo regímenes, tests de Chow y Bai-Perron, CUSUM clásico, criterios de información (AIC/BIC/HQ) para selección del número de regímenes. Sin esto, todo lo demás es caja negra.",
+            title: "Week 1-2 — Statistical foundations and change point detection",
+            content: "Stationarity under regimes, Chow and Bai-Perron tests, classic CUSUM, information criteria (AIC/BIC/HQ) for selection of the number of regimes. Without this, everything else is a black box.",
             callouts: [
-              { type: "warning", title: "Fundamental", text: "Antes de aplicar cualquier modelo de régimen, debes dominar los fundamentos estadísticos. Sin esto, todo lo demás es caja negra." }
+              { type: "warning", title: "Fundamental", text: "Before applying any regime model, you must master the statistical foundations. Without this, everything else is a black box." }
             ],
             resources: [
               { name: "ruptures (Python)", type: "library" },
@@ -28,8 +28,8 @@ export const courseContent: Record<string, Course> = {
           },
           {
             id: "00-02",
-            title: "Semana 3-4 — Hamilton Markov Switching",
-            content: "El modelo original de Hamilton (1989), estimación por EM, filtro de Hamilton, MS-VAR, MS-GARCH. Implementar desde cero en Python (statsmodels + manual).",
+            title: "Week 3-4 — Hamilton Markov Switching",
+            content: "The original Hamilton (1989) model, EM estimation, Hamilton filter, MS-VAR, MS-GARCH. Implement from scratch in Python (statsmodels + manual).",
             resources: [
               { name: "statsmodels.tsa.regime_switching", type: "library" },
               { name: "MSwM (R)", type: "library" },
@@ -38,8 +38,8 @@ export const courseContent: Record<string, Course> = {
           },
           {
             id: "00-03",
-            title: "Semana 5-6 — Hidden Markov Models",
-            content: "Baum-Welch (EM para HMM), Viterbi, forward-backward. Gaussian HMM vs. GMM-HMM. hmmlearn en Python. HMM multivariado aplicado a ES/NQ.",
+            title: "Week 5-6 — Hidden Markov Models",
+            content: "Baum-Welch (EM for HMM), Viterbi, forward-backward. Gaussian HMM vs. GMM-HMM. hmmlearn in Python. Multivariate HMM applied to ES/NQ.",
             resources: [
               { name: "hmmlearn (Python)", type: "library" },
               { name: "pomegranate (Python)", type: "library" }
@@ -47,84 +47,84 @@ export const courseContent: Record<string, Course> = {
           },
           {
             id: "00-04",
-            title: "Semana 7-8 — Volatility y Correlation Regimes",
-            content: "RS-GARCH, HAR-RV, VIX term structure, DCC-GARCH, copulas, contagion vs. interdependence. Distinguir regímenes de vol de regímenes de dirección."
+            title: "Week 7-8 — Volatility and Correlation Regimes",
+            content: "RS-GARCH, HAR-RV, VIX term structure, DCC-GARCH, copulas, contagion vs. interdependence. Distinguish volatility regimes from directional regimes."
           },
           {
             id: "00-05",
-            title: "Semana 9-10 — Microestructura y Order Flow",
-            content: "PIN/VPIN, toxicidad de orden flow, regímenes AMT, DOM absorption/exhaustion, footprint regimes, delta divergence. Aplicación directa a NQ/ES."
+            title: "Week 9-10 — Microstructure and Order Flow",
+            content: "PIN/VPIN, order flow toxicity, AMT regimes, DOM absorption/exhaustion, footprint regimes, delta divergence. Direct application to NQ/ES."
           },
           {
             id: "00-06",
-            title: "Semana 11-12 — Machine Learning avanzado",
-            content: "GMM clustering de retornos, BOCPD (Bayesian Online Changepoint Detection), autoencoders para anomaly-based shifts, LSTM regime classification.",
+            title: "Week 11-12 — Advanced Machine Learning",
+            content: "GMM clustering of returns, BOCPD (Bayesian Online Changepoint Detection), autoencoders for anomaly-based shifts, LSTM regime classification.",
             exercise: {
-              question: "¿Cuál es la principal ventaja de usar GMM sobre K-means para clustering de regímenes?",
+              question: "What is the main advantage of using GMM over K-means for regime clustering?",
               options: [
-                "GMM permite clusters no esféricos",
-                "GMM es más rápido computacionalmente",
-                "GMM no requiere especificar K",
-                "GMM funciona mejor con datos categóricos"
+                "GMM allows non-spherical clusters",
+                "GMM is computationally faster",
+                "GMM does not require specifying K",
+                "GMM works better with categorical data"
               ],
               correctAnswer: 0,
-              explanation: "GMM (Gaussian Mixture Models) permite modelar clusters con diferentes formas (covarianza), mientras que K-means asume clusters esféricos con igual varianza."
+              explanation: "GMM (Gaussian Mixture Models) allows modeling clusters with different shapes (covariance), while K-means assumes spherical clusters with equal variance."
             }
           },
           {
             id: "00-07",
-            title: "Semana 13-14 — Options regimes y Real-time detection",
-            content: "GEX/DEX regimes, vol surface regime classification, 0DTE flow, SPRT, particle filters, Kalman extensions para detección en tiempo real."
+            title: "Week 13-14 — Options regimes and Real-time detection",
+            content: "GEX/DEX regimes, vol surface regime classification, 0DTE flow, SPRT, particle filters, Kalman extensions for real-time detection."
           },
           {
             id: "00-08",
-            title: "Semana 15-16 — Trading applications",
-            content: "Regime-conditional position sizing, strategy switching, factor exposure management, portfolio construction bajo incertidumbre de régimen, regime transition edge."
+            title: "Week 15-16 — Trading applications",
+            content: "Regime-conditional position sizing, strategy switching, factor exposure management, portfolio construction under regime uncertainty, regime transition edge."
           }
         ]
       },
       {
         id: "01",
-        title: "Bases estadísticas de regímenes",
-        subtitle: "El lenguaje matemático detrás de todo",
+        title: "Statistical foundations of regimes",
+        subtitle: "The mathematical language behind everything",
         topics: [
           {
             id: "01-01",
-            title: "Change Point Detection — más allá del CUSUM básico",
+            title: "Change Point Detection — beyond basic CUSUM",
             tag: "core",
-            content: `El problema central: dado un proceso {Xₜ}, detectar si los parámetros del proceso generador de datos cambian en algún punto τ desconocido. Existen tres familias principales de métodos con filosofías radicalmente distintas.
+            content: `The central problem: given a process {Xₜ}, detect whether the parameters of the data-generating process change at some unknown point τ. There are three main families of methods with radically different philosophies.
 
 **PELT — Pruned Exact Linear Time**
 
-Algoritmo de programación dinámica que encuentra el número óptimo de change points minimizando un criterio penalizado. Complejidad O(n) en promedio (vs O(n²) del binary segmentation). Minimiza C(y_{s:t}) + β para cada segmento. La penalización β controla el trade-off entre fit y parsimonia.
+A dynamic programming algorithm that finds the optimal number of change points by minimizing a penalized criterion. Complexity O(n) on average (vs O(n²) for binary segmentation). Minimizes C(y_{s:t}) + β for each segment. The penalty β controls the trade-off between fit and parsimony.
 
-**Binary Segmentation y Wild Binary Segmentation**
+**Binary Segmentation and Wild Binary Segmentation**
 
-BS aplica recursivamente un test de hipótesis sobre el segmento completo, dividiendo en el punto con mayor estadístico. Wild BS (WBS) mejora la consistencia usando segmentos aleatorios para evitar que cambios tardíos sean enmascarados por cambios tempranos.
+BS recursively applies a hypothesis test over the entire segment, splitting at the point with the largest statistic. Wild BS (WBS) improves consistency by using random segments to prevent late changes from being masked by early changes.
 
 **Bayesian Online Changepoint Detection (BOCPD)**
 
-Adams & MacKay (2007). En vez de buscar change points en batch, calcula en tiempo real P(rₜ | x₁:t) donde rₜ es el "run length" (tiempo desde el último change point). Crítico para trading en tiempo real.`,
+Adams & MacKay (2007). Instead of searching for change points in batch, it calculates in real time P(rₜ | x₁:t) where rₜ is the "run length" (time since the last change point). Critical for real-time trading.`,
             formulas: [
               {
-                label: "CUSUM generalizado (bilateral)",
+                label: "Generalized CUSUM (bilateral)",
                 content: "S^{+}_t = \\max(0, S^{+}_{t-1} + x_t - \\mu_0 - k)"
               },
               {
-                label: "Criterio penalizado (PELT)",
+                label: "Penalized criterion (PELT)",
                 content: "Q(\\tau_1...\\tau_k) = \\sum_i [C(y_{\\tau_{i-1}:\\tau_i}) + \\beta]"
               }
             ],
             codeExamples: [
               {
                 language: "python",
-                title: "PELT con ruptures",
+                title: "PELT with ruptures",
                 code: `import ruptures as rpt
 
-# Detectar change points en señal
-signal = your_data  # array de numpy
+# Detect change points in signal
+signal = your_data  # numpy array
 
-# PELT con penalización BIC
+# PELT with BIC penalty
 algo = rpt.Pelt(model="rbf").fit(signal)
 change_points = algo.predict(pen=1)
 
@@ -132,14 +132,14 @@ change_points = algo.predict(pen=1)
 algo = rpt.Binseg().fit(signal)
 change_points = algo.predict(n_bkps=5)`,
                 annotations: [
-                  "PELT es O(n) vs O(n²) de otros métodos",
-                  "El parámetro 'pen' controla el número de cambios detectados",
-                  "Ajusta 'pen' según la complejidad de tus datos"
+                  "PELT is O(n) vs O(n²) of other methods",
+                  "The 'pen' parameter controls the number of detected changes",
+                  "Adjust 'pen' according to the complexity of your data"
                 ]
               }
             ],
             callouts: [
-              { type: "info", title: "PELT vs Binary Segmentation", text: "PELT es más rápido pero puede perder cambios cercanos. Binary segmentation es más preciso para series cortas." }
+              { type: "info", title: "PELT vs Binary Segmentation", text: "PELT is faster but can miss close changes. Binary segmentation is more precise for short series." }
             ],
             resources: [
               { name: "ruptures (Python)", type: "library" },
@@ -149,113 +149,113 @@ change_points = algo.predict(n_bkps=5)`,
           },
           {
             id: "01-02",
-            title: "Structural Breaks — Tests formales y selección de regímenes",
+            title: "Structural Breaks — Formal tests and regime selection",
             tag: "core",
-            content: `Los structural break tests distinguen cambios en los parámetros del modelo de la variabilidad normal del proceso. La diferencia filosófica con change point detection: aquí asumimos un modelo paramétrico específico y testamos si sus parámetros cambian.
+            content: `Structural break tests distinguish changes in model parameters from the normal variability of the process. The philosophical difference with change point detection: here we assume a specific parametric model and test whether its parameters change.
 
-**Test de Chow (1960)**
+**Chow Test (1960)**
 
-El clásico para un break point conocido τ: H₀: β₁ = β₂ (los coeficientes son iguales antes y después de τ). Estadístico F = [(RSS_R - RSS_U)/k] / [RSS_U/(n-2k)].
+The classic test for a known break point τ: H₀: β₁ = β₂ (the coefficients are equal before and after τ). F-statistic = [(RSS_R - RSS_U)/k] / [RSS_U/(n-2k)].
 
-**Bai-Perron (1998, 2003) — el estándar dorado**
+**Bai-Perron (1998, 2003) — the gold standard**
 
-Permite múltiples breaks desconocidos simultáneos. Usa la teoría de supF statistics para determinar el número de breaks secuencialmente. Algoritmo de programación dinámica O(n²).
+Allows multiple simultaneous unknown breaks. Uses the theory of supF statistics to determine the number of breaks sequentially. Dynamic programming algorithm O(n²).
 
-**Criterios de información para selección de K regímenes**
+**Information criteria for selecting K regimes**
 
-AIC = 2k - 2ln(L̂), BIC = k·ln(n) - 2ln(L̂). En la práctica para mercados financieros: 2-4 regímenes suelen ser suficientes.`,
+AIC = 2k - 2ln(L̂), BIC = k·ln(n) - 2ln(L̂). In practice for financial markets: 2-4 regimes are usually sufficient.`,
             formulas: [
               {
-                label: "Estadístico F de Chow",
+                label: "Chow F-statistic",
                 content: "F = \\frac{(RSS_R - RSS_U)/k}{RSS_U/(n-2k)}"
               },
               {
-                label: "BIC para selección de K",
+                label: "BIC for selecting K",
                 content: "BIC = k \\cdot \\ln(n) - 2\\ln(\\hat{L})"
               }
             ],
             callouts: [
-              { type: "warning", title: "Look-ahead bias", text: "El look-ahead bias en structural break detection es devastador. Siempre evaluar out-of-sample y medir el average detection lag (ADL)." }
+              { type: "warning", title: "Look-ahead bias", text: "Look-ahead bias in structural break detection is devastating. Always evaluate out-of-sample and measure the average detection lag (ADL)." }
             ],
             exercise: {
-              question: "¿Cuál es la principal limitación del Test de Chow?",
+              question: "What is the main limitation of the Chow Test?",
               options: [
-                "Solo funciona con series temporales",
-                "Requiere conocer el break point a priori",
-                "No funciona con más de 2 regímenes",
-                "Solo aplica a modelos lineales"
+                "It only works with time series",
+                "It requires knowing the break point a priori",
+                "It does not work with more than 2 regimes",
+                "It only applies to linear models"
               ],
               correctAnswer: 1,
-              explanation: "El Test de Chow requiere conocer el break point τ a priori. En trading, NUNCA lo conocemos, lo que genera data snooping si se elige τ mirando los datos."
+              explanation: "The Chow Test requires knowing the break point τ a priori. In trading, we NEVER know it, which generates data snooping if τ is chosen by looking at the data."
             }
           }
         ]
       },
       {
         id: "02",
-        title: "Modelos Clásicos de Regime Switching",
-        subtitle: "Hamilton (1989) y su familia extendida",
+        title: "Classic Regime Switching Models",
+        subtitle: "Hamilton (1989) and his extended family",
         topics: [
           {
             id: "02-01",
-            title: "Hamilton Markov-Switching Model — arquitectura completa",
+            title: "Hamilton Markov-Switching Model — complete architecture",
             tag: "advanced",
-            content: `El paper de Hamilton (1989) sobre business cycles es el modelo fundacional. La idea: los parámetros del proceso AR cambian dependiendo de un estado de Markov latente Sₜ que no es directamente observable.
+            content: `Hamilton's (1989) paper on business cycles is the foundational model. The idea: the parameters of the AR process change depending on a latent Markov state Sₜ that is not directly observable.
 
-**Especificación completa del MS-AR(p)**
+**Complete specification of the MS-AR(p)**
 
-yₜ = μ(Sₜ) + φ₁(Sₜ)(yₜ₋₁ - μ(Sₜ₋₁)) + ... + σ(Sₜ)εₜ. Los parámetros que cambian pueden ser: solo la media (MSM), solo la varianza (MSV), o ambos (MSMV).
+yₜ = μ(Sₜ) + φ₁(Sₜ)(yₜ₋₁ - μ(Sₜ₋₁)) + ... + σ(Sₜ)εₜ. The parameters that change can be: only the mean (MSM), only the variance (MSV), or both (MSMV).
 
-**Filtro de Hamilton — inferencia sobre Sₜ**
+**Hamilton Filter — inference on Sₜ**
 
-Es un filtro análogo al filtro de Kalman pero para estados discretos. El update usa Bayes: ξₜ|ₜ ∝ ηₜ ⊙ (P'ξₜ₋₁|ₜ₋₁).
+It is a filter analogous to the Kalman filter but for discrete states: it recursively calculates the probability of being in each regime. The update uses Bayes' rule: ξₜ|ₜ ∝ ηₜ ⊙ (P'ξₜ₋₁|ₜ₋₁).
 
-**Kim Smoother — probabilidades suavizadas**
+**Kim Smoother — smoothed probabilities**
 
-El smoother de Kim (1994) da P(Sₜ = j | yₜ,...,y_T) usando toda la muestra. Para trading en tiempo real, solo filtered probabilities son válidas.`,
+Kim's (1994) smoother gives P(Sₜ = j | yₜ,...,y_T) using the entire sample. For real-time trading, only filtered probabilities are valid.`,
             formulas: [
               {
-                label: "Matriz de transición (K=2)",
+                label: "Transition matrix (K=2)",
                 content: "P = \\begin{pmatrix} p_{11} & p_{12} \\\\ p_{21} & p_{22} \\end{pmatrix}"
               },
               {
-                label: "Duración esperada en régimen j",
-                content: "E[duración] = \\frac{1}{1 - p_{jj}}"
+                label: "Expected duration in regime j",
+                content: "E[duration] = \\frac{1}{1 - p_{jj}}"
               }
             ],
             codeExamples: [
               {
                 language: "python",
-                title: "MS-AR(1) con statsmodels",
+                title: "MS-AR(1) with statsmodels",
                 code: `import numpy as np
 from statsmodels.tsa.regime_switching.markov_autoregression import MarkovAutoregression
 
-# Datos de retornos
-y = returns_array  # array de numpy
+# Return data
+y = returns_array  # numpy array
 
-# Modelo MS-AR(1) con 2 regímenes
+# MS-AR(1) model with 2 regimes
 model = MarkovAutoregression(
     y, k_regimes=2, order=1,
     switching_variance=True
 )
 
-# Estimar por máxima verosimilitud
+# Estimate by maximum likelihood
 result = model.fit()
 
-# Probabilidades filtradas
+# Filtered probabilities
 filtered_probs = result.filtered_marginal_probabilities
 
-# Probabilidades suavizadas (usa datos futuros)
+# Smoothed probabilities (uses future data)
 smoothed_probs = result.smoothed_marginal_probabilities`,
                 annotations: [
-                  "switching_variance=True permite que σ cambie por régimen",
-                  "filtered_marginal_probabilities: solo datos hasta t",
-                  "smoothed_marginal_probabilities: usa toda la muestra"
+                  "switching_variance=True allows σ to change by regime",
+                  "filtered_marginal_probabilities: only data up to t",
+                  "smoothed_marginal_probabilities: uses the entire sample"
                 ]
               }
             ],
             callouts: [
-              { type: "info", title: "Configuración para NQ/ES", text: "Un MS-AR(1) con K=2 típicamente captura bien el régimen de tendencia vs. corrección. El parámetro p₁₁ suele ser 0.95-0.98." }
+              { type: "info", title: "Configuration for NQ/ES", text: "An MS-AR(1) with K=2 typically captures the trend vs. correction regime well. The parameter p₁₁ is usually 0.95-0.98." }
             ],
             resources: [
               { name: "statsmodels.tsa.regime_switching", type: "library" },
@@ -263,55 +263,55 @@ smoothed_probs = result.smoothed_marginal_probabilities`,
               { name: "Hamilton 1989 JoE", type: "paper" }
             ],
             exercise: {
-              question: "¿Cuál es la diferencia entre probabilidades filtradas y suavizadas en un MS model?",
+              question: "What is the difference between filtered and smoothed probabilities in an MS model?",
               options: [
-                "Las filtradas usan más datos que las suavizadas",
-                "Las filtradas no usan datos futuros, las suavizadas sí",
-                "Las suavizadas son más útiles para trading en tiempo real",
-                "No hay diferencia práctica"
+                "Filtered ones use more data than smoothed ones",
+                "Filtered ones do not use future data, smoothed ones do",
+                "Smoothed ones are more useful for real-time trading",
+                "There is no practical difference"
               ],
               correctAnswer: 1,
-              explanation: "Las probabilidades filtradas P(Sₜ|y₁:t) no usan datos futuros, por lo que son válidas para trading en tiempo real. Las suavizadas P(Sₜ|y₁:T) usan toda la muestra y son más precisas para análisis histórico."
+              explanation: "Filtered probabilities P(Sₜ|y₁:t) do not use future data, making them valid for real-time trading. Smoothed probabilities P(Sₜ|y₁:T) use the entire sample and are more precise for historical analysis."
             }
           },
           {
             id: "02-02",
             title: "Threshold Models — TAR, SETAR, LSTAR, MTAR",
             tag: "advanced",
-            content: `Los threshold models son una alternativa a los Markov-switching: el régimen no está oculto, sino determinado por una variable observable cruzando un umbral.
+            content: `Threshold models are an alternative to Markov-switching: the regime is not hidden, but rather determined by an observable variable crossing a threshold.
 
 **TAR — Threshold Autoregressive**
 
-yₜ = (φ₁₀ + φ₁₁yₜ₋₁ + εₜ)·I(qₜ₋d ≤ γ) + (φ₂₀ + φ₂₁yₜ₋₁ + εₜ)·I(qₜ₋d > γ). La variable de threshold puede ser el propio yₜ₋d (SETAR) u otra variable.
+yₜ = (φ₁₀ + φ₁₁yₜ₋₁ + εₜ)·I(qₜ₋d ≤ γ) + (φ₂₀ + φ₂₁yₜ₋₁ + εₜ)·I(qₜ₋d > γ). The threshold variable can be yₜ₋d itself (SETAR) or another variable.
 
 **LSTAR — Logistic Smooth Transition AR**
 
-Usa G(qₜ₋d; γ, c) = [1 + exp(-γ(qₜ₋d - c))]⁻¹ para transicionesgraduales entre regímenes.
+Uses G(qₜ₋d; γ, c) = [1 + exp(-γ(qₜ₋d - c))]⁻¹ for gradual transitions between regimes.
 
 **MTAR — Momentum Threshold AR**
 
-El threshold no es el nivel sino la diferencia Δqₜ (momentum). Especialmente relevante para cointegración asimétrica.`,
+The threshold is not the level but the difference Δqₜ (momentum). Especially relevant for asymmetric cointegration.`,
             callouts: [
-              { type: "warning", title: "Diferencia filosófica", text: "MS models = régimen latente, transición estocástica. Threshold models = régimen determinístico dado qₜ, transición predecible." }
+              { type: "warning", title: "Philosophical difference", text: "MS models = latent regime, stochastic transition. Threshold models = deterministic regime given qₜ, predictable transition." }
             ]
           },
           {
             id: "02-03",
-            title: "MS-GARCH, MS-VAR y cointegración con regímenes",
+            title: "MS-GARCH, MS-VAR and cointegration with regimes",
             tag: "advanced",
-            content: `Las extensiones multivariadas del MS son donde el análisis se vuelve realmente potente — y computacionalmente desafiante.
+            content: `Multivariate MS extensions are where the analysis becomes truly powerful — and computationally challenging.
 
 **MS-GARCH — Haas, Mittnik, Paolella (2004)**
 
-Cada régimen k tiene su propio proceso GARCH independiente: hₖ,ₜ = ωₖ + αₖε²ₜ₋₁ + βₖhₖ,ₜ₋₁. Esto evita el path dependence problem del MS-GARCH puro.
+Each regime k has its own independent GARCH process: hₖ,ₜ = ωₖ + αₖε²ₜ₋₁ + βₖhₖ,ₜ₋₁. This avoids the path dependence problem of pure MS-GARCH.
 
-**MS-VAR — Vector Autoregression con switching**
+**MS-VAR — Vector Autoregression with switching**
 
-Yₜ = μ(Sₜ) + A₁(Sₜ)Yₜ₋₁ + ... + Σ(Sₜ)^(1/2)εₜ. Todos los parámetros pueden cambiar con el régimen.
+Yₜ = μ(Sₜ) + A₁(Sₜ)Yₜ₋₁ + ... + Σ(Sₜ)^(1/2)εₜ. All parameters can change with the regime.
 
-**Régime-switching cointegration**
+**Regime-switching cointegration**
 
-La relación de cointegración puede existir solo en ciertos regímenes. Para pairs trading ES-NQ: el spread puede ser cointegrado en régimen normal pero divergir en risk-off.`,
+The cointegration relationship may exist only in certain regimes. For ES-NQ pairs trading: the spread may be cointegrated in normal regimes but diverge in risk-off.`,
             resources: [
               { name: "MSwM (R)", type: "library" },
               { name: "MSGARCH (R)", type: "library" },
@@ -323,46 +323,46 @@ La relación de cointegración puede existir solo en ciertos regímenes. Para pa
       {
         id: "03",
         title: "Hidden Markov Models",
-        subtitle: "El framework probabilístico para regímenes latentes",
+        subtitle: "The probabilistic framework for latent regimes",
         topics: [
           {
             id: "03-01",
-            title: "Arquitectura HMM — los tres problemas de Rabiner",
+            title: "HMM Architecture — Rabiner's three problems",
             tag: "core",
-            content: `Un HMM se define por λ = (A, B, π) donde A es la matriz de transición, B son las distribuciones de emisión, y π son las probabilidades iniciales. Rabiner (1989) definió los tres problemas fundamentales:
+            content: `An HMM is defined by λ = (A, B, π) where A is the transition matrix, B is the emission distributions, and π is the initial probabilities. Rabiner (1989) defined the three fundamental problems:
 
-**Problema 1: Evaluation — P(O | λ)**
+**Problem 1: Evaluation — P(O | λ)**
 
-¿Cuál es la probabilidad de la secuencia observada dado el modelo? Resuelto con el algoritmo forward. En escala log para estabilidad numérica.
+What is the probability of the observed sequence given the model? Solved with the forward algorithm. In log scale for numerical stability.
 
-**Problema 2: Decoding — Viterbi**
+**Problem 2: Decoding — Viterbi**
 
-¿Cuál es la secuencia más probable de estados latentes? Usa programación dinámica. El backtracking recover la secuencia óptima.
+What is the most probable sequence of latent states? Uses dynamic programming. Backtracking recovers the optimal sequence.
 
-**Problema 3: Learning — Baum-Welch**
+**Problem 3: Learning — Baum-Welch**
 
-EM para HMM. E-step calcula γₜ(i) y ξₜ(i,j). M-step actualiza A, B, π. Convergencia garantizada a máximo local.`,
+EM for HMM. E-step calculates γₜ(i) and ξₜ(i,j). M-step updates A, B, π. Convergence guaranteed to a local maximum.`,
             formulas: [
               {
-                label: "Algoritmo forward",
+                label: "Forward algorithm",
                 content: "\\alpha_t(j) = b_j(o_t) \\cdot \\sum_i \\alpha_{t-1}(i) \\cdot a_{ij}"
               },
               {
-                label: "Algoritmo backward",
+                label: "Backward algorithm",
                 content: "\\beta_t(i) = \\sum_j a_{ij} \\cdot b_j(o_{t+1}) \\cdot \\beta_{t+1}(j)"
               }
             ],
             codeExamples: [
               {
                 language: "python",
-                title: "HMM con hmmlearn",
+                title: "HMM with hmmlearn",
                 code: `from hmmlearn import hmm
 import numpy as np
 
-# Features: retornos, vol, skew
+# Features: returns, vol, skew
 X = np.column_stack([returns, realized_vol, skew])
 
-# Gaussian HMM con K=3 estados
+# Gaussian HMM with K=3 states
 model = hmm.GaussianHMM(
     n_components=3,
     covariance_type="full",
@@ -370,21 +370,21 @@ model = hmm.GaussianHMM(
     random_state=42
 )
 
-# Ajustar modelo
+# Fit model
 model.fit(X)
 
-# Secuencia de estados más probable (Viterbi)
+# Most probable state sequence (Viterbi)
 states = model.predict(X)
 
-# Probabilidades por estado
+# Probabilities by state
 probs = model.predict_proba(X)
 
-# Log-verosimilitud
+# Log-likelihood
 log_likelihood = model.score(X)`,
                 annotations: [
-                  "covariance_type='full' permite diferentes covarianzas por estado",
-                  "Ejecuta con múltiples seeds para evitar máximos locales",
-                  "predict_proba da las probabilidades de cada estado"
+                  "covariance_type='full' allows different covariances per state",
+                  "Run with multiple seeds to avoid local maxima",
+                  "predict_proba gives the probabilities of each state"
                 ]
               }
             ],
@@ -396,29 +396,29 @@ log_likelihood = model.score(X)`,
           },
           {
             id: "03-02",
-            title: "HMM en mercados — emisiones avanzadas y selección de K",
+            title: "HMM in markets — advanced emissions and K selection",
             tag: "advanced",
             content: `**Gaussian HMM vs GMM-HMM**
 
-Gaussian HMM: cada estado emite oₜ ~ N(μᵢ, Σᵢ). Limitación: una sola Gaussiana por estado no puede capturar distribuciones bimodales o fat tails. GMM-HMM: bᵢ(o) = Σₖ wᵢₖ·N(o; μᵢₖ, Σᵢₖ).
+Gaussian HMM: each state emits oₜ ~ N(μᵢ, Σᵢ). Limitation: a single Gaussian per state cannot capture bimodal distributions or fat tails. GMM-HMM: bᵢ(o) = Σₖ wᵢₖ·N(o; μᵢₖ, Σᵢₖ).
 
-**Student-t HMM para fat tails**
+**Student-t HMM for fat tails**
 
-Los retornos de NQ tienen kurtosis empírica de 6-12 (vs 3 Gaussiana). El Student-t HMM es más apropiado.
+NQ returns have an empirical kurtosis of 6-12 (vs 3 for Gaussian). The Student-t HMM is more appropriate.
 
-**Selección del número de estados K**
+**Selecting the number of states K**
 
-Métodos: BIC sobre HMM, Akaike HQ, cross-validated log-likelihood, interpretabilidad económica. Para trading práctico: K=2 o K=3 suelen ser suficientes y más estables OOS.`,
+Methods: BIC on HMM, Akaike HQ, cross-validated log-likelihood, economic interpretability. For practical trading: K=2 or K=3 are usually sufficient and more stable OOS.`,
             codeExamples: [
               {
                 language: "python",
-                title: "Seleccionar K con BIC",
+                title: "Select K with BIC",
                 code: `import numpy as np
 from hmmlearn import hmm
 
 X = your_features  # array (n_samples, n_features)
 
-# Probar K = 2, 3, 4, 5
+# Test K = 2, 3, 4, 5
 results = []
 for k in range(2, 6):
     model = hmm.GaussianHMM(n_components=k, n_iter=100)
@@ -430,36 +430,36 @@ for k in range(2, 6):
     
     results.append({"k": k, "bic": bic, "model": model})
 
-# Mejor K = el que minimiza BIC
+# Best K = the one that minimizes BIC
 best = min(results, key=lambda x: x["bic"])
-print(f"Mejor K: {best['k']}")`,
+print(f"Best K: {best['k']}")`,
                 annotations: [
-                  "BIC penaliza modelos complejos",
-                  "K=3 da bear/neutral/bull, K=4 añade crash",
-                  "Valida siempre out-of-sample"
+                  "BIC penalizes complex models",
+                  "K=3 gives bear/neutral/bull, K=4 adds crash",
+                  "Always validate out-of-sample"
                 ]
               }
             ]
           },
           {
             id: "03-03",
-            title: "HMM Multivariado — aplicaciones a portafolio",
+            title: "Multivariate HMM — portfolio applications",
             tag: "quant",
             content: `**Multivariate Gaussian HMM**
 
-Para un portfolio de m activos: oₜ ∈ ℝᵐ, bᵢ(o) = N(o; μᵢ, Σᵢ). El número de parámetros crece como m²/2. Opciones: (1) Diagonal Σᵢ, (2) Factor structure, (3) Shrinkage Ledoit-Wolf.
+For a portfolio of m assets: oₜ ∈ ℝᵐ, bᵢ(o) = N(o; μᵢ, Σᵢ). The number of parameters grows as m²/2. Options: (1) Diagonal Σᵢ, (2) Factor structure, (3) Shrinkage Ledoit-Wolf.
 
 **Input-Output HMM (IOHMM)**
 
-La matriz de transición A(uₜ) depende de una variable de entrada observable uₜ (ej. VIX, GEX, news sentiment). P(Sₜ=j | Sₜ₋₁=i, uₜ) = softmax(Wᵢⱼ · uₜ).`,
+The transition matrix A(uₜ) depends on an observable input variable uₜ (e.g., VIX, GEX, news sentiment). P(Sₜ=j | Sₜ₋₁=i, uₜ) = softmax(Wᵢⱼ · uₜ).`,
 diagram: {
               type: "mermaid",
-              title: "Arquitectura IOHMM",
+              title: "IOHMM Architecture",
               content: `flowchart TD
     A["VIX/GEX"] --> B["Input Layer"]
     B --> C{"HMM States"}
-    C -->|Bull| D["μ_alta, σ_baja"]
-    C -->|Bear| E["μ_baja, σ_alta"]
+    C -->|Bull| D["μ_high, σ_low"]
+    C -->|Bear| E["μ_low, σ_high"]
     C -->|Neutral| F["μ_0, σ_0"]
     D --> G["Portfolio Weights"]
     E --> G
@@ -471,26 +471,26 @@ diagram: {
       {
         id: "04",
         title: "Volatility Regimes",
-        subtitle: "La dimensión más crítica para trading",
+        subtitle: "The most critical dimension for trading",
         topics: [
           {
             id: "04-01",
-            title: "RS-GARCH, MRS-GARCH y familia GARCH con switching",
+            title: "RS-GARCH, MRS-GARCH and switching GARCH family",
             tag: "advanced",
-            content: `Los modelos GARCH capturan clustering de volatilidad, pero asumen dinámicas estacionarias. Los RS-GARCH permiten que los parámetros cambien entre regímenes.
+            content: `GARCH models capture volatility clustering, but assume stationary dynamics. RS-GARCH models allow parameters to switch between regimes.
 
 **Haas-Mittnik-Paolella (2004)**
 
-Cada régimen k tiene su propio proceso GARCH: hₖ,ₜ = ωₖ + αₖε²ₜ₋₁ + βₖhₖ,ₜ₋₁. La varianza total es la mezcla: E[ε²ₜ | Fₜ₋₁] = Σₖ P(Sₜ=k)·(hₖ,ₜ + μ²ₖ).
+Each regime k has its own GARCH process: hₖ,ₜ = ωₖ + αₖε²ₜ₋₁ + βₖhₖ,ₜ₋₁. The total variance is the mixture: E[ε²ₜ | Fₜ₋₁] = Σₖ P(Sₜ=k)·(hₖ,ₜ + μ²ₖ).
 
 **HAR-RV (Corsi 2009)**
 
-RVₜ = c + β_D·RVₜ₋₁ + β_W·RV^(w)ₜ₋₁ + β_M·RV^(m)ₜ₋₁ + εₜ. La versión MS-HAR-RV permite que los coeficientes cambien por régimen.`,
+RVₜ = c + β_D·RVₜ₋₁ + β_W·RV^(w)ₜ₋₁ + β_M·RV^(m)ₜ₋₁ + εₜ. The MS-HAR-RV version allows the coefficients to change by regime.`,
             regimeMatrixData: [
-              { label: "Bull + Low Vol", title: "Tendencia alcista tranquila", description: "Mejor para momentum", color: "#22c55e" },
-              { label: "Bull + High Vol", title: "Rally caótico", description: "Short squeeze activo", color: "#f59e0b" },
-              { label: "Bear + Low Vol", title: "Slow bleed", description: "Acumulación passive", color: "#a78bfa" },
-              { label: "Bear + High Vol", title: "Crash", description: "Evitar posiciones largas", color: "#ef4444" }
+              { label: "Bull + Low Vol", title: "Quiet uptrend", description: "Best for momentum", color: "#22c55e" },
+              { label: "Bull + High Vol", title: "Chaotic rally", description: "Active short squeeze", color: "#f59e0b" },
+              { label: "Bear + Low Vol", title: "Slow bleed", description: "Passive accumulation", color: "#a78bfa" },
+              { label: "Bear + High Vol", title: "Crash", description: "Avoid long positions", color: "#ef4444" }
             ],
             formulas: [
               {
@@ -501,7 +501,7 @@ RVₜ = c + β_D·RVₜ₋₁ + β_W·RV^(w)ₜ₋₁ + β_M·RV^(m)ₜ₋₁ + 
             codeExamples: [
               {
                 language: "python",
-                title: "HAR-RV con statsmodels",
+                title: "HAR-RV with statsmodels",
                 code: `import numpy as np
 import pandas as pd
 from statsmodels.regression.linear_model import OLS
@@ -510,15 +510,15 @@ def har_rv(rv_series):
     """Heterogeneous Autoregressive RV"""
     df = pd.DataFrame({'rv': rv_series})
     
-    # Calcular promedios semanales y mensuales
+    # Calculate weekly and monthly averages
     df['rv_w'] = df['rv'].rolling(5).mean()
     df['rv_m'] = df['rv'].rolling(22).mean()
     
-    # Shift para evitar look-ahead
+    # Shift to avoid look-ahead
     df['rv_next'] = df['rv'].shift(-1)
     df = df.dropna()
     
-    # Regresión HAR
+    # HAR Regression
     X = df[['rv', 'rv_w', 'rv_m']]
     X = sm.add_constant(X)
     y = df['rv_next']
@@ -526,9 +526,9 @@ def har_rv(rv_series):
     model = OLS(y, X).fit()
     return model`,
                 annotations: [
-                  "RV debe ser realized volatility (ej. Parkinson, Garman-Klass)",
-                  "Usa rv.shift(-1) para predecir el siguiente día sin look-ahead",
-                  "β_D > β_M indica regímenes de alta reacción al shock inmediato"
+                  "RV must be realized volatility (e.g. Parkinson, Garman-Klass)",
+                  "Use rv.shift(-1) to predict the next day without look-ahead",
+                  "β_D > β_M indicates regimes with high reaction to immediate shock"
                 ]
               }
             ]
@@ -537,54 +537,54 @@ def har_rv(rv_series):
             id: "04-02",
             title: "VIX Term Structure Regimes — contango, backwardation, kink",
             tag: "advanced",
-            content: `La curva de futuros VIX (VX1, VX2,...,VX8) define 3 regímenes estructurales:
+            content: `The VIX futures curve (VX1, VX2,...,VX8) defines 3 structural regimes:
 
-**Contango normal**: VX1 < VX2 < ... < VX8. Mercado en calma, sellers de vol se benefician del roll yield negativo.
+**Normal Contango**: VX1 < VX2 < ... < VX8. Calm market, vol sellers benefit from negative roll yield.
 
-**Backwardation severa**: VX1 >> VX2. Crisis activa, spot VIX extremo pero mercado espera normalización.
+**Severe Backwardation**: VX1 >> VX2. Active crisis, extreme spot VIX but market expects normalization.
 
-**Kink structure**: VX2 > VX1 pero VX3 < VX2. Incertidumbre concentrada en el corto plazo.
+**Kink structure**: VX2 > VX1 but VX3 < VX2. Uncertainty concentrated in the short term.
 
 **VVIX — volatility of volatility regime**
 
-VVIX > 130 típicamente precede spikes de VIX. El ratio VIX/VVIX tiene propiedades de mean reversion más robustas.`,
+VVIX > 130 typically precedes VIX spikes. The VIX/VVIX ratio has more robust mean reversion properties.`,
             comparisonData: {
-              headers: ["Régimen", "VX1 vs VX2", "Roll Yield", "Estrategia"],
+              headers: ["Regime", "VX1 vs VX2", "Roll Yield", "Strategy"],
               rows: [
-                ["Contango", "VX1 < VX2", "-5% a -15% mensual", "Short vol"],
-                ["Backwardation", "VX1 > VX2", "+5% a +20% mensual", "Long vol"],
-                ["Kink", "VX2 > VX1 > VX3", "Variable", "Espera evento"]
+                ["Contango", "VX1 < VX2", "-5% to -15% monthly", "Short vol"],
+                ["Backwardation", "VX1 > VX2", "+5% to +20% monthly", "Long vol"],
+                ["Kink", "VX2 > VX1 > VX3", "Variable", "Wait for event"]
               ]
             },
             callouts: [
-              { type: "info", title: "Leading indicator", text: "Un shift de contango a backwardation (VX1 cruzando VX2) precede episodios de high-vol de 5-15 días." }
+              { type: "info", title: "Leading indicator", text: "A shift from contango to backwardation (VX1 crossing VX2) precedes high-vol episodes of 5-15 days." }
             ]
           },
           {
             id: "04-03",
             title: "Vol Surface Regimes — skew, kurtosis, ATM/OTM dynamics",
             tag: "quant",
-            content: `**Parametrización SVI de la superficie**
+            content: `**SVI Parametrization of the surface**
 
-El modelo SVI (Gatheral 2004): w(k) = a + b[ρ(k-m) + √((k-m)² + σ²)]. Parámetros: a = vol ATM, b = slope, ρ = skew, m = desplazamiento, σ = curvature.
+The SVI model (Gatheral 2004): w(k) = a + b[ρ(k-m) + √((k-m)² + σ²)]. Parameters: a = ATM vol, b = slope, ρ = skew, m = shift, σ = curvature.
 
-**Regímenes de skew — put premium vs. call premium**
+**Skew regimes — put premium vs. call premium**
 
-El put skew (25Δ put IV - ATM IV) es el driver de regímenes en equity vol. Skew normal (put > call): protección costosa. Skew invertido (call > put): short squeeze en curso.
+Put skew (25Δ put IV - ATM IV) is the driver of regimes in equity vol. Normal skew (put > call): expensive protection. Inverted skew (call > put): short squeeze in progress.
 
 **Volatility surface PCA**
 
-PC1 ≈ nivel general (~80% varianza), PC2 ≈ slope/skew (~10%), PC3 ≈ curvature (~5%). Un movimiento de 2σ en PC2 sin movimiento en PC1 indica cambio de régimen de opciones sin crack en el underlying.`,
+PC1 ≈ general level (~80% variance), PC2 ≈ slope/skew (~10%), PC3 ≈ curvature (~5%). A 2σ move in PC2 without a move in PC1 indicates a change in options regime without a crack in the underlying.`,
             codeExamples: [
               {
                 language: "python",
-                title: "Calcular skew de opciones",
+                title: "Calculate option skew",
                 code: `def calculate_25_delta_skew(iv_surface):
     """
     Calcula el skew como 25D Put IV - ATM IV
     iv_surface: dict con strikes e IVs
     """
-    # ATM IV (strike más cercano al spot)
+    # ATM IV (strike closest to spot)
     atm_strike = min(iv_surface.keys(), 
                     key=lambda k: abs(k - spot))
     atm_iv = iv_surface[atm_strike]
@@ -598,17 +598,17 @@ PC1 ≈ nivel general (~80% varianza), PC2 ≈ slope/skew (~10%), PC3 ≈ curvat
     
     return skew
 
-# Interpretación
+# Interpretation
 if skew > 5:
-    print("Skew normal: mercado defensivo, protección costosa")
+    print("Normal skew: defensive market, expensive protection")
 elif skew < -2:
-    print("Skew invertido: short squeeze, demanda calls")
+    print("Inverted skew: short squeeze, calls demand")
 else:
-    print("Skew plano: transición o incertidumbre bidireccional")`,
+    print("Flat skew: transition or two-way uncertainty")`,
                 annotations: [
-                  "Un skew positivo alto indica fear premium",
-                  "Skew invertido puede preceder rallies",
-                  "Trackea el 25Δ risk reversal para cambios de régimen"
+                  "A high positive skew indicates fear premium",
+                  "Inverted skew can precede rallies",
+                  "Track the 25Δ risk reversal for regime changes"
                 ]
               }
             ]
@@ -617,41 +617,41 @@ else:
       },
       {
         id: "05",
-        title: "Microestructura & Order Flow Regimes",
-        subtitle: "Regímenes a nivel de trades y DOM",
+        title: "Microstructure & Order Flow Regimes",
+        subtitle: "Regimes at the level of trades and DOM",
         topics: [
           {
             id: "05-01",
-            title: "PIN y VPIN — Probability of Informed Trading",
+            title: "PIN and VPIN — Probability of Informed Trading",
             tag: "quant",
-            content: `El modelo EKOP (Easley et al. 1996) define PIN como la fracción del order flow que proviene de traders informados.
+            content: `The EKOP model (Easley et al. 1996) defines PIN as the fraction of the order flow that comes from informed traders.
 
-**Modelo EKOP**
+**EKOP Model**
 
-Con prob α hay un evento de información (bueno con prob 1-δ, malo con prob δ). PIN = αμ/(αμ+2ε). Estimación por MLE es difícil — usar la factorización de Yan & Zhang (2012).
+With probability α there is an information event (good with probability 1-δ, bad with probability δ). PIN = αμ/(αμ+2ε). Estimation by MLE is difficult — use the Yan & Zhang (2012) factorization.
 
 **VPIN — Volume-Synchronized PIN**
 
-VPIN usa volumen como reloj: divide en buckets de τ unidades. VPIN_n = (Σᵢ |Vᵢ^B - Vᵢ^S|) / (n·τ). VPIN > 0.5 precede episodios de alta volatilidad como el Flash Crash de 2010.`,
+VPIN uses volume as a clock: it divides volume into buckets of τ units. VPIN_n = (Σᵢ |Vᵢ^B - Vᵢ^S|) / (n·τ). VPIN > 0.5 precedes high volatility episodes like the 2010 Flash Crash.`,
             formulas: [
               {
-                label: "VPIN con L buckets",
+                label: "VPIN with L buckets",
                 content: "VPIN_n = \\frac{1}{L} \\sum_{i=n-L+1}^{n} \\frac{|V_i^B - V_i^S|}{V_{bucket}}"
               }
             ],
             codeExamples: [
               {
                 language: "python",
-                title: "Calcular VPIN en NQ",
+                title: "Calculate VPIN on NQ",
                 code: `import numpy as np
 
 def calculate_vpin(trades_df, bucket_size=50):
     """
-    trades_df: DataFrame con columnas ['volume', 'buy_sell']
-               buy_sell = 1 para compras, -1 para ventas
-    bucket_size: número de contratos por bucket
+    trades_df: DataFrame with columns ['volume', 'buy_sell']
+               buy_sell = 1 for buy, -1 for sell
+    bucket_size: number of contracts per bucket
     """
-    # Clasificar trades por bulk volume classification
+    # Classify trades by bulk volume classification
     n_buckets = int(trades_df['volume'].sum() / bucket_size)
     
     vpin_history = []
@@ -661,90 +661,90 @@ def calculate_vpin(trades_df, bucket_size=50):
         
         bucket = trades_df.iloc[start:end]
         
-        # Volume iniciado por compradores
+        # Volume initiated by buyers
         v_b = bucket[bucket['buy_sell'] == 1]['volume'].sum()
         v_s = bucket[bucket['buy_sell'] == -1]['volume'].sum()
         
-        # VPIN del bucket
+        # VPIN of the bucket
         vpin = abs(v_b - v_s) / bucket_size
         vpin_history.append(vpin)
     
-    # VPIN promedio de los últimos 50 buckets
+    # Average VPIN of the last 50 buckets
     return np.mean(vpin_history[-50:])
 
-# Interpretación
+# Interpretation
 vpin = calculate_vpin(nq_trades)
 if vpin > 0.5:
-    print("Order flow tóxico: mayor momentum, menor reversión")
-    print("Riesgo de moves rápidos y unidireccionales")`,
+    print("Toxic order flow: higher momentum, lower reversion")
+    print("Risk of fast and unidirectional moves")`,
                 annotations: [
-                  "Bucket size de 50 contratos es estándar para NQ",
-                  "Usa bulk volume classification para clasificar trades",
-                  "VPIN alto indica régimen unfavorable para market-making"
+                  "Bucket size of 50 contracts is standard for NQ",
+                  "Use bulk volume classification to classify trades",
+                  "High VPIN indicates unfavorable regime for market-making"
                 ]
               }
             ]
           },
           {
             id: "05-02",
-            title: "Regímenes AMT y DOM — absorción, agotamiento, POC shifting",
+            title: "AMT and DOM Regimes — absorption, exhaustion, POC shifting",
             tag: "advanced",
-            content: `Desde Auction Market Theory, los regímenes se definen por el estado de la subasta: ¿está el mercado facilitando o rechazando precios?
+            content: `From Auction Market Theory, regimes are defined by the state of the auction: is the market facilitating or rejecting prices?
 
-**Balance vs. Desequilibrio**
+**Balance vs. Imbalance**
 
-Balance: delta ≈ 0, DOM equilibrado, precio en VPOC ± 1σ. Desequilibrio: presión compradora/vendedora sostenida, delta acumulativo con bias. La transición balance→desequilibrio es el setup más potente.
+Balance: delta ≈ 0, balanced DOM, price at VPOC ± 1σ. Imbalance: sustained buying/selling pressure, cumulative delta with bias. The balance→imbalance transition is the most powerful setup.
 
 **DOM Absorption vs. Exhaustion**
 
-Absorción: ratio volumen ejecutado/tamaño inicial del bid/ask > 2. Agotamiento: correlación entre Δprecio y Δdelta cae de 0.8 a 0.3.
+Absorption: executed volume / initial size of bid/ask ratio > 2. Exhaustion: correlation between Δprice and Δdelta drops from 0.8 to 0.3.
 
 **POC shifting regimes**
 
-POC migra consistentemente = régimen de rotación de valor. POC migra en contra del precio = divergencia, rotación inminente.`,
+POC migrates consistently = value rotation regime. POC migrates against the price = divergence, imminent rotation.`,
 diagram: {
               type: "mermaid",
-              title: "Regímenes de Auction",
+              title: "Auction Regimes",
               content: `stateDiagram-v2
     [*] --> Balance
-    Balance --> DesequilibrioAlcista : Absorption confirmada
-    Balance --> DesequilibrioBajista : Selling pressure
-    DesequilibrioAlcista --> Balance : Reversión
-    DesequilibrioAlcista --> Breakout : Exhaustion
-    DesequilibrioBajista --> Balance : Covering
-    DesequilibrioBajista --> Breakdown : Exhaustion
-    Breakout --> [*] : Nuevo rango
-    Breakdown --> [*] : Nuevo rango`
+    Balance --> ImbalanceBullish : Confirmed absorption
+    Balance --> ImbalanceBearish : Selling pressure
+    ImbalanceBullish --> Balance : Reversion
+    ImbalanceBullish --> Breakout : Exhaustion
+    ImbalanceBearish --> Balance : Covering
+    ImbalanceBearish --> Breakdown : Exhaustion
+    Breakout --> [*] : New range
+    Breakdown --> [*] : New range`
             }
           },
           {
             id: "05-03",
             title: "Footprint Regimes — delta divergence, trapped traders, stacked imbalances",
             tag: "advanced",
-            content: `**Delta Divergence como señal de régimen**
+            content: `**Delta Divergence as a regime signal**
 
-Si el precio hace HH pero el delta acumulado hace LH: régimen de distribución activa — hay selling oculto absorbiendo la demanda. Correlación < 0.3 con tendencia activa = señal.
+If the price makes HH but the cumulative delta makes LH: active distribution regime — there is hidden selling absorbing the demand. Correlation < 0.3 with active trend = signal.
 
-**Stacked Imbalances — zonas de régimen**
+**Stacked Imbalances — regime zones**
 
-3+ celdas consecutivas con imbalance ≥ 300%. Estas zonas actúan como magnets. Probabilidad de fill en 5 sesiones: 60-75%.
+3+ consecutive cells with imbalance ≥ 300%. These zones act as magnets. Probability of fill in 5 sessions: 60-75%.
 
-**Trapped Traders — régimen de squeeze**
+**Trapped Traders — squeeze regime**
 
-Barras con delta > +X seguidas de precio cayendo debajo del low. Squeeze activo cuando hay trapped traders en múltiples timeframes simultáneamente.`,
+Bars with delta > +X followed by price falling below the low. Active squeeze when there are trapped traders in multiple timeframes simultaneously.`,
             callouts: [
-              { type: "info", title: "Regime Dashboard", text: "Combina VPIN, POC migration velocity, delta divergence score, y stacked imbalance fill probability. Más accionable que cualquier HMM estadístico." }
+              { type: "info", title: "Regime Dashboard", text: "Combines VPIN, POC migration velocity, delta divergence score, and stacked imbalance fill probability. More actionable than any statistical HMM." }
             ],
             exercise: {
-              question: "¿Cuál NO es un indicador de régimen de distribution activa (selling oculto)?",
+              question: "Which is NOT an indicator of an active distribution regime (hidden selling)?",
               options: [
-                "Precio hace Higher High, delta hace Lower High",
-                "VPIN > 60th percentile histórico",
-                "POC migrando consistentemente hacia arriba con precio",
-                "Stacked imbalance de venta en resistencia"
+                "Price makes Higher High, delta makes Lower High",
+                "VPIN > historical 60th percentile",
+                "POC migrating consistently upward with price",
+                "Stacked sell imbalance at resistance"
               ],
               correctAnswer: 2,
-              explanation: "POC migrando hacia arriba con precio indica acumulación (buying oculto), no distribution. Distribution implica precio subiendo pero delta divergiendo negativamente."
+              explanation: "POC migrating upward with price indicates accumulation (hidden buying), not distribution. Distribution implies price rising but delta diverging negatively."
             }
           }
         ]
@@ -752,31 +752,31 @@ Barras con delta > +X seguidas de precio cayendo debajo del low. Squeeze activo 
       {
         id: "06",
         title: "Correlation & Cross-Asset Regimes",
-        subtitle: "Cuando todo se mueve junto (o no)",
+        subtitle: "When everything moves together (or not)",
         topics: [
           {
             id: "06-01",
             title: "DCC-GARCH — Dynamic Conditional Correlation",
             tag: "advanced",
-            content: `Engle (2002): el DCC-GARCH modela correlaciones que cambian en el tiempo sin la explosión de parámetros del BEKK.
+            content: `Engle (2002): DCC-GARCH models time-varying correlations without the parameter explosion of BEKK.
 
-**Especificación DCC en dos etapas**
+**Two-stage DCC specification**
 
-Etapa 1: GARCH univariado para cada activo. Etapa 2: modelar la correlación dinámica: Qₜ = (1-α-β)Q̄ + α·ẑₜ₋₁ẑ'ₜ₋₁ + β·Qₜ₋₁.
+Stage 1: univariate GARCH for each asset. Stage 2: model dynamic correlation: Qₜ = (1-α-β)Q̄ + α·ẑₜ₋₁ẑ'ₜ₋₁ + β·Qₜ₋₁.
 
-**Correlation regimes desde DCC**
+**Correlation regimes from DCC**
 
-Una vez estimado DCC, aplicar HMM sobre la serie de correlaciones dinámicas ρₜ. Régimen 1 (baja correlación): diversificación funciona. Régimen 2 (alta correlación): risk-off, todo cae junto.
+Once DCC is estimated, apply HMM to the dynamic correlation series ρₜ. Regime 1 (low correlation): diversification works. Regime 2 (high correlation): risk-off, everything falls together.
 
 **Asymmetric DCC (ADCC)**
 
-Las correlaciones suben más rápido en downturns. Qₜ = (1-α-β-γ/2)Q̄ + α·ẑₜ₋₁ẑ'ₜ₋₁ + γ·ñₜ₋₁ñ'ₜ₋₁ + β·Qₜ₋₁.`,
+Correlations rise faster in downturns. Qₜ = (1-α-β-γ/2)Q̄ + α·ẑₜ₋₁ẑ'ₜ₋₁ + γ·ñₜ₋₁ñ'ₜ₋₁ + β·Qₜ₋₁.`,
             comparisonData: {
-              headers: ["Modelo", "Parámetros", "Ventaja", "Desventaja"],
+              headers: ["Model", "Parameters", "Advantage", "Disadvantage"],
               rows: [
-                ["DCC-GARCH", "O(m)", "Escalable", "Asume simetría"],
-                ["BEKK", "O(m²)", "Completo", "Muchos parámetros"],
-                ["ADCC", "O(m)", "Asimétrico", "Más complejo"]
+                ["DCC-GARCH", "O(m)", "Scalable", "Assumes symmetry"],
+                ["BEKK", "O(m²)", "Complete", "Many parameters"],
+                ["ADCC", "O(m)", "Asymmetric", "More complex"]
               ]
             },
             resources: [
@@ -787,30 +787,30 @@ Las correlaciones suben más rápido en downturns. Qₜ = (1-α-β-γ/2)Q̄ + α
           },
           {
             id: "06-02",
-            title: "Copulas para regímenes de dependencia extrema",
+            title: "Copulas for extreme dependence regimes",
             tag: "quant",
-            content: `**Teorema de Sklar**
+            content: `**Sklar's Theorem**
 
-F(x,y) = C(F_X(x), F_Y(y)) donde C es una cópula. Las cópulas separan la dependencia de las marginales. Para NQ-ES: cópula de Gumbel (cola superior) para rallies; cópula de Clayton (cola inferior) para crashes.
+F(x,y) = C(F_X(x), F_Y(y)) where C is a copula. Copulas separate dependence from marginals. For NQ-ES: Gumbel copula (upper tail) for rallies; Clayton copula (lower tail) for crashes.
 
-**Mixture copulas para regímenes**
+**Mixture copulas for regimes**
 
-C(u,v) = p·C₁(u,v) + (1-p)·C₂(u,v). C₁ = Clayton (crash), C₂ = Gumbel (rally), C₃ = Gaussian (normal). El peso p depende de condiciones de mercado.
+C(u,v) = p·C₁(u,v) + (1-p)·C₂(u,v). C₁ = Clayton (crash), C₂ = Gumbel (rally), C₃ = Gaussian (normal). The weight p depends on market conditions.
 
 **Contagion vs. Interdependence**
 
-Forbes & Rigobon (2002): si la correlación ajustada por vol no cambia, es interdependence normal; si cambia significativamente, es contagion verdadera.`,
+Forbes & Rigobon (2002): if the volatility-adjusted correlation does not change, it is normal interdependence; if it changes significantly, it is true contagion.`,
             codeExamples: [
               {
                 language: "python",
-                title: "Copula mixture con scipy",
+                title: "Copula mixture with scipy",
                 code: `from scipy import stats
 import numpy as np
 
 def mixture_copula(u, v, weights, copulas):
     """
-    Mixture de cópulas
-    u, v: uniforms (transformadas de marginales)
+    Copula mixture
+    u, v: uniforms (transforms of marginals)
     weights: [w1, w2, ...] sum=1
     copulas: [copula1, copula2, ...]
     """
@@ -819,7 +819,7 @@ def mixture_copula(u, v, weights, copulas):
         c += w * cop.cdf(u, v)
     return c
 
-# Cópulas Archimedianas
+# Archimedean Copulas
 clayton = stats.archimedean.copula('clayton', theta=2)
 gumbel = stats.archimedean.copula('gumbel', theta=2)
 gaussian = stats.multivariate_normal(cov=[[1, 0.5], [0.5, 1]])
@@ -831,64 +831,64 @@ mixture = lambda u, v: (
     0.3 * gaussian.cdf(u, v)
 )`,
                 annotations: [
-                  "Clayton captura dependencia en colas inferiores (crashes)",
-                  "Gumbel captura dependencia en colas superiores (rallies)",
-                  "La mixture permite que la dependencia cambie con el régimen"
+                  "Clayton captures dependence in lower tails (crashes)",
+                  "Gumbel captures dependence in upper tails (rallies)",
+                  "The mixture allows the dependence to change with the regime"
                 ]
               }
             ]
           },
           {
             id: "06-03",
-            title: "Risk-On / Risk-Off — cuantificación y leading indicators",
+            title: "Risk-On / Risk-Off — quantification and leading indicators",
             tag: "core",
             content: `**PCA-based RORO scoring**
 
-Construir RORO score: (1) Seleccionar pares riesgo/refugio: NQ/treasuries, HY/IG spreads, Cu/Au, AUD/JPY, EM/DM. (2) Normalizar a z-score con ventana rolling de 252 días. (3) PCA: PC1 ≈ factor RORO (>60% varianza). (4) PC1 > +1σ: risk-on; < -1σ: risk-off.
+Construct RORO score: (1) Select risk/haven pairs: NQ/treasuries, HY/IG spreads, Cu/Au, AUD/JPY, EM/DM. (2) Normalize to z-score with a 252-day rolling window. (3) PCA: PC1 ≈ RORO factor (>60% variance). (4) PC1 > +1σ: risk-on; < -1σ: risk-off.
 
 **Cross-asset regime confirmation**
 
-Para validar un régimen en equities, buscar confirmación en: credit spreads, vol curve, currency carry, commodity-equity relation. Cuando 3+ dimensiones concuerdan: señal fuerte.`,
+To validate a regime in equities, search for confirmation in: credit spreads, vol curve, currency carry, commodity-equity relation. When 3+ dimensions agree: strong signal.`,
             formulas: [{
-              label: "RORO Score compuesto (5 factores)",
+              label: "Composite RORO Score (5 factors)",
               content: "RORO_t = \\frac{1}{5} \\sum_i z\\_score(factor_i, t, window=252)"
             }],
             callouts: [
-              { type: "info", title: "Factores del RORO", text: "Cu/Au, AUD/JPY, HY spread, VIX term slope, NQ/TLT. Trackear PC1 diariamente como indicador de régimen." }
+              { type: "info", title: "RORO Factors", text: "Cu/Au, AUD/JPY, HY spread, VIX term slope, NQ/TLT. Track PC1 daily as a regime indicator." }
             ]
           }
         ]
       },
       {
         id: "07",
-        title: "Machine Learning para Regímenes",
-        subtitle: "Más allá de los modelos paramétricos",
+        title: "Machine Learning for Regimes",
+        subtitle: "Beyond parametric models",
         topics: [
           {
             id: "07-01",
-            title: "Unsupervised clustering — GMM, K-means, DBSCAN en retornos",
+            title: "Unsupervised clustering — GMM, K-means, DBSCAN on returns",
             tag: "advanced",
             content: `**GMM — Gaussian Mixture Models**
 
-Caso especial de HMM donde la secuencia de estados es independiente. K=3-4 GMM sobre features (r, |r|, vol, skew) da regímenes diferenciados. Después: estimar matriz de transición empírica — si es más ordenada que aleatoria, tiene estructura de Markov.
+Special case of HMM where the sequence of states is independent. K=3-4 GMM on features (r, |r|, vol, skew) gives differentiated regimes. Then: estimate the empirical transition matrix — if it is more ordered than random, it has a Markov structure.
 
-**K-means — limitaciones**
+**K-means — limitations**
 
-Asume clusters esféricos (covarianzas iguales). El problema: puede asignar puntos temporalmente discontinuos al mismo "régimen". Solución: incluir features de momentum temporal.
+Assumes spherical clusters (equal covariances). The problem: it can assign temporally discontinuous points to the same "regime". Solution: include temporal momentum features.
 
-**DBSCAN para anomalías**
+**DBSCAN for anomalies**
 
-Identifica outliers (puntos no asignados a ningún cluster) = barras anómalas = potenciales indicadores de cambio de régimen. ε = percentil 90 de distancias.`,
+Identifies outliers (points not assigned to any cluster) = anomalous bars = potential indicators of regime change. ε = 90th percentile of distances.`,
             codeExamples: [
               {
                 language: "python",
-                title: "GMM clustering para regímenes",
+                title: "GMM clustering for regimes",
                 code: `from sklearn.mixture import GaussianMixture
 import numpy as np
 
 def cluster_regimes(features, k_range=range(2, 6)):
     """
-    Clustering de features para regímenes
+    Clustering of features for regimes
     features: (n_samples, n_features)
     """
     bic_scores = []
@@ -903,20 +903,20 @@ def cluster_regimes(features, k_range=range(2, 6)):
         )
         gmm.fit(features)
         
-        # BIC para selección de K
+        # BIC for K selection
         bic = gmm.bic(features)
         bic_scores.append(bic)
         models[k] = gmm
     
     best_k = k_range[np.argmin(bic_scores)]
     
-    # Asignar regímenes
+    # Assign regimes
     regime_probs = models[best_k].predict_proba(features)
     regimes = models[best_k].predict(features)
     
     return regimes, regime_probs, best_k
 
-# Features para NQ
+# Features for NQ
 features = np.column_stack([
     returns,
     abs(returns),
@@ -926,30 +926,30 @@ features = np.column_stack([
 
 regimes, probs, k = cluster_regimes(features)`,
                 annotations: [
-                  "Ejecuta con n_init=20 para evitar máximos locales",
-                  "BIC minimizado = mejor trade-off complejidad/fit",
-                  "predict_proba da probabilidades de pertenecer a cada régimen"
+                  "Run with n_init=20 to avoid local maxima",
+                  "Minimized BIC = best complexity/fit trade-off",
+                  "predict_proba gives probabilities of belonging to each regime"
                 ]
               }
             ]
           },
           {
             id: "07-02",
-            title: "BOCPD — Bayesian Online Changepoint Detection en tiempo real",
+            title: "BOCPD — Bayesian Online Changepoint Detection in real time",
             tag: "quant",
-            content: `Adams & MacKay (2007): el framework más elegante para detección de regímenes en tiempo real. rₜ = "run length" = tiempo desde el último changepoint.
+            content: `Adams & MacKay (2007): the most elegant framework for real-time regime detection. rₜ = "run length" = time since the last changepoint.
 
-**Arquitectura BOCPD**
+**BOCPD Architecture**
 
-En cada nuevo dato xₜ, mantiene P(rₜ | x₁:ₜ). Hazard function: h(r) = 1/λ donde λ = duración esperada del régimen. Usar λ = 63 (trimestre) para regímenes diarios.
+At each new data point xₜ, it maintains P(rₜ | x₁:ₜ). Hazard function: h(r) = 1/λ where λ = expected duration of the regime. Use λ = 63 (quarter) for daily regimes.
 
-**BOCPD con modelos conjugados**
+**BOCPD with conjugate models**
 
-Gaussiano con varianza desconocida → Normal-Inverse-Gamma prior. El posterior se actualiza recursivamente. Predictive probability es Student-t. Esto hace BOCPD O(n) por barras — implementable en tiempo real.
+Gaussian with unknown variance → Normal-Inverse-Gamma prior. The posterior is updated recursively. Predictive probability is Student-t. This makes BOCPD O(n) per bar — implementable in real time.
 
 **Truncated BOCPD**
 
-Truncar a los L más probables (ej. L=50). Pruning cuando P(rₜ = r) < 10⁻⁶.`,
+Truncate to the L most probable (e.g. L=50). Pruning when P(rₜ = r) < 10⁻⁶.`,
             formulas: [
               {
                 label: "Hazard function",
@@ -963,35 +963,35 @@ Truncar a los L más probables (ej. L=50). Pruning cuando P(rₜ = r) < 10⁻⁶
             codeExamples: [
               {
                 language: "python",
-                title: "BOCPD con bayesian_changepoint_detection",
+                title: "BOCPD with bayesian_changepoint_detection",
                 code: `from bayesian_changepoint_detection.online_changepoint_detection import OnlineChangepointDetection
 from bayesian_changepoint_detection.priors import const_prior
 import numpy as np
 
-# Modelo conjugado: Normal-Inverse-Gamma
-hazard = lambda r: 1/63  # λ = 63 días
+# Conjugate model: Normal-Inverse-Gamma
+hazard = lambda r: 1/63  # λ = 63 days
 prior = const_prior(lambda t: t)
 
 ocd = OnlineChangepointDetection(hazard, prior)
 
-# Run length distribution en cada nuevo dato
+# Run length distribution at each new data point
 def update_bocpd(new_observation):
     global ocd
     ocd.add_observation(new_observation)
     return ocd.run_length_probabilities[-1]
 
-# Detectar cambio de régimen
+# Detect regime change
 run_length = update_bocpd(new_data_point)
-max_run_length = np.argmax(run_length)  # run length más probable
+max_run_length = np.argmax(run_length)  # most probable run length
 prob_changepoint = run_length[0]  # P(r_t = 0)
 
 if prob_changepoint > 0.5:
-    print("Cambio de régimen detectado!")
-    print(f"Run length más probable: {max_run_length} barras")`,
+    print("Regime change detected!")
+    print(f"Most probable run length: {max_run_length} bars")`,
                 annotations: [
-                  "λ = 63 significa duración esperada de 63 días por régimen",
-                  "run_length[0] es la probabilidad de que el cambio sea AHORA",
-                  "Cuando run_length[0] > 0.5, el régimen probablemente cambió"
+                  "λ = 63 means expected duration of 63 days per regime",
+                  "run_length[0] is the probability that the change is NOW",
+                  "When run_length[0] > 0.5, the regime has probably changed"
                 ]
               }
             ]
@@ -1000,22 +1000,22 @@ if prob_changepoint > 0.5:
             id: "07-03",
             title: "Deep Learning — LSTM regimes, autoencoders, attention",
             tag: "advanced",
-            content: `**LSTM para clasificación de regímenes**
+            content: `**LSTM for regime classification**
 
-Arquitectura: LSTM(128) → Dropout(0.3) → LSTM(64) → Dense(K, softmax). Input: ventana de T barras de features. Output: probabilidades de régimen. El problema es la label generation — usar GMM o HMM para pseudo-labels.
+Architecture: LSTM(128) → Dropout(0.3) → LSTM(64) → Dense(K, softmax). Input: window of T feature bars. Output: regime probabilities. The problem is label generation — use GMM or HMM for pseudo-labels.
 
-**Variational Autoencoder para regímenes latentes**
+**Variational Autoencoder for latent regimes**
 
-VAE comprime xₜ en espacio latente z de dimensión 2-4. El espacio latente se organiza en clusters = regímenes empíricos. Ventaja: no asume distribución de emisión específica.
+VAE compresses xₜ into a latent space z of dimension 2-4. The latent space is organized into clusters = empirical regimes. Advantage: does not assume a specific emission distribution.
 
 **Transformer-based regime detection**
 
-Self-attention captura dependencias largas. Temporal Fusion Transformer (TFT) con static covariates (VIX, time-of-year) y time-varying inputs (returns, order flow). El attention map revela períodos históricos similares al presente.`,
+Self-attention captures long dependencies. Temporal Fusion Transformer (TFT) with static covariates (VIX, time-of-year) and time-varying inputs (returns, order flow). The attention map reveals historical periods similar to the present.`,
             callouts: [
-              { type: "warning", title: "Data regime drift", text: "Los regímenes del pasado (2008-2015) son cualitativamente diferentes a los actuales (2020-2025). Un LSTM entrenado en 2010-2018 puede ser inútil para 2024. Usar expanding window cross-validation." }
+              { type: "warning", title: "Data regime drift", text: "Regimes of the past (2008-2015) are qualitatively different from current ones (2020-2025). An LSTM trained on 2010-2018 may be useless for 2024. Use expanding window cross-validation." }
             ],
             exercise: {
-              question: "¿Cuál es el principal problema del deep learning para detección de regímenes en trading?",
+              question: "What is the main problem of deep learning for regime detection in trading?",
               options: [
                 "Overfitting",
                 "Data regime drift",
@@ -1023,7 +1023,7 @@ Self-attention captura dependencias largas. Temporal Fusion Transformer (TFT) co
                 "Lack of labels"
               ],
               correctAnswer: 1,
-              explanation: "Los regímenes del pasado son cualitativamente diferentes a los actuales. Un modelo entrenado en datos históricos puede no generalizar al régimen actual. Expanding window CV y monitoreo OOS constante son esenciales."
+              explanation: "Regimes of the past are qualitatively different from current ones. A model trained on historical data may not generalize to the current regime. Expanding window CV and constant OOS monitoring are essential."
             }
           }
         ]
@@ -1031,37 +1031,37 @@ Self-attention captura dependencias largas. Temporal Fusion Transformer (TFT) co
       {
         id: "08",
         title: "Options Market Regimes",
-        subtitle: "El mercado de opciones como regime indicator",
+        subtitle: "The options market as a regime indicator",
         topics: [
           {
             id: "08-01",
-            title: "GEX y DEX Regimes — la física del mercado de opciones",
+            title: "GEX and DEX Regimes — the physics of the options market",
             tag: "advanced",
-            content: `Gamma Exposure (GEX) captura cuánto delta hedging los dealers de opciones necesitan hacer — esto afecta directamente la dinámica de precios del underlying.
+            content: `Gamma Exposure (GEX) captures how much delta hedging options dealers need to do — this directly affects the price dynamics of the underlying.
 
 **GEX Regimes**
 
-GEX positivo (dealer long gamma): compradores en caídas, vendedores en rallies — actúan como amortiguadores. GEX negativo (dealer short gamma): vendedores en caídas, compradores en rallies — amplifican movimientos. La transición GEX+ → GEX- es uno de los cambios de régimen más actionable.
+Positive GEX (dealer long gamma): buyers on drops, sellers on rallies — they act as buffers. Negative GEX (dealer short gamma): sellers on drops, buyers on rallies — they amplify movements. The GEX+ → GEX- transition is one of the most actionable regime changes.
 
-**Cuantificación del GEX**
+**Quantifying GEX**
 
-GEX = Σ_options [Open_Interest × Gamma × 100 × Spot²]. GEX > +$1B: vol suprimida, mean-reversion. GEX < -$1B: vol elevada, momentum. GEX ≈ 0: zona inestable.
+GEX = Σ_options [Open_Interest × Gamma × 100 × Spot²]. GEX > +$1B: volatility suppressed, mean-reversion. GEX < -$1B: volatility elevated, momentum. GEX ≈ 0: unstable zone.
 
 **Charm, Vanna, Volga — second-order effects**
 
-Charm = dDelta/dt: decaimiento del delta con el tiempo. Vanna = dDelta/dVol: cuando VIX spike, puts OTM se vuelven más ITM, forzando a dealers a vender.`,
+Charm = dDelta/dt: decay of delta over time. Vanna = dDelta/dVol: when VIX spikes, OTM puts become more ITM, forcing dealers to sell.`,
 diagram: {
               type: "mermaid",
-              title: "Flujo de Gamma en dealers",
+              title: "Gamma flow in dealers",
               content: `flowchart LR
-    A["Precio sube"] --> B["Dealers long calls venden"]
-    A --> C["Dealers short puts compran"]
-    B --> D["presión vendedora"]
-    C --> E["presión compradora"]
-    D --> F{"GEX positivo?"}
+    A["Price rises"] --> B["Dealers long calls sell"]
+    A --> C["Dealers short puts buy"]
+    B --> D["selling pressure"]
+    C --> E["buying pressure"]
+    D --> F{"Positive GEX?"}
     E --> F
-    F -->|Sí| G["Amortiguador - vol baja"]
-    F -->|No| H["Amplificador - vol alta"]`
+    F -->|Yes| G["Buffer - low vol"]
+    F -->|No| H["Amplifier - high vol"]`
             }
           }
         ]
@@ -1069,23 +1069,23 @@ diagram: {
       {
         id: "09",
         title: "Real-Time Regime Detection",
-        subtitle: "Detección online sin look-ahead bias",
+        subtitle: "Online detection without look-ahead bias",
         topics: [
           {
             id: "09-01",
-            title: "SPRT y CUSUM modernos — detección secuencial",
+            title: "Modern SPRT and CUSUM — sequential detection",
             tag: "quant",
             content: `**Sequential Probability Ratio Test (SPRT)**
 
-Wald (1945): test secuencial óptimo (minimax Average Sample Number). Calcula Λₙ = Σᵢ log[f₁(xᵢ)/f₀(xᵢ)]. Si Λₙ ≥ log(B): rechazar H₀. Si Λₙ ≤ log(A): aceptar H₀. Si en medio: continuar observando.
+Wald (1945): optimal sequential test (minimax Average Sample Number). Calculates Λₙ = Σᵢ log[f₁(xᵢ)/f₀(xᵢ)]. If Λₙ ≥ log(B): reject H₀. If Λₙ ≤ log(A): accept H₀. If in between: continue observing.
 
-**CUSUM generalizado — GLRT online**
+**Generalized CUSUM — online GLRT**
 
-CUSUM de Page modernizado: Gₙ = max_{0≤k≤n} [Sₙ - Sₖ] donde Sₙ = Σᵢ log[f₁(xᵢ)/f₀(xᵢ)]. El GLRT version desconhece θ₁ y estima: Gₙ = max_{0≤k≤n} max_{θ} Σᵢ₌ₖ₊₁^n log[f(xᵢ;θ)/f(xᵢ;θ₀)].
+Modernized Page's CUSUM: Gₙ = max_{0≤k≤n} [Sₙ - Sₖ] where Sₙ = Σᵢ log[f₁(xᵢ)/f₀(xᵢ)]. The GLRT version does not know θ₁ and estimates: Gₙ = max_{0≤k≤n} max_{θ} Σᵢ₌ₖ₊₁^n log[f(xᵢ;θ)/f(xᵢ;θ₀)].
 
 **Average Run Length (ARL)**
 
-ARL₀ = E[tiempo de alarma | no hay cambio]. ARL₁ = E[tiempo de detección | hay cambio]. Trade-off fundamental: no puedes mejorar ambos simultáneamente.`,
+ARL₀ = E[time to alarm | no change]. ARL₁ = E[time to detection | change]. Fundamental trade-off: you cannot improve both simultaneously.`,
             formulas: [
               {
                 label: "CUSUM bilateral",
@@ -1099,18 +1099,18 @@ ARL₀ = E[tiempo de alarma | no hay cambio]. ARL₁ = E[tiempo de detección | 
             codeExamples: [
               {
                 language: "python",
-                title: "CUSUM para detección de régimen",
+                title: "CUSUM for regime detection",
                 code: `import numpy as np
 
 def cusum_detector(data, threshold=5, drift=0.5):
     """
-    CUSUM para detección de cambio de régimen
-    data: array de retornos
-    threshold: h (genera alarma)
-    drift: k (slack para absorver ruido)
+    CUSUM for regime change detection
+    data: return array
+    threshold: h (generates alarm)
+    drift: k (slack to absorb noise)
     """
-    s_pos = 0  # CUSUM positivo
-    s_neg = 0  # CUSUM negativo
+    s_pos = 0  # Positive CUSUM
+    s_neg = 0  # Negative CUSUM
     alarms = []
     
     for i, x in enumerate(data):
@@ -1118,7 +1118,7 @@ def cusum_detector(data, threshold=5, drift=0.5):
         s_pos = max(0, s_pos + x - drift)
         s_neg = min(0, s_neg + x + drift)
         
-        # Detectar cambio
+        # Detect change
         if s_pos > threshold:
             alarms.append(('bull', i))
             s_pos = 0  # Reset
@@ -1128,45 +1128,45 @@ def cusum_detector(data, threshold=5, drift=0.5):
     
     return alarms
 
-# Usar con retornos de NQ
+# Use with NQ returns
 alarms = cusum_detector(nq_returns, threshold=5, drift=0.5)
 for regime, idx in alarms:
-    print(f"{regime.upper()} régimen detectado en barra {idx}")`,
+    print(f"{regime.upper()} regime detected at bar {idx}")`,
                 annotations: [
-                  "threshold controla ARL₀ (falsas alarmas)",
-                  "drift absorbe ruido normal del mercado",
-                  "Ajusta según la volatilidad del activo"
+                  "threshold controls ARL₀ (false alarms)",
+                  "drift absorbs normal market noise",
+                  "Adjust according to asset volatility"
                 ]
               }
             ]
           },
           {
             id: "09-02",
-            title: "Particle Filters — estimación Bayesiana no-lineal en tiempo real",
+            title: "Particle Filters — real-time non-linear Bayesian estimation",
             tag: "quant",
             content: `**Sequential Monte Carlo (SMC) / Particle Filter**
 
-El particle filter aproxima P(Sₜ | y₁:ₜ) usando N partículas {s^(i)_t, w^(i)_t}. Algoritmo: (1) Predict: propagar cada partícula según la dinámica del régimen. (2) Update: actualizar pesos según verosimilitud. (3) Resample: eliminar partículas de bajo peso.
+The particle filter approximates P(Sₜ | y₁:ₜ) using N particles {s^(i)_t, w^(i)_t}. Algorithm: (1) Predict: propagate each particle according to the regime dynamics. (2) Update: update weights according to likelihood. (3) Resample: eliminate low-weight particles.
 
-**Particle filter para MS-GARCH**
+**Particle filter for MS-GARCH**
 
-El MS-GARCH no tiene filtro analítico exacto — el particle filter es la solución. Cada partícula representa (Sₜ, hₜ): el régimen Y la varianza condicional. N = 500-2000 partículas suele ser suficiente.
+MS-GARCH has no exact analytical filter — the particle filter is the solution. Each particle represents (Sₜ, hₜ): the regime AND the conditional variance. N = 500-2000 particles is usually sufficient.
 
-**SMC con Parameter Learning — Liu & West (2001)**
+**SMC with Parameter Learning — Liu & West (2001)**
 
-Cada partícula lleva {s^(i)_t, θ^(i)_t}. El prior sobre θ se perturba en cada paso (jittering) para evitar colapso. Esto permite que el modelo "aprenda" nuevos regímenes en tiempo real.`,
+Each particle carries {s^(i)_t, θ^(i)_t}. The prior on θ is perturbed at each step (jittering) to prevent collapse. This allows the model to "learn" new regimes in real time.`,
 diagram: {
               type: "mermaid",
-              title: "Particle Filter para regímenes",
+              title: "Particle Filter for regimes",
               content: `flowchart TD
-    A["N partículas"] --> B{"Predict"}
-    B --> C["Propagar según dinámica"]
-    C --> D["Actualizar pesos"]
-    D --> E{"Peso bajo?"}
-    E -->|Sí| F["Resample"]
-    E -->|No| G["Conservar"]
-    F --> H["Duplicar partículas de alto peso"]
-    H --> I["Estimar P(régimen)"]
+    A["N particles"] --> B{"Predict"}
+    B --> C["Propagate according to dynamics"]
+    C --> D["Update weights"]
+    D --> E{"Low weight?"}
+    E -->|Yes| F["Resample"]
+    E -->|No| G["Retain"]
+    F --> H["Duplicate high weight particles"]
+    H --> I["Estimate P(regime)"]
     G --> I
     I --> A`
             }
@@ -1177,21 +1177,21 @@ diagram: {
             tag: "advanced",
             content: `**Switching State Space Models (Kim 1994)**
 
-El modelo de Kim combina Kalman filter (estado continuo) con Hamilton filter (estado discreto). Estado: xₜ ~ lineal Gaussiano dado Sₜ; Sₜ ~ Markov chain. La aproximación de Kim colapsa la mezcla en cada paso para mantener O(K) componentes.
+Kim's model combines Kalman filter (continuous state) with Hamilton filter (discrete state). State: xₜ ~ linear Gaussian given Sₜ; Sₜ ~ Markov chain. Kim's approximation collapses the mixture at each step to maintain O(K) components.
 
 **Interacting Multiple Model (IMM)**
 
-IMM (Blom & Bar-Shalom 1988): en cada paso, mezcla K modelos de Kalman con pesos que evolucionan según la likelihood. Más eficiente que particle filter pero menos flexible. Útil para tracking de tendencia con tres modelos: "trend alcista", "trend bajista", "lateral".`,
+IMM (Blom & Bar-Shalom 1988): at each step, mixes K Kalman models with weights that evolve according to the likelihood. More efficient than particle filter but less flexible. Useful for trend tracking with three models: "uptrend", "downtrend", "lateral".`,
             exercise: {
-              question: "¿Cuál es la ventaja principal del IMM sobre el particle filter?",
+              question: "What is the main advantage of IMM over the particle filter?",
               options: [
-                "Más preciso para no-linealidades",
-                "Más computacionalmente eficiente",
-                "Menos parámetros a ajustar",
-                "Mejor para regímenes asimétricos"
+                "More precise for non-linearities",
+                "More computationally efficient",
+                "Fewer parameters to adjust",
+                "Better for asymmetric regimes"
               ],
               correctAnswer: 1,
-              explanation: "IMM es más computacionalmente eficiente que particle filter y converge más rápido. Sin embargo, es menos flexible para no-linealidades."
+              explanation: "IMM is more computationally efficient than the particle filter and converges faster. However, it is less flexible for non-linearities."
             }
           }
         ]
@@ -1199,52 +1199,52 @@ IMM (Blom & Bar-Shalom 1988): en cada paso, mezcla K modelos de Kalman con pesos
       {
         id: "10",
         title: "Regime-Conditional Trading",
-        subtitle: "De la teoría a la aplicación real",
+        subtitle: "From theory to real application",
         topics: [
           {
             id: "10-01",
-            title: "Position Sizing bajo incertidumbre de régimen",
+            title: "Position Sizing under regime uncertainty",
             tag: "advanced",
-            content: `**Kelly fraction condicionado al régimen**
+            content: `**Regime-conditioned Kelly fraction**
 
-Kelly con regímenes: f*(t) = Σₖ P(Sₜ=k) · f*_k donde f*_k = μₖ/σ²ₖ es el Kelly del régimen k. Esto da automáticamente mayor sizing en regímenes con mejor Sharpe y menor sizing cuando hay incertidumbre.
+Kelly with regimes: f*(t) = Σₖ P(Sₜ=k) · f*_k where f*_k = μₖ/σ²ₖ is the Kelly of regime k. This automatically gives larger sizing in regimes with better Sharpe ratios and smaller sizing when there is uncertainty.
 
 **Regime-aware stop sizing**
 
-El ATR cambia radicalmente entre regímenes. En alta vol: ATR puede ser 3-5× el de baja vol. Stop = k × ATR_régimen. Para NQ en alta vol: k=2-3 ATR; en baja vol: k=1-1.5 ATR.
+The ATR changes radically between regimes. In high vol: ATR can be 3-5× that of low vol. Stop = k × ATR_regime. For NQ in high vol: k=2-3 ATR; in low vol: k=1-1.5 ATR.
 
 **Regime transition costs**
 
-Si el detection lag es L barras y el nuevo régimen tiene Sharpe diferente: E[gain] vs. cost = bid-ask × (2 × posición). Breakeven detection lag debe ser calculado para cada setup.`,
+If the detection lag is L bars and the new regime has a different Sharpe ratio: E[gain] vs. cost = bid-ask × (2 × position). The breakeven detection lag must be calculated for each setup.`,
             formulas: [
               {
-                label: "Kelly condicionado",
+                label: "Conditioned Kelly",
                 content: "f^*(t) = \\sum_k P(S_t=k) \\cdot f^*_k = \\sum_k P(S_t=k) \\cdot \\frac{\\mu_k}{\\sigma_k^2}"
               },
               {
-                label: "Sizing basado en entropía",
+                label: "Sizing based on entropy",
                 content: "w(t) = w_{max} \\times \\left[1 - \\frac{H(t)}{\\log_2(K)}\\right]"
               }
             ],
             codeExamples: [
               {
                 language: "python",
-                title: "Kelly condicionado al régimen",
+                title: "Regime-conditional Kelly",
                 code: `def regime_kelly_fractions(returns_by_regime, probabilities):
     """
-    Calcula Kelly fractions condicionado a probabilidades de régimen
+    Calculates Kelly fractions conditioned on regime probabilities
     returns_by_regime: dict {regime: returns_array}
-    probabilities: array de P(S_t=k)
+    probabilities: array of P(S_t=k)
     """
     kelly_fractions = {}
     
     for regime, returns in returns_by_regime.items():
-        # Kelly del régimen
+        # Regime Kelly
         mu = np.mean(returns)
         sigma = np.std(returns)
         kelly_fractions[regime] = mu / (sigma ** 2)
     
-    # Kelly ponderado por probabilidad de régimen
+    # Kelly weighted by regime probability
     weighted_kelly = sum(
         p * kelly_fractions[r]
         for r, p in enumerate(probabilities)
@@ -1252,61 +1252,61 @@ Si el detection lag es L barras y el nuevo régimen tiene Sharpe diferente: E[ga
     
     return weighted_kelly, kelly_fractions
 
-# Ejemplo
+# Example
 probs = filtered_probabilities_from_hmm  # [0.3, 0.5, 0.2]
 kelly, fracs = regime_kelly_fractions(
     {0: bull_returns, 1: neutral_returns, 2: bear_returns},
     probs
 )
-print(f"Kelly recomendado: {kelly:.2%}")`,
+print(f"Recommended Kelly: {kelly:.2%}")`,
                 annotations: [
-                  "Usa filtered probabilities del HMM/BOCPD para ponderar",
-                  "Cuando probs están difusas, kelly_ponderado → 0",
-                  "Ajusta por factor de Kelly (usar half-Kelly)"
+                  "Use filtered probabilities from the HMM/BOCPD to weight",
+                  "When probabilities are diffuse, weighted_kelly → 0",
+                  "Adjust by Kelly factor (use half-Kelly)"
                 ]
               }
             ]
           },
           {
             id: "10-02",
-            title: "Strategy Switching — mean reversion vs momentum por régimen",
+            title: "Strategy Switching — mean reversion vs momentum by regime",
             tag: "advanced",
-            content: `**Autocorrelación como clasificador de régimen**
+            content: `**Autocorrelation as a regime classifier**
 
-ρ₁ > 0 = régimen de momentum. ρ₁ < 0 = régimen de mean-reversion. ρ₁ ≈ 0 = random walk. Calcular rolling en ventana de 20 barras. Threshold: ρ₁ > +0.15 → momentum, ρ₁ < -0.15 → reversal.
+ρ₁ > 0 = momentum regime. ρ₁ < 0 = mean-reversion regime. ρ₁ ≈ 0 = random walk. Calculate rolling over a 20-bar window. Threshold: ρ₁ > +0.15 → momentum, ρ₁ < -0.15 → reversal.
 
-**Hurst exponent por régimen**
+**Hurst exponent by regime**
 
-H > 0.5: trending (favorable para momentum). H < 0.5: antipersistencia (favorable para fade). H ≈ 0.5: random walk.
+H > 0.5: trending (favorable for momentum). H < 0.5: anti-persistence (favorable for fade). H ≈ 0.5: random walk.
 
 **Meta-strategy: regime-weighted ensemble**
 
-Signal = Σₖ P(Sₜ=k) × Signal_k. Esto suaviza transiciones y evita over-trading en regímenes de transición.`,
+Signal = Σₖ P(Sₜ=k) × Signal_k. This smooths transitions and prevents over-trading in transition regimes.`,
             regimeMatrixData: [
-              { label: "ρ₁ > 0.15", title: "Momentum", description: "Seguir tendencia", color: "#22c55e" },
-              { label: "ρ₁ < -0.15", title: "Mean Reversion", description: "Fade movimientos", color: "#ef4444" },
-              { label: "H > 0.6", title: "Trending fuerte", description: "Agresivo", color: "#f59e0b" },
-              { label: "H < 0.4", title: "Antipersistente", description: "Reversal", color: "#a78bfa" }
+              { label: "ρ₁ > 0.15", title: "Momentum", description: "Follow trend", color: "#22c55e" },
+              { label: "ρ₁ < -0.15", title: "Mean Reversion", description: "Fade movements", color: "#ef4444" },
+              { label: "H > 0.6", title: "Strong trending", description: "Aggressive", color: "#f59e0b" },
+              { label: "H < 0.4", title: "Anti-persistent", description: "Reversal", color: "#a78bfa" }
             ],
             callouts: [
-              { type: "info", title: "Observación empírica", text: "El régimen de mayor edge no es el de máxima tendencia, sino el de expansión de rango (vol expansion desde compresión). Sharpe histórico superior al promedio." }
+              { type: "info", title: "Empirical observation", text: "The regime with the greatest edge is not the one with maximum trend, but rather the range expansion (vol expansion from compression). Historical Sharpe superior to the average." }
             ]
           },
           {
             id: "10-03",
-            title: "Factor Exposure Management y Regime Portfolio Construction",
+            title: "Factor Exposure Management and Regime Portfolio Construction",
             tag: "quant",
-            content: `**Factor loadings condicionados al régimen**
+            content: `**Regime-conditioned factor loadings**
 
-rₜ = α(Sₜ) + β(Sₜ)'Fₜ + εₜ. En risk-on: beta alto, size y momentum positivos. En risk-off: beta defensivo, quality positivo, momentum negativo.
+rₜ = α(Sₜ) + β(Sₜ)'Fₜ + εₜ. In risk-on: high beta, positive size and momentum. In risk-off: defensive beta, positive quality, negative momentum.
 
 **Regime-conditional portfolio optimization**
 
-max_{w} Σₖ P(Sₜ=k) [w'μₖ - (λ/2)w'Σₖw]. Cuando incertidumbre es alta, se aproxima al portafolio mínima varianza. Cuando hay certeza de régimen, converge al óptimo del régimen específico.
+max_{w} Σₖ P(Sₜ=k) [w'μₖ - (λ/2)w'Σₖw]. When uncertainty is high, it approximates the minimum variance portfolio. When there is certainty about the regime, it converges to the optimum of the specific regime.
 
-**Tail risk en regime transitions**
+**Tail risk in regime transitions**
 
-El mayor riesgo no está dentro de un régimen sino en las transiciones. Mitigación: (1) opciones para cubrir riesgo de transición, (2) reducir exposición cuando filtered probabilities muestran incertidumbre creciente, (3) track "regime entropy" H = -Σₖ P(Sₜ=k)·log(P(Sₜ=k)).`,
+The greatest risk is not within a regime but in the transitions. Mitigation: (1) options to hedge transition risk, (2) reduce exposure when filtered probabilities show increasing uncertainty, (3) track "regime entropy" H = -Σₖ P(Sₜ=k)·log(P(Sₜ=k)).`,
             formulas: [
               {
                 label: "Regime Entropy",
@@ -1318,18 +1318,18 @@ El mayor riesgo no está dentro de un régimen sino en las transiciones. Mitigac
               }
             ],
             callouts: [
-              { type: "warning", title: "El error más costoso", text: "Cambiar de estrategia demasiado rápido (over-fitting) o demasiado lento (lag excesivo). El ARL₁ del detector debe ser menor que la duración media de los regímenes." }
+              { type: "warning", title: "The most costly error", text: "Switching strategies too fast (over-fitting) or too slow (excessive lag). The ARL₁ of the detector must be less than the average duration of the regimes." }
             ],
             exercise: {
-              question: "¿Qué indica una alta regime entropy (H cercano a log₂(K))?",
+              question: "What does high regime entropy (H close to log₂(K)) indicate?",
               options: [
-                "El mercado está en un régimen definido",
-                "El mercado está en transición",
-                "Los dealers tienen mucho gamma",
-                "El VIX está muy alto"
+                "The market is in a defined regime",
+                "The market is in transition",
+                "Dealers have a lot of gamma",
+                "VIX is very high"
               ],
               correctAnswer: 1,
-              explanation: "H = 0 significa certeza total (un régimen domina). H = log₂(K) significa máxima incertidumbre (todos los regímenes igual de probables) = transición de régimen. Cuando H crece, reducir sizing."
+              explanation: "H = 0 means total certainty (one regime dominates). H = log₂(K) means maximum uncertainty (all regimes equally likely) = regime transition. When H grows, reduce sizing."
             }
           }
         ]
@@ -1339,13 +1339,13 @@ El mayor riesgo no está dentro de un régimen sino en las transiciones. Mitigac
 };
 
 export const moduleList = [
-  { id: "00", title: "Plan de estudio" },
-  { id: "01", title: "Bases estadísticas" },
+  { id: "00", title: "Study plan" },
+  { id: "01", title: "Statistical foundations" },
   { id: "02", title: "Markov Switching" },
   { id: "03", title: "Hidden Markov Models" },
   { id: "04", title: "Volatility Regimes" },
-  { id: "05", title: "Microestructura" },
-  { id: "06", title: "Correlaciones" },
+  { id: "05", title: "Microstructure" },
+  { id: "06", title: "Correlations" },
   { id: "07", title: "Machine Learning" },
   { id: "08", title: "Options Regimes" },
   { id: "09", title: "Real-Time Detection" },
